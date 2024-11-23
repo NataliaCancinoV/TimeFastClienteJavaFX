@@ -1,7 +1,49 @@
-/*
- * Empty Stylesheet file.
- */
+.lbTimeFastTitulo{
+    -fx-text-fill: #FFF;
+    -fx-font: Roboto;
+    -fx-font-size: 46;
+    -fx-font-weight: bold;
+}
 
-.mainFxmlClass {
+.lbTimeFastInicioSesion{
+    -fx-text-fill: #FFF;
+    -fx-font: Roboto;
+    -fx-font-size: 36;
+}
 
+.lbTimeFastBienvenida{
+    -fx-text-fill: #FFF;
+    -fx-font: Roboto;
+    -fx-font-size: 18;
+}
+
+.lbTimeFastCredenciales{
+    -fx-text-fill: #FFF;
+    -fx-font: Roboto;
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.tfTimeFastCredenciales{
+    -fx-text-fill: #FFF;
+    -fx-font: Roboto;
+    -fx-font-size: 18;
+}
+
+.lbTimeFastCaption{
+    -fx-text-fill: #FFF;
+    -fx-font: Roboto;
+    -fx-font-size: 18;
+    -fx-font-style: italic;
+}
+
+.btnTimeFastPrincipal{
+    -fx-pref-width: 400;
+    -fx-pref-height: 75;   
+    -fx-text-fill: #FFF;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-background-color: #C17B3D;
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
 }

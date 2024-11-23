@@ -24,23 +24,23 @@
          </children></AnchorPane>
       <AnchorPane layoutX="960.0" prefHeight="1080.0" prefWidth="960.0" style="-fx-background-color: #516e95;">
          <children>
-            <Button layoutX="280.0" layoutY="860.0" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #C17B3D; -fx-background-radius: 10;" text="Inicia Sesión" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="280.0" layoutY="860.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" stylesheets="@fxmliniciosesion.css" text="Inicia Sesión" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font></Button>
-            <Label layoutX="355.0" layoutY="72.0" text="Time-Fast" textFill="WHITE">
+            <Label layoutX="355.0" layoutY="72.0" styleClass="lbTimeFastTitulo" stylesheets="@fxmliniciosesion.css" text="Time-Fast" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="48.0" />
                </font>
             </Label>
-            <Label layoutX="300.0" layoutY="169.0" text="Inicio de Sesión" textFill="WHITE">
+            <Label layoutX="300.0" layoutY="169.0" styleClass="lbTimeFastInicioSesion" stylesheets="@fxmliniciosesion.css" text="Inicio de Sesión" textFill="WHITE">
                <font>
                   <Font size="48.0" />
                </font>
             </Label>
-            <Label layoutX="414.0" layoutY="286.0" text="Bienvenido(a)" textFill="WHITE" />
-            <Label layoutX="222.0" layoutY="328.0" text="Ingrese su número personal y contraseña para acceder al sistema." textFill="WHITE" />
-            <Label layoutX="280.0" layoutY="416.0" text="Número de Personal:" textFill="WHITE">
+            <Label layoutX="414.0" layoutY="286.0" styleClass="lbTimeFastBienvenida" stylesheets="@fxmliniciosesion.css" text="Bienvenido(a)" textFill="WHITE" />
+            <Label layoutX="222.0" layoutY="328.0" styleClass="lbTimeFastBienvenida" stylesheets="@fxmliniciosesion.css" text="Ingrese su número personal y contraseña para acceder al sistema." textFill="WHITE" />
+            <Label layoutX="280.0" layoutY="416.0" styleClass="lbTimeFastCredenciales" stylesheets="@fxmliniciosesion.css" text="Número de Personal:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
@@ -50,19 +50,19 @@
                   <Image url="@recursos/person.png" />
                </image>
             </ImageView>
-            <TextField fx:id="tfNoPersonal" layoutX="280.0" layoutY="459.0" prefHeight="63.0" prefWidth="400.0" promptText="No. de personal" style="-fx-background-color: 0%; -fx-border-color: #C17B3D; -fx-border-width: 0 0 4 0;" />
+            <TextField fx:id="tfNoPersonal" layoutX="280.0" layoutY="459.0" prefHeight="63.0" prefWidth="400.0" promptText="No. de personal" style="-fx-background-color: 0%; -fx-border-color: #C17B3D; -fx-border-width: 0 0 4 0;" styleClass="tfTimeFastCredenciales" stylesheets="@fxmliniciosesion.css" />
             <ImageView fitHeight="150.0" fitWidth="36.0" layoutX="632.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/visibility.png" />
                </image>
             </ImageView>
-            <PasswordField fx:id="pfContrasena" layoutX="279.0" layoutY="584.0" prefHeight="63.0" prefWidth="400.0" promptText="* * * * * * * * * * * " style="-fx-background-color: 0%; -fx-border-width: 0 0 4 0; -fx-border-color: #C17B3D;" />
-            <Label layoutX="280.0" layoutY="540.0" text="Contraseña:" textFill="WHITE">
+            <PasswordField fx:id="pfContrasena" layoutX="279.0" layoutY="584.0" prefHeight="63.0" prefWidth="400.0" promptText="* * * * * * * * * * * " style="-fx-background-color: 0%;" styleClass="tfTimeFastCredenciales" stylesheets="@fxmliniciosesion.css" />
+            <Label layoutX="280.0" layoutY="540.0" styleClass="lbTimeFastCredenciales" stylesheets="@fxmliniciosesion.css" text="Contraseña:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="512.0" layoutY="672.0" text="Olvidé mi contraseña" textFill="WHITE">
+            <Label layoutX="512.0" layoutY="672.0" styleClass="lbTimeFastCaption" stylesheets="@fxmliniciosesion.css" text="Olvidé mi contraseña" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="18.0" />
                </font>

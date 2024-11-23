@@ -1,7 +1,92 @@
-/*
- * Empty Stylesheet file.
- */
+.apTimeFastHeader{
+    -fx-background-color: #516e95;
+}
 
-.mainFxmlClass {
+.lbTimeFastHeaderTitulo{
+    -fx-text-fill: #DF9251;
+    -fx-font: Roboto;
+    -fx-font-size: 36;
+    -fx-font-weight: bold;
+    -fx-pref-height:130;
+}
 
+.btnTimeFastHeader{
+    -fx-background-color: none;
+    -fx-font-size: 28;
+    -fx-text-fill: #FFF;
+    -fx-pref-width: 250;
+    -fx-pref-height: 70;
+}
+
+.btnTimeFastHeader:hover{
+    -fx-border-style: none none solid none;
+    -fx-border-width: 0 0 5 0;
+    -fx-border-color:#C17B3D;
+    -fx-cursor: hand;
+}
+
+.lbTimeFastTitulo{
+    -fx-background-color: none;
+    -fx-font-size: 28;
+    -fx-text-fill: #5494CC;
+    -fx-font-weight: bold;
+    -fx-pref-height: 70;
+    -fx-text-alignment: left;
+}
+
+.apTimeFastTitulo{
+    -fx-background-color: #f7f2ed;
+    -fx-pref-width: 385;
+    -fx-pref-height: 65;
+    -fx-background-radius: 10;
+    -fx-border-color: #C17B3D;
+    -fx-border-width: 0 0 5 0;
+}
+
+.apTimeFastBusqueda{
+    -fx-pref-width: 1560;
+    -fx-pref-height: 74;
+    -fx-border-color: #C5E2FF;
+    -fx-background-radius: 10;
+    -fx-background-color: #FFF;
+    -fx-border-radius: 10;
+    -fx-border-width: 2;
+}
+
+.tfTimeFastBusqueda{
+    -fx-pref-width: 354;
+    -fx-pref-height: 40;
+    -fx-background-radius: 10;
+    -fx-border-color: #C17B3D;
+    -fx-border-radius: 10;
+    -fx-font-weight:bold;
+    -fx-font-size: 24;
+}
+
+.btnTimeFastPrincipal{
+    -fx-pref-width: 150;
+    -fx-pref-height: 50;   
+    -fx-text-fill: #FFF;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-background-color: #C17B3D;
+    -fx-text-alignment: right;
+}
+
+.btnTimeFastSecundario{
+    -fx-pref-width: 150;
+    -fx-pref-height: 50;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-background-color: transparent;
+    -fx-border-color: #C17B3D;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-text-fill: #C17B3D;
+}
+
+.tbTimeFast{
+    -fx-pref-width: 1560;
+    -fx-pref-height: 680;
+    -fx-background-radius: 10;
 }
