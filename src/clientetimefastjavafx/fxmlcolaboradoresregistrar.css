@@ -2,6 +2,67 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
+.timeFastHeader{
+ -fx-background-color: #3f6f99;  
+}
+.timeFastHeaderTitle{
+    -fx-text-fill: #DF9251;
+    -fx-font: Roboto;
+    -fx-font-size: 36;
+    -fx-font-weight: bold;
+    -fx-pref-height:130; 
+}
+.btnTimeFastHeader{
+-fx-background-color: none;
+    -fx-font-size: 28;
+    -fx-text-fill: #FFF;
+    -fx-pref-width: 250;
+    -fx-pref-height:70;  
+}
+.btnTimeFastHeader:hover{
+    -fx-border-style: none none solid none;
+     -fx-border-width: 0 0 4 0;
+    -fx-border-color:#C17B3D;
+    -fx-cursor: hand;
+}
 
+.labelTituloModulo{
+    -fx-text-fill: #C17B3D;
+    -fx-font-size:39;
+}
+.labelDato{
+    -fx-text-fill: #3F6F99;
+    -fx-font-weight: 100;
+    -fx-font-size:23;
+}
+.txtFieldDato{
+   -fx-pref-width: 300;    
+   -fx-pref-height:40;     
+   -fx-border-style: none none solid none;
+   -fx-border-width: 0 0 4 0;
+   -fx-border-color:#C17B3D;
+}
+.btnPrimario{
+    -fx-background-color: #c17b3d;
+    -fx-text-fill: white;
+    -fx-font-size:25;      
+    -fx-pref-width: 200;
+    -fx-pref-height:60; 
+}
+.btnSecundario{
+    -fx-background-color: white;
+    -fx-text-fill: #b8753a;
+    -fx-font-size:25;      
+    -fx-pref-width: 200;
+    -fx-pref-height:60; 
+    -fx-border-style: solid solid solid solid;
+    -fx-border-width: 2 2 2 2;
+    -fx-border-color:#C17B3D;
+}
+.comboBoxEditable{
+    -fx-border-style: solid solid solid solid;
+    -fx-border-width: 2 2 2 2;
+    -fx-border-color:#C17B3D;
+   -fx-pref-width: 300;    
+   -fx-pref-height:40; 
 }

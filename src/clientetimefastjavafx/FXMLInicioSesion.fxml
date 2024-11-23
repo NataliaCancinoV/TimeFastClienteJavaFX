@@ -24,7 +24,7 @@
          </children></AnchorPane>
       <AnchorPane layoutX="960.0" prefHeight="1080.0" prefWidth="960.0" style="-fx-background-color: #516e95;">
          <children>
-            <Button layoutX="280.0" layoutY="860.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #C17B3D; -fx-background-radius: 10;" text="Inicia Sesión" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="280.0" layoutY="860.0" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #C17B3D; -fx-background-radius: 10;" text="Inicia Sesión" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font></Button>

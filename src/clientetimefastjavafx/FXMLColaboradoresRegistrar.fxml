@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,8 +8,49 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientetimefastjavafx.FXMLColaboradoresRegistrarController">
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="clientetimefastjavafx.FXMLColaboradoresRegistrarController">
     <stylesheets>
-        <URL value="@fxmlcolaboradoresregistrar.css"/>
+        <URL value="@fxmlcolaboradoresregistrar.css" />
     </stylesheets>
+   <children>
+      <Pane layoutY="-6.0" prefHeight="130.0" prefWidth="1920.0" styleClass="timeFastHeader" stylesheets="@fxmlcolaboradoresregistrar.css">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/Logo.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="390.0" layoutY="25.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradoresregistrar.css" text="Colaboradores" />
+            <Button layoutX="650.0" layoutY="25.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradoresregistrar.css" text="Unidades" />
+            <Button layoutX="910.0" layoutY="25.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradoresregistrar.css" text="Clientes" />
+            <Button layoutX="1170.0" layoutY="25.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradoresregistrar.css" text="Envios" />
+            <Button layoutX="1430.0" layoutY="25.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradoresregistrar.css" text="Paquetes" />
+            <Label layoutX="175.0" styleClass="timeFastHeaderTitle" stylesheets="@fxmlcolaboradoresregistrar.css" text="TimeFast" />
+            <ImageView fitHeight="78.0" fitWidth="82.0" layoutX="1801.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/account.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="184.0" layoutY="298.0" styleClass="labelTituloModulo" stylesheets="@fxmlcolaboradoresregistrar.css" text="Registrar" />
+      <Label layoutX="184.0" layoutY="379.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Nombre" />
+      <Label layoutX="550.0" layoutY="373.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Apellido Paterno" />
+      <Label layoutX="927.0" layoutY="373.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Apellido Materno" />
+      <Label layoutX="184.0" layoutY="515.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="CURP" />
+      <Label layoutX="550.0" layoutY="515.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Correo Electrónico" />
+      <Label layoutX="924.0" layoutY="515.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Contraseña" />
+      <Label layoutX="184.0" layoutY="666.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="N0. de Personal" />
+      <Label layoutX="554.0" layoutY="666.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Rol" />
+      <ComboBox layoutX="550.0" layoutY="708.0" prefWidth="150.0" styleClass="comboBoxEditable" />
+      <TextField layoutX="184.0" layoutY="418.0" styleClass="txtFieldDato" />
+      <TextField layoutX="550.0" layoutY="417.0" styleClass="txtFieldDato" />
+      <TextField layoutX="924.0" layoutY="415.0" styleClass="txtFieldDato" />
+      <TextField layoutX="178.0" layoutY="560.0" styleClass="txtFieldDato" />
+      <TextField layoutX="550.0" layoutY="560.0" styleClass="txtFieldDato" />
+      <PasswordField layoutX="924.0" layoutY="560.0" styleClass="txtFieldDato" />
+      <TextField layoutX="187.0" layoutY="705.0" styleClass="txtFieldDato" />
+      <Button layoutX="1220.0" layoutY="865.0" mnemonicParsing="false" styleClass="btnSecundario" text="Cancelar" />
+      <Button layoutX="1462.0" layoutY="864.0" mnemonicParsing="false" styleClass="btnPrimario" text="Agregar" />
+   </children>
 </AnchorPane>
