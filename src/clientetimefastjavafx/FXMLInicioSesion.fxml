@@ -47,13 +47,13 @@
             </Label>
             <ImageView fitHeight="67.0" fitWidth="36.0" layoutX="632.0" layoutY="473.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@recursos/person_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.png" />
+                  <Image url="@recursos/person.png" />
                </image>
             </ImageView>
             <TextField fx:id="tfNoPersonal" layoutX="280.0" layoutY="459.0" prefHeight="63.0" prefWidth="400.0" promptText="No. de personal" style="-fx-background-color: 0%; -fx-border-color: #C17B3D; -fx-border-width: 0 0 4 0;" />
             <ImageView fitHeight="150.0" fitWidth="36.0" layoutX="632.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@recursos/visibility_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.png" />
+                  <Image url="@recursos/visibility.png" />
                </image>
             </ImageView>
             <PasswordField fx:id="pfContrasena" layoutX="279.0" layoutY="584.0" prefHeight="63.0" prefWidth="400.0" promptText="* * * * * * * * * * * " style="-fx-background-color: 0%; -fx-border-width: 0 0 4 0; -fx-border-color: #C17B3D;" />
