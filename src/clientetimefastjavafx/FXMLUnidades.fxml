@@ -9,21 +9,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1360.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="clientetimefastjavafx.FXMLUnidadesController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1360.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientetimefastjavafx.FXMLUnidadesController">
     <stylesheets>
         <URL value="@fxmlunidades.css" />
     </stylesheets>
    <children>
       <TableView layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlunidades.css">
          <columns>
-            <TableColumn prefWidth="120.0" text="No. Personal" />
-            <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
-            <TableColumn prefWidth="160.0" text="Nombre" />
-            <TableColumn prefWidth="170.0" text="Apellido Paterno" />
-            <TableColumn minWidth="0.0" prefWidth="170.0" text="Apellido Materno" />
-            <TableColumn prefWidth="210.0" text="CURP" />
-            <TableColumn minWidth="0.0" prefWidth="238.0" text="Correo Electrónico" />
-            <TableColumn prefWidth="182.0" text="Rol" />
+            <TableColumn prefWidth="178.0" text="VIN" />
+            <TableColumn minWidth="0.0" prefWidth="195.0" text="ID Interno" />
+            <TableColumn minWidth="4.0" prefWidth="190.0" text="Marca" />
+            <TableColumn minWidth="0.0" prefWidth="190.0" text="Modelo" />
+            <TableColumn minWidth="0.0" prefWidth="112.0" text="Año" />
+            <TableColumn prefWidth="225.0" text="Colaborador" />
+            <TableColumn prefWidth="160.0" text="Tipo de Unidad" />
          </columns>
       </TableView>
       <Pane layoutX="50.0" layoutY="180.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlunidades.css">
