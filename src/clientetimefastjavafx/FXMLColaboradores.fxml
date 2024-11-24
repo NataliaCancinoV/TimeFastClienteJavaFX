@@ -22,8 +22,8 @@
                </font>
             </Label>
             <Button layoutX="255.0" layoutY="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="253.0" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Colaboradores" />
-            <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Unidades" />
-            <Button layoutX="425.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Clientes" />
+            <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Clientes" />
+            <Button layoutX="425.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Unidades" />
             <Button layoutX="835.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Envíos" />
             <Button layoutX="1025.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Paquetes" />
             <ImageView fitHeight="53.0" fitWidth="72.0" layoutX="26.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
