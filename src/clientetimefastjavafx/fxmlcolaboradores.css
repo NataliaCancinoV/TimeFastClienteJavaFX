@@ -6,7 +6,6 @@
 
 .lbTimeFastHeaderTitulo{
     -fx-text-fill: #DF9251;
-    -fx-font: Roboto;
     -fx-font-size: 28;
     -fx-font-weight: bold;
     -fx-pref-height:75;
@@ -23,7 +22,7 @@
 .btnTimeFastHeader:hover{
     -fx-border-style: none none solid none;
     -fx-border-width: 0 0 4 0;
-    -fx-border-color:#C17B3D;
+    -fx-border-color: #C17B3D;
     -fx-cursor: hand;
 }
 

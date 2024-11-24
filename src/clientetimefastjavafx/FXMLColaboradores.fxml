@@ -77,15 +77,14 @@
          </children></Pane>
       <TableView layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlcolaboradores.css">
         <columns>
-          <TableColumn prefWidth="55.0" />
-          <TableColumn prefWidth="166.0" text="No. Personal" />
+          <TableColumn prefWidth="120.0" text="No. Personal" />
             <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
-            <TableColumn prefWidth="118.0" text="Nombre" />
-            <TableColumn prefWidth="198.0" text="Apellido Paterno" />
-            <TableColumn minWidth="0.0" prefWidth="204.0" text="Apellido Materno" />
-            <TableColumn prefWidth="260.0" text="CURP" />
-            <TableColumn prefWidth="245.0" text="Correo Electrónico" />
-            <TableColumn prefWidth="313.0" text="Rol" />
+            <TableColumn prefWidth="160.0" text="Nombre" />
+            <TableColumn prefWidth="170.0" text="Apellido Paterno" />
+            <TableColumn minWidth="0.0" prefWidth="170.0" text="Apellido Materno" />
+            <TableColumn prefWidth="210.0" text="CURP" />
+            <TableColumn minWidth="0.0" prefWidth="238.0" text="Correo Electrónico" />
+            <TableColumn prefWidth="182.0" text="Rol" />
         </columns>
       </TableView>
    </children>
