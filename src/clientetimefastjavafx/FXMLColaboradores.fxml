@@ -9,73 +9,73 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientetimefastjavafx.FXMLColaboradoresController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1360.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientetimefastjavafx.FXMLColaboradoresController">
     <stylesheets>
         <URL value="@fxmlcolaboradores.css" />
     </stylesheets>
    <children>
-      <AnchorPane prefHeight="130.0" prefWidth="1920.0" styleClass="apTimeFastHeader" stylesheets="@fxmlcolaboradores.css">
+      <AnchorPane prefHeight="130.0" prefWidth="1360.0" styleClass="apTimeFastHeader" stylesheets="@fxmlcolaboradores.css">
          <children>
-            <Label layoutX="175.0" styleClass="lbTimeFastHeaderTitulo" stylesheets="@fxmlcolaboradores.css" text="TimeFast">
+            <Label layoutX="106.0" styleClass="lbTimeFastHeaderTitulo" stylesheets="@fxmlcolaboradores.css" text="TimeFast">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="390.0" layoutY="25.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="253.0" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Colaboradores" />
-            <Button layoutX="910.0" layoutY="25.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Unidades" />
-            <Button layoutX="650.0" layoutY="25.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Clientes" />
-            <Button layoutX="1170.0" layoutY="25.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Envíos" />
-            <Button layoutX="1430.0" layoutY="25.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Paquetes" />
-            <ImageView fitHeight="108.0" fitWidth="110.0" layoutX="26.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="255.0" layoutY="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="253.0" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Colaboradores" />
+            <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Unidades" />
+            <Button layoutX="425.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Clientes" />
+            <Button layoutX="835.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Envíos" />
+            <Button layoutX="1025.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Paquetes" />
+            <ImageView fitHeight="53.0" fitWidth="72.0" layoutX="26.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/Logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="78.0" fitWidth="82.0" layoutX="1801.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="55.0" fitWidth="48.0" layoutX="1286.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/account.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <Pane layoutX="180.0" layoutY="160.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo" stylesheets="@fxmlcolaboradores.css">
+      <Pane layoutX="50.0" layoutY="107.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo" stylesheets="@fxmlcolaboradores.css">
          <children>
-            <Label layoutX="93.0" prefWidth="292.0" styleClass="lbTimeFastTitulo" stylesheets="@fxmlcolaboradores.css" text="Colaboradores" textAlignment="CENTER" />
-            <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="22.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <Label layoutX="93.0" prefWidth="204.0" styleClass="lbTimeFastTitulo" stylesheets="@fxmlcolaboradores.css" text="Colaboradores" textAlignment="CENTER" />
+            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="22.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/group.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="180.0" layoutY="267.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlcolaboradores.css">
+      <Pane layoutX="50.0" layoutY="180.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlcolaboradores.css">
          <children>
-            <TextField layoutX="24.0" layoutY="10.0" promptText="Buscar" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlcolaboradores.css" />
-            <Button layoutX="1036.0" layoutY="12.0" mnemonicParsing="false" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlcolaboradores.css" text="     Agregar" />
-            <Button layoutX="1211.0" layoutY="12.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="     Editar" />
-            <Button layoutX="1386.0" layoutY="12.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="      Eliminar" />
-            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="330.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+            <TextField layoutX="24.0" layoutY="12.0" promptText="Buscar" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlcolaboradores.css" />
+            <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlcolaboradores.css" text="     Agregar" />
+            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="     Editar" />
+            <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="      Eliminar" />
+            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="281.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/search.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="1044.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="766.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/add.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="1225.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="941.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/stylus.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="1401.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="1110.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/delete.png" />
                </image>
             </ImageView>
          </children></Pane>
-      <TableView layoutX="180.0" layoutY="360.0" prefHeight="200.0" prefWidth="200.0" styleClass="tbTimeFast" stylesheets="@fxmlcolaboradores.css">
+      <TableView layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlcolaboradores.css">
         <columns>
           <TableColumn prefWidth="55.0" />
           <TableColumn prefWidth="166.0" text="No. Personal" />
@@ -84,8 +84,8 @@
             <TableColumn prefWidth="198.0" text="Apellido Paterno" />
             <TableColumn minWidth="0.0" prefWidth="204.0" text="Apellido Materno" />
             <TableColumn prefWidth="260.0" text="CURP" />
-            <TableColumn prefWidth="279.0" text="Correo Electrónico" />
-            <TableColumn prefWidth="279.0" text="Rol" />
+            <TableColumn prefWidth="245.0" text="Correo Electrónico" />
+            <TableColumn prefWidth="313.0" text="Rol" />
         </columns>
       </TableView>
    </children>
