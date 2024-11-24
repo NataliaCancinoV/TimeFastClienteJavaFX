@@ -9,12 +9,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1360.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="clientetimefastjavafx.FXMLClientesController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1360.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientetimefastjavafx.FXMLClientesController">
     <stylesheets>
         <URL value="@fxmlclientes.css" />
     </stylesheets>
    <children>
-      <AnchorPane prefHeight="130.0" prefWidth="1360.0" styleClass="apTimeFastHeader" stylesheets="@fxmlcolaboradores.css">
+      <AnchorPane prefHeight="130.0" prefWidth="1360.0" styleClass="apTimeFastHeader" stylesheets="@fxmlclientes.css">
          <children>
             <Label layoutX="106.0" styleClass="lbTimeFastHeaderTitulo" stylesheets="@fxmlclientes.css" text="TimeFast">
                <font>
@@ -22,8 +22,8 @@
                </font>
             </Label>
             <Button layoutX="255.0" layoutY="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="253.0" styleClass="btnTimeFastHeader" stylesheets="@fxmlclientes.css" text="Colaboradores" />
-            <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlclientes.css" text="Unidades" />
-            <Button layoutX="425.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlclientes.css" text="Clientes" />
+            <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlclientes.css" text="Clientes" />
+            <Button layoutX="425.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlclientes.css" text="Unidades" />
             <Button layoutX="835.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlclientes.css" text="Envíos" />
             <Button layoutX="1025.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlclientes.css" text="Paquetes" />
             <ImageView fitHeight="53.0" fitWidth="72.0" layoutX="26.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
@@ -38,7 +38,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <TableView layoutX="60.0" layoutY="270.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlclientes.css">
+      <TableView layoutX="50.0" layoutY="270.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlclientes.css">
          <columns>
             <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
             <TableColumn prefWidth="160.0" text="Nombre" />
@@ -49,7 +49,7 @@
             <TableColumn prefWidth="292.0" text="Dirección" />
          </columns>
       </TableView>
-      <Pane layoutX="60.0" layoutY="190.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlclientes.css">
+      <Pane layoutX="50.0" layoutY="190.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlclientes.css">
          <children>
             <TextField layoutX="24.0" layoutY="12.0" promptText="Buscar" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlclientes.css" />
             <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlclientes.css" text="     Agregar" />
@@ -77,7 +77,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="60.0" layoutY="117.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo">
+      <Pane layoutX="50.0" layoutY="117.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo" stylesheets="@fxmlclientes.css">
          <children>
             <Label layoutX="93.0" prefWidth="204.0" styleClass="lbTimeFastTitulo" stylesheets="@fxmlclientes.css" text="Clientes" textAlignment="CENTER" />
             <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="22.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
@@ -86,10 +86,6 @@
                </image>
             </ImageView>
          </children>
-         <stylesheets>
-            <URL value="@fxmlcolaboradores.css" />
-            <URL value="@fxmlclientes.css" />
-         </stylesheets>
       </Pane>
    </children>
 </AnchorPane>
