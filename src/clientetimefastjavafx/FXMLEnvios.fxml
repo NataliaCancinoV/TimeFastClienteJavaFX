@@ -54,14 +54,14 @@
       </Pane>
       <TableView layoutX="50.0" layoutY="270.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlenvios.css">
          <columns>
-            <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
-            <TableColumn prefWidth="123.0" text="No. de Guía" />
-            <TableColumn minWidth="0.0" prefWidth="185.0" text="Cliente" />
-            <TableColumn minWidth="0.0" prefWidth="248.0" text="Origen" />
-            <TableColumn minWidth="176.0" prefWidth="249.0" text="Destino" />
-            <TableColumn prefWidth="121.0" text="Costo Envío" />
-            <TableColumn prefWidth="211.0" text="Conductor" />
-            <TableColumn prefWidth="114.0" text="Estatus" />
+            <TableColumn minWidth="0.0" prefWidth="107.0" text="Envío" />
+            <TableColumn prefWidth="119.0" text="No. de Guía" />
+            <TableColumn minWidth="0.0" prefWidth="172.0" text="Cliente" />
+            <TableColumn minWidth="0.0" prefWidth="208.0" text="Origen" />
+            <TableColumn minWidth="176.0" prefWidth="227.0" text="Destino" />
+            <TableColumn prefWidth="128.0" text="Costo" />
+            <TableColumn prefWidth="166.0" text="Conductor" />
+            <TableColumn prefWidth="124.0" text="Estatus" />
          </columns>
       </TableView>
       <AnchorPane prefHeight="130.0" prefWidth="1360.0" styleClass="apTimeFastHeader" stylesheets="@fxmlenvios.css">
