@@ -51,29 +51,36 @@
       <Pane layoutX="50.0" layoutY="180.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlcolaboradores.css">
          <children>
             <TextField layoutX="24.0" layoutY="12.0" promptText="Buscar" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlcolaboradores.css" />
-            <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlcolaboradores.css" text="     Agregar" />
-            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="     Editar" />
-            <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="      Eliminar" />
-            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="281.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="281.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/search.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="766.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@recursos/add.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="941.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@recursos/stylus.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="1110.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@recursos/delete.png" />
-               </image>
-            </ImageView>
+            <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="  Eliminar  ">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" prefHeight="26.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="   Editar   ">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/stylus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" prefHeight="36.0" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlcolaboradores.css" text="Agregar   ">
+               <graphic>
+                  <ImageView fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children></Pane>
       <TableView layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlcolaboradores.css">
         <columns>
