@@ -48,6 +48,14 @@
     -fx-font-weight: bold;
 }
 
+.btnTimeFastPrincipal:hover{
+    -fx-background-color:  #E79349;
+}
+
+.btnTimeFastPrincipal:pressed{
+    -fx-background-color: #8E5A2C;
+}
+
 .lbTimeFastCaption2{
     -fx-text-fill: #FFF;
     -fx-font-size: 14;
