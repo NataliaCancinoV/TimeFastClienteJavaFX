@@ -1,68 +1,96 @@
-/*
- * Empty Stylesheet file.
- */
+.apTimeFastHeader{
+    -fx-background-color: #516e95;
+    -fx-pref-width: 1360;
+    -fx-pref-height: 75;
+}
 
-.timeFastHeader{
- -fx-background-color: #3f6f99;  
-}
-.timeFastHeaderTitle{
+.lbTimeFastHeaderTitulo{
     -fx-text-fill: #DF9251;
-    -fx-font: Roboto;
-    -fx-font-size: 36;
-    -fx-font-weight: bold;
-    -fx-pref-height:130; 
-}
-.btnTimeFastHeader{
--fx-background-color: none;
     -fx-font-size: 28;
-    -fx-text-fill: #FFF;
-    -fx-pref-width: 250;
-    -fx-pref-height:70;  
+    -fx-font-weight: bold;
+    -fx-pref-height:75;
 }
+
+.btnTimeFastHeader{
+    -fx-background-color: none;
+    -fx-font-size: 18;
+    -fx-text-fill: #FFF;
+    -fx-pref-width: 200;
+    -fx-pref-height: 50;
+}
+
 .btnTimeFastHeader:hover{
     -fx-border-style: none none solid none;
-     -fx-border-width: 0 0 4 0;
+    -fx-border-width: 0 0 4 0;
     -fx-border-color:#C17B3D;
-    -fx-cursor: hand;
+    -fx-cursor: hand;
+}
+
+.lbTimeFastTitulo{
+    -fx-background-color: none;
+    -fx-font-size: 24;
+    -fx-text-fill: #5494CC;
+    -fx-font-weight: bold;
+    -fx-pref-height: 50;
+}
+
+.apTimeFastTitulo{
+    -fx-background-color: #f7f2ed;
+    -fx-pref-width: 300;
+    -fx-pref-height: 55;
+    -fx-background-radius: 10;
+    -fx-border-color: #C17B3D;
+    -fx-border-width: 0 0 5 0;
 }
 
 .labelTituloModulo{
     -fx-text-fill: #C17B3D;
-    -fx-font-size:39;
+    -fx-font-size:24;
+    -fx-font-weight: bold;
 }
 .labelDato{
     -fx-text-fill: #3F6F99;
     -fx-font-weight: 100;
-    -fx-font-size:23;
+    -fx-font-size:18;
+    -fx-font-weight: bold;
 }
 .txtFieldDato{
    -fx-pref-width: 300;    
    -fx-pref-height:40;     
+   -fx-background-color: transparent;
    -fx-border-style: none none solid none;
-   -fx-border-width: 0 0 4 0;
+   -fx-border-width: 0 0 3 0;
    -fx-border-color:#C17B3D;
 }
-.btnPrimario{
-    -fx-background-color: #c17b3d;
-    -fx-text-fill: white;
-    -fx-font-size:25;      
-    -fx-pref-width: 200;
-    -fx-pref-height:60; 
-}
-.btnSecundario{
-    -fx-background-color: white;
-    -fx-text-fill: #b8753a;
-    -fx-font-size:25;      
-    -fx-pref-width: 200;
-    -fx-pref-height:60; 
-    -fx-border-style: solid solid solid solid;
-    -fx-border-width: 2 2 2 2;
-    -fx-border-color:#C17B3D;
-}
+
 .comboBoxEditable{
     -fx-border-style: solid solid solid solid;
-    -fx-border-width: 2 2 2 2;
+    -fx-border-width: 2;
     -fx-border-color:#C17B3D;
-   -fx-pref-width: 300;    
-   -fx-pref-height:40; 
+    -fx-background-color: transparent;
+    -fx-pref-width: 300;    
+    -fx-pref-height:40; 
+    -fx-border-radius: 10;
+}
+
+.btnTimeFastPrincipal{
+    -fx-pref-width: 150;
+    -fx-pref-height: 40;   
+    -fx-text-fill: #FFF;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-background-color: #C17B3D;
+    -fx-text-alignment: right;
+}
+
+.btnTimeFastSecundario{
+    -fx-pref-width: 150;
+    -fx-pref-height: 40;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-background-color: transparent;
+    -fx-border-color: #C17B3D;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-text-fill: #C17B3D;
 }
