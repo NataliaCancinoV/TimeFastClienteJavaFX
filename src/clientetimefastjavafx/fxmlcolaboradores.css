@@ -24,6 +24,7 @@
     -fx-border-width: 0 0 4 0;
     -fx-border-color: #C17B3D;
     -fx-cursor: hand;
+    -fx-font-weight: bold;
 }
 
 .lbTimeFastTitulo{
@@ -75,6 +76,14 @@
     -fx-text-alignment: right;
 }
 
+.btnTimeFastPrincipal:hover{
+    -fx-background-color:  #E79349;
+}
+
+.btnTimeFastPrincipal:pressed{
+    -fx-background-color: #8E5A2C;
+}
+
 .btnTimeFastSecundario{
     -fx-pref-width: 150;
     -fx-pref-height: 44;
@@ -86,6 +95,18 @@
     -fx-border-radius: 10;
     -fx-text-fill: #C17B3D;
     -fx-font-size: 16;
+}
+
+.btnTimeFastSecundario:hover{
+    -fx-border-color: #E79349;
+    -fx-border-width: 3;
+    -fx-text-fill: #E79349;
+}
+
+.btnTimeFastSecundario:pressed{
+    -fx-border-color: #8E5A2C;
+    -fx-border-width: 3;
+    -fx-text-fill: #8E5A2C;
 }
 
 .tbTimeFast{
