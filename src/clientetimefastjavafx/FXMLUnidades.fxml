@@ -21,38 +21,10 @@
             <TableColumn minWidth="4.0" prefWidth="190.0" text="Marca" />
             <TableColumn minWidth="0.0" prefWidth="190.0" text="Modelo" />
             <TableColumn minWidth="0.0" prefWidth="112.0" text="Año" />
-            <TableColumn prefWidth="225.0" text="Colaborador" />
+            <TableColumn prefWidth="225.0" text="Conductor" />
             <TableColumn prefWidth="160.0" text="Tipo de Unidad" />
          </columns>
       </TableView>
-      <Pane layoutX="50.0" layoutY="180.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlunidades.css">
-         <children>
-            <TextField layoutX="24.0" layoutY="12.0" promptText="Buscar" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlunidades.css" />
-            <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlunidades.css" text="     Agregar" />
-            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidades.css" text="     Editar" />
-            <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidades.css" text="      Eliminar" />
-            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="281.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@recursos/search.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="766.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@recursos/add.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="941.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@recursos/stylus.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="1110.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@recursos/delete.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
       <Pane layoutX="50.0" layoutY="107.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo" stylesheets="@fxmlunidades.css">
          <children>
             <Label layoutX="93.0" prefWidth="204.0" styleClass="lbTimeFastTitulo" stylesheets="@fxmlunidades.css" text="Unidades" textAlignment="CENTER" />
@@ -87,5 +59,42 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <Pane layoutX="50.0" layoutY="180.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlunidades.css">
+         <children>
+            <TextField layoutX="24.0" layoutY="12.0" promptText="Buscar" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlunidades.css" />
+            <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="281.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/search.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidades.css" text="  Eliminar  ">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" prefHeight="26.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidades.css" text="   Editar   ">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/stylus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" prefHeight="36.0" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlunidades.css" text="Agregar   ">
+               <graphic>
+                  <ImageView fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@recursos/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
