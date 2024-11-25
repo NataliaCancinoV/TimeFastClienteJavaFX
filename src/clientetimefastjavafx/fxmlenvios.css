@@ -22,8 +22,9 @@
 .btnTimeFastHeader:hover{
     -fx-border-style: none none solid none;
     -fx-border-width: 0 0 4 0;
-    -fx-border-color:#C17B3D;
+    -fx-border-color: #C17B3D;
     -fx-cursor: hand;
+    -fx-font-weight: bold;
 }
 
 .lbTimeFastTitulo{
@@ -60,6 +61,7 @@
     -fx-border-color: #C17B3D;
     -fx-border-radius: 10;
     -fx-font-weight:bold;
+    -fx-border-width: 2;
     -fx-font-size: 18;
 }
 
@@ -67,15 +69,24 @@
     -fx-pref-width: 150;
     -fx-pref-height: 40;   
     -fx-text-fill: #FFF;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
     -fx-background-color: #C17B3D;
     -fx-text-alignment: right;
 }
 
+.btnTimeFastPrincipal:hover{
+    -fx-background-color:  #E79349;
+}
+
+.btnTimeFastPrincipal:pressed{
+    -fx-background-color: #8E5A2C;
+}
+
 .btnTimeFastSecundario{
     -fx-pref-width: 150;
-    -fx-pref-height: 40;
+    -fx-pref-height: 44;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
     -fx-background-color: transparent;
@@ -83,6 +94,19 @@
     -fx-border-width: 2;
     -fx-border-radius: 10;
     -fx-text-fill: #C17B3D;
+    -fx-font-size: 16;
+}
+
+.btnTimeFastSecundario:hover{
+    -fx-border-color: #E79349;
+    -fx-border-width: 3;
+    -fx-text-fill: #E79349;
+}
+
+.btnTimeFastSecundario:pressed{
+    -fx-border-color: #8E5A2C;
+    -fx-border-width: 3;
+    -fx-text-fill: #8E5A2C;
 }
 
 .tbTimeFast{
@@ -115,5 +139,4 @@
     -fx-border-color: #3F6F99;
     -fx-border-insets: 0;
 }
-
 
