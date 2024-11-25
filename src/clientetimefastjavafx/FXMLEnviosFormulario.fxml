@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1360.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientetimefastjavafx.FXMLEnviosFormularioController">
+    <stylesheets>
+        <URL value="@fxmlenviosformulario.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane prefHeight="130.0" prefWidth="1360.0" styleClass="apTimeFastHeader" stylesheets="@fxmlenviosformulario.css">
+         <children>
+            <Label layoutX="106.0" styleClass="lbTimeFastHeaderTitulo" stylesheets="@fxmlenviosformulario.css" text="TimeFast">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <Button layoutX="255.0" layoutY="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="253.0" styleClass="btnTimeFastHeader" stylesheets="@fxmlenviosformulario.css" text="Colaboradores" />
+            <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlenviosformulario.css" text="Clientes" />
+            <Button layoutX="425.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlenviosformulario.css" text="Unidades" />
+            <Button layoutX="835.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlenviosformulario.css" text="Envíos" />
+            <Button layoutX="1025.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlenviosformulario.css" text="Paquetes" />
+            <ImageView fitHeight="53.0" fitWidth="72.0" layoutX="26.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/Logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="48.0" layoutX="1286.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/account.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="50.0" layoutY="107.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo" stylesheets="@fxmlenviosformulario.css">
+         <children>
+            <Label layoutX="93.0" prefWidth="204.0" styleClass="lbTimeFastTitulo" stylesheets="@fxmlenviosformulario.css" text="Envíos" textAlignment="CENTER" />
+            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="22.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/local_shipping.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="50.0" layoutY="196.0" styleClass="labelTituloModulo" stylesheets="@fxmlenviosformulario.css" text="Información del Envío" />
+      <Label layoutX="50.0" layoutY="242.0" styleClass="labelSubtituloModulo" stylesheets="@fxmlenviosformulario.css" text="Origen" />
+      <Label layoutX="50.0" layoutY="273.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Estado" />
+      <TextField layoutX="50.0" layoutY="300.0" promptText="ADC2312" styleClass="txtFieldDato" stylesheets="@fxmlenviosformulario.css" />
+      <Label layoutX="354.0" layoutY="273.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Ciudad" />
+      <TextField layoutX="353.0" layoutY="300.0" promptText="2025ADC2" styleClass="txtFieldDato" stylesheets="@fxmlenviosformulario.css" />
+      <Label layoutX="51.0" layoutY="360.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Código Postal" />
+      <TextField layoutX="50.0" layoutY="387.0" promptText="91560" styleClass="txtFieldDato" stylesheets="@fxmlenviosformulario.css" />
+      <Label layoutX="355.0" layoutY="360.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Colonia" />
+      <TextField layoutX="354.0" layoutY="387.0" promptText="Maestros Veracruzanos" styleClass="txtFieldDato" stylesheets="@fxmlenviosformulario.css" />
+      <Label layoutX="50.0" layoutY="450.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Calle" />
+      <TextField layoutX="50.0" layoutY="477.0" promptText="Ruiz Cortines" styleClass="txtFieldDato" stylesheets="@fxmlenviosformulario.css" />
+      <Label layoutX="354.0" layoutY="450.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Número Exterior" />
+      <TextField layoutX="354.0" layoutY="477.0" promptText="211" styleClass="txtFieldDato" stylesheets="@fxmlenviosformulario.css" />
+      <Label layoutX="693.0" layoutY="242.0" styleClass="labelSubtituloModulo" stylesheets="@fxmlenviosformulario.css" text="Envío" />
+      <Label layoutX="694.0" layoutY="273.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Destino" />
+      <TextField layoutX="693.0" layoutY="300.0" promptText="Xalapa, Veracruz." styleClass="txtFieldDato" stylesheets="@fxmlenviosformulario.css" />
+      <Label layoutX="691.0" layoutY="360.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Número de Guía" />
+      <TextField layoutX="693.0" layoutY="387.0" promptText="1235343" styleClass="txtFieldDato" stylesheets="@fxmlenviosformulario.css" />
+      <Label layoutX="693.0" layoutY="450.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Costo de Envío" />
+      <TextField layoutX="693.0" layoutY="477.0" promptText="94570" styleClass="txtFieldDato" stylesheets="@fxmlenviosformulario.css" />
+      <Label layoutX="1025.0" layoutY="240.0" styleClass="labelSubtituloModulo" stylesheets="@fxmlenviosformulario.css" text="Actualización" />
+      <Label layoutX="1026.0" layoutY="271.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Conductor" />
+      <ComboBox layoutX="1025.0" layoutY="301.0" prefHeight="43.0" prefWidth="150.0" styleClass="comboBoxEditable" stylesheets="@fxmlenviosformulario.css" />
+      <Label layoutX="1026.0" layoutY="360.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Estatus" />
+      <ComboBox layoutX="1025.0" layoutY="390.0" prefHeight="43.0" prefWidth="150.0" styleClass="comboBoxEditable" stylesheets="@fxmlenviosformulario.css" />
+      <Button layoutX="1007.0" layoutY="631.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlenviosformulario.css" text="Cancelar" />
+      <Button layoutX="1165.0" layoutY="631.0" mnemonicParsing="false" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlenviosformulario.css" text="Guardar" />
+   </children>
+</AnchorPane>
