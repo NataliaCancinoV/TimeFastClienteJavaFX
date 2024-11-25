@@ -38,26 +38,26 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Pane layoutX="50.0" layoutY="190.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlpaquetes.css">
+      <Pane layoutX="50.0" layoutY="180.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlpaquetes.css">
          <children>
             <TextField layoutX="24.0" layoutY="12.0" promptText="Buscar" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlpaquetes.css" />
-            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="281.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="281.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/search.png" />
                </image>
             </ImageView>
             <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlpaquetes.css" text="  Eliminar  ">
                <graphic>
-                  <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@recursos/delete.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlpaquetes.css" text="   Editar   ">
+            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" prefHeight="26.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlpaquetes.css" text="   Editar   ">
                <graphic>
-                  <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="34.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@recursos/stylus.png" />
                      </image>
@@ -66,7 +66,7 @@
             </Button>
             <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" prefHeight="36.0" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlpaquetes.css" text="Agregar   ">
                <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@recursos/add.png" />
                      </image>
@@ -75,7 +75,7 @@
             </Button>
          </children>
       </Pane>
-      <TableView layoutX="50.0" layoutY="270.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlpaquetes.css">
+      <TableView layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlpaquetes.css">
          <columns>
             <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
             <TableColumn prefWidth="143.0" text="Envío" />
@@ -86,7 +86,7 @@
             <TableColumn prefWidth="428.0" text="Descripción" />
          </columns>
       </TableView>
-      <Pane layoutX="50.0" layoutY="117.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo" stylesheets="@fxmlpaquetes.css">
+      <Pane layoutX="50.0" layoutY="107.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo" stylesheets="@fxmlpaquetes.css">
          <children>
             <Label layoutX="93.0" prefWidth="204.0" styleClass="lbTimeFastTitulo" stylesheets="@fxmlpaquetes.css" text="Paquetes" textAlignment="CENTER" />
             <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="22.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
