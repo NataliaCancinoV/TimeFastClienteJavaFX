@@ -1,0 +1,146 @@
+.apTimeFastHeader{
+    -fx-background-color: #516e95;
+    -fx-pref-width: 1360;
+    -fx-pref-height: 75;
+}
+
+.lbTimeFastHeaderTitulo{
+    -fx-text-fill: #DF9251;
+    -fx-font-size: 28;
+    -fx-font-weight: bold;
+    -fx-pref-height:75;
+}
+
+.btnTimeFastHeader{
+    -fx-background-color: none;
+    -fx-font-size: 18;
+    -fx-text-fill: #FFF;
+    -fx-pref-width: 200;
+    -fx-pref-height: 50;
+}
+
+.btnTimeFastHeader:hover{
+    -fx-border-style: none none solid none;
+    -fx-border-width: 0 0 4 0;
+    -fx-border-color: #C17B3D;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+.btnTimeFastHeader:pressed{
+    -fx-border-style: none none solid none;
+    -fx-border-width: 0 0 4 0;
+    -fx-border-color: #C17B3D;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-background-color: #658abb;
+}
+
+.lbTimeFastTitulo{
+    -fx-background-color: none;
+    -fx-font-size: 24;
+    -fx-text-fill: #5494CC;
+    -fx-font-weight: bold;
+    -fx-pref-height: 50;
+}
+
+.apTimeFastTitulo{
+    -fx-background-color: #f7f2ed;
+    -fx-pref-width: 300;
+    -fx-pref-height: 55;
+    -fx-background-radius: 10;
+    -fx-border-color: #C17B3D;
+    -fx-border-width: 0 0 5 0;
+}
+
+.labelTituloModulo{
+    -fx-text-fill: #C17B3D;
+    -fx-font-size:24;
+    -fx-font-weight: bold;
+}
+
+.labelSubtituloModulo{
+    -fx-text-fill: #C17B3D;
+    -fx-font-size:18;
+    -fx-font-weight: bold;
+}
+.labelDato{
+    -fx-text-fill: #3F6F99;
+    -fx-font-weight: 100;
+    -fx-font-size:18;
+    -fx-font-weight: bold;
+}
+.txtFieldDato{
+   -fx-pref-width: 275;    
+   -fx-pref-height:40;     
+   -fx-background-color: transparent;
+   -fx-border-style: none none solid none;
+   -fx-border-width: 0 0 3 0;
+   -fx-border-color:#C17B3D;
+}
+
+.comboBoxEditable{
+    -fx-border-style: solid solid solid solid;
+    -fx-border-width: 2;
+    -fx-border-color:#C17B3D;
+    -fx-background-color: transparent;
+    -fx-pref-width: 275;    
+    -fx-pref-height:40; 
+    -fx-border-radius: 10;
+}
+
+.btnTimeFastPrincipal{
+    -fx-pref-width: 135;
+    -fx-pref-height: 44;   
+    -fx-text-fill: #FFF;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-background-color: #C17B3D;
+    -fx-text-alignment: right;
+}
+
+.btnTimeFastPrincipal:hover{
+    -fx-background-color:  #E79349;
+}
+
+.btnTimeFastPrincipal:pressed{
+    -fx-background-color: #8E5A2C;
+}
+
+.btnTimeFastSecundario{
+    -fx-pref-width: 135;
+    -fx-pref-height: 44;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-background-color: transparent;
+    -fx-border-color: #C17B3D;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-text-fill: #C17B3D;
+    -fx-font-size: 16;
+}
+
+.btnTimeFastSecundario:hover{
+    -fx-border-color: #E79349;
+    -fx-border-width: 3;
+    -fx-text-fill: #E79349;
+}
+
+.btnTimeFastSecundario:pressed{
+    -fx-border-color: #8E5A2C;
+    -fx-border-width: 3;
+    -fx-text-fill: #8E5A2C;
+}
+
+.pTimeFastImage{
+    -fx-border-color: #C17B3D;
+    -fx-border-style: dotted;
+    -fx-border-radius: 10;
+    -fx-border-width:3;
+}
+
+.lbTimeFastImage{
+    -fx-text-fill: #C17B3D;
+    -fx-font-size:18;
+    -fx-font-weight: bold;
+}
