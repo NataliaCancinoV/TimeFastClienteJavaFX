@@ -61,6 +61,7 @@
     -fx-border-radius: 10;
     -fx-font-weight:bold;
     -fx-font-size: 18;
+    -fx-border-width: 2;
 }
 
 .btnTimeFastPrincipal{
