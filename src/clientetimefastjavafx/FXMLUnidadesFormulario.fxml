@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1360.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientetimefastjavafx.FXMLUnidadesFormularioController">
+    <stylesheets>
+        <URL value="@fxmlunidadesformulario.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane prefHeight="130.0" prefWidth="1360.0" styleClass="apTimeFastHeader" stylesheets="@fxmlunidadesformulario.css">
+         <children>
+            <Label layoutX="106.0" styleClass="lbTimeFastHeaderTitulo" stylesheets="@fxmlunidadesformulario.css" text="TimeFast">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <Button layoutX="255.0" layoutY="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="253.0" styleClass="btnTimeFastHeader" stylesheets="@fxmlunidadesformulario.css" text="Colaboradores" />
+            <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlunidadesformulario.css" text="Clientes" />
+            <Button layoutX="425.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlunidadesformulario.css" text="Unidades" />
+            <Button layoutX="835.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlunidadesformulario.css" text="Envíos" />
+            <Button layoutX="1025.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlunidadesformulario.css" text="Paquetes" />
+            <ImageView fitHeight="53.0" fitWidth="72.0" layoutX="26.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/Logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="48.0" layoutX="1286.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/account.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="50.0" layoutY="107.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo" stylesheets="@fxmlunidadesformulario.css">
+         <children>
+            <Label layoutX="93.0" prefWidth="204.0" styleClass="lbTimeFastTitulo" stylesheets="@fxmlunidadesformulario.css" text="Unidades" textAlignment="CENTER" />
+            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="22.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/directions_car.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="50.0" layoutY="196.0" styleClass="labelTituloModulo" stylesheets="@fxmlunidadesformulario.css" text="Información de la Unidad" />
+      <Label layoutX="50.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="VIN" />
+      <TextField layoutX="50.0" layoutY="299.0" promptText="ADC2312" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
+      <Label layoutX="389.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="ID Interno" />
+      <TextField layoutX="389.0" layoutY="299.0" promptText="2025ADC2" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
+      <Label layoutX="725.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Marca" />
+      <TextField layoutX="725.0" layoutY="299.0" promptText="Nissan" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
+      <Label layoutX="53.0" layoutY="383.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Modelo" />
+      <TextField layoutX="50.0" layoutY="423.0" promptText="Sport 4 puertas" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
+      <Label layoutX="389.0" layoutY="389.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Año" />
+      <TextField layoutX="389.0" layoutY="423.0" promptText="2025" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
+      <Label layoutX="731.0" layoutY="384.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Tipo de Unidad" />
+      <ComboBox layoutX="725.0" layoutY="426.0" prefWidth="150.0" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
+      <Label layoutX="50.0" layoutY="500.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Conductor" />
+      <ComboBox layoutX="50.0" layoutY="541.0" prefWidth="150.0" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
+      <Button layoutX="1040.0" layoutY="629.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidadesformulario.css" text="Cancelar" />
+      <Button layoutX="1194.0" layoutY="630.0" mnemonicParsing="false" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlunidadesformulario.css" text="Guardar" />
+   </children>
+</AnchorPane>
