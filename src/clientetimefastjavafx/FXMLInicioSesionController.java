@@ -76,7 +76,7 @@ public class FXMLInicioSesionController implements Initializable {
     public void irPantallaInicio(){
         try {
             Stage pantallaPrincipal = (Stage) tfNoPersonal.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("FXMLColaboradoresRegistrar.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLColaboradores.fxml"));
             Scene scena = new Scene(root);
             pantallaPrincipal.setTitle("Pantalla Colaborador");
             pantallaPrincipal.setScene(scena);

@@ -21,11 +21,11 @@
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="255.0" layoutY="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="253.0" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Colaboradores" />
-            <Button layoutX="425.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Unidades" />
-            <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Clientes" />
-            <Button layoutX="835.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Envíos" />
-            <Button layoutX="1025.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Paquetes" />
+            <Button fx:id="colaboradoresViewBtn" layoutX="255.0" layoutY="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="253.0" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Colaboradores" />
+            <Button fx:id="unidadesViewBtn" layoutX="425.0" layoutY="10.0" mnemonicParsing="false" onAction="#cargarVistaUnidades" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Unidades" />
+            <Button fx:id="clientesViewBtn" layoutX="625.0" layoutY="10.0" mnemonicParsing="false" onAction="#cargarVistaClientes" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Clientes" />
+            <Button fx:id="enviosViewBtn" layoutX="835.0" layoutY="10.0" mnemonicParsing="false" onAction="#cargarVsitaEnvios" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Envíos" />
+            <Button fx:id="paquetesViewBtn" layoutX="1025.0" layoutY="10.0" mnemonicParsing="false" onAction="#cargarVistaPaquetes" styleClass="btnTimeFastHeader" stylesheets="@fxmlcolaboradores.css" text="Paquetes" />
             <ImageView fitHeight="53.0" fitWidth="72.0" layoutX="26.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/Logo.png" />
@@ -82,16 +82,16 @@
                   </ImageView>
                </graphic></Button>
          </children></Pane>
-      <TableView layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlcolaboradores.css">
+      <TableView fx:id="table_colaboradores" layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlcolaboradores.css">
         <columns>
-          <TableColumn prefWidth="120.0" text="No. Personal" />
+          <TableColumn fx:id="tc_nopersonal" prefWidth="120.0" text="No. Personal" />
             <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
-            <TableColumn prefWidth="160.0" text="Nombre" />
-            <TableColumn prefWidth="170.0" text="Apellido Paterno" />
-            <TableColumn minWidth="0.0" prefWidth="170.0" text="Apellido Materno" />
-            <TableColumn prefWidth="210.0" text="CURP" />
-            <TableColumn minWidth="0.0" prefWidth="238.0" text="Correo Electrónico" />
-            <TableColumn prefWidth="182.0" text="Rol" />
+            <TableColumn fx:id="tc_nombre" prefWidth="160.0" text="Nombre" />
+            <TableColumn fx:id="tc_apellidopaterno" prefWidth="170.0" text="Apellido Paterno" />
+            <TableColumn fx:id="tc_apellidomaterno" minWidth="0.0" prefWidth="170.0" text="Apellido Materno" />
+            <TableColumn fx:id="tc_curp" prefWidth="210.0" text="CURP" />
+            <TableColumn fx:id="tc_correo" minWidth="0.0" prefWidth="238.0" text="Correo Electrónico" />
+            <TableColumn fx:id="tc_rol" prefWidth="182.0" text="Rol" />
         </columns>
       </TableView>
    </children>

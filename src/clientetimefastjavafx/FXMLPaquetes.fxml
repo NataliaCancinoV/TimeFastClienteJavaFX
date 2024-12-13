@@ -21,11 +21,11 @@
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="255.0" layoutY="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="253.0" styleClass="btnTimeFastHeader" stylesheets="@fxmlpaquetes.css" text="Colaboradores" />
-            <Button layoutX="425.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlpaquetes.css" text="Unidades" />
-            <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlpaquetes.css" text="Clientes" />
-            <Button layoutX="835.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlpaquetes.css" text="Envíos" />
-            <Button layoutX="1025.0" layoutY="10.0" mnemonicParsing="false" styleClass="btnTimeFastHeader" stylesheets="@fxmlpaquetes.css" text="Paquetes" />
+            <Button fx:id="colaboradoresViewBtn" layoutX="255.0" layoutY="10.0" mnemonicParsing="false" onAction="#cargarVistaColaboradores" prefHeight="60.0" prefWidth="253.0" styleClass="btnTimeFastHeader" stylesheets="@fxmlpaquetes.css" text="Colaboradores" />
+            <Button layoutX="425.0" layoutY="10.0" mnemonicParsing="false" onAction="#cargarVistaUnidades" styleClass="btnTimeFastHeader" stylesheets="@fxmlpaquetes.css" text="Unidades" />
+            <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" onAction="#cargarVistaClientes" styleClass="btnTimeFastHeader" stylesheets="@fxmlpaquetes.css" text="Clientes" />
+            <Button layoutX="835.0" layoutY="10.0" mnemonicParsing="false" onAction="#cargarVsitaEnvios" styleClass="btnTimeFastHeader" stylesheets="@fxmlpaquetes.css" text="Envíos" />
+            <Button layoutX="1025.0" layoutY="10.0" mnemonicParsing="false" onAction="#cargarVistaPaquetes" styleClass="btnTimeFastHeader" stylesheets="@fxmlpaquetes.css" text="Paquetes" />
             <ImageView fitHeight="53.0" fitWidth="72.0" layoutX="26.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/Logo.png" />

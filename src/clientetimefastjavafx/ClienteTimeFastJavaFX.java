@@ -19,7 +19,7 @@ public class ClienteTimeFastJavaFX extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLInicioSesion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLColaboradores.fxml"));
         
         Scene scene = new Scene(root);
         
