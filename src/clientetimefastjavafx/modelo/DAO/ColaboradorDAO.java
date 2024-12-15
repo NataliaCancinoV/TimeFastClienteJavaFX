@@ -7,6 +7,7 @@ package clientetimefastjavafx.modelo.DAO;
 
 import clientetimefastjavafx.modelo.ConexionWS;
 import clientetimefastjavafx.pojo.Colaborador;
+import clientetimefastjavafx.pojo.Mensaje;
 import clientetimefastjavafx.pojo.RespuestaHTTP;
 import clientetimefastjavafx.utilidades.Constantes;
 import com.google.gson.Gson;
@@ -20,20 +21,91 @@ import java.util.List;
  * @author sebas
  */
 public class ColaboradorDAO {
-    public static List<Colaborador> obtenerColaboradores(){
+
+    public static List<Colaborador> obtenerColaboradores() {
         List<Colaborador> colaboradores = null;
-        String urlWS= Constantes.URLWS+"colaborador/obtener-colaboradores";
+        String urlWS = Constantes.URLWS + "colaborador/obtener-colaboradores";
         RespuestaHTTP respuesta = ConexionWS.peticionGET(urlWS);
-        if(respuesta.getCodigoRespuesta()==HttpURLConnection.HTTP_OK){
-                        Gson gson = new Gson();
+        if (respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
             try {//LE VA A DECIR A JSON DE QUE TIPO ES LA LISTA, SOLO ES CON LISTAS
                 //TYPETOKEN JSON -> TYPE ES DE JAVA.LANG
-                Type tipoListaColaborador = new TypeToken<List<Colaborador>>(){}.getType();
-                colaboradores= gson.fromJson(respuesta.getContenido(), tipoListaColaborador);                
+                Type tipoListaColaborador = new TypeToken<List<Colaborador>>() {
+                }.getType();
+                colaboradores = gson.fromJson(respuesta.getContenido(), tipoListaColaborador);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         return colaboradores;
     }
+
+    public static Mensaje registrarColaborador(Colaborador colaborador) {
+        Mensaje respuesta = new Mensaje();
+
+        String urlWS = Constantes.URLWS + "colaborador/registrar-colaborador";
+        Gson gson = new Gson();
+        String parametro = gson.toJson(colaborador);
+        RespuestaHTTP respuestaWS = ConexionWS.peticionPOSTJSON(urlWS, parametro);
+        if (respuestaWS.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
+            System.out.println("Respuesta WS editar Colaborador: " + respuestaWS.getContenido());
+            respuesta = gson.fromJson(respuestaWS.getContenido(), Mensaje.class);
+        } else {
+            respuesta.setError(false);
+            respuesta.setMensaje("Error al editar Colaboraodr");
+        }
+        return respuesta;
+    }
+
+    public static Mensaje editarColaborador(Colaborador colaborador) {
+        Mensaje respuesta = new Mensaje();
+        String urlWS = Constantes.URLWS + "colaborador/editar-colaborador";
+        Gson gson = new Gson();
+        String parametro = gson.toJson(colaborador);
+        RespuestaHTTP respuestaWS = ConexionWS.peticionPUTJSON(urlWS, parametro);
+        if (respuestaWS.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
+            System.out.println("Respuesta WS registrar Colaborador: " + respuestaWS.getContenido());
+            respuesta = gson.fromJson(respuestaWS.getContenido(), Mensaje.class);
+        } else {
+            respuesta.setError(false);
+            respuesta.setMensaje("Error al registrar Colaboraodr");
+        }
+        return respuesta;
+    }
+
+    public static Mensaje eliminarColaborador(Integer idColaborador) {
+        Mensaje respuesta = new Mensaje();
+        Gson gson = new Gson();
+        String urlWS = Constantes.URLWS + "colaborador/eliminar-colaborador/"+idColaborador;
+        System.out.println("URL WS "+urlWS);
+        RespuestaHTTP respuestaWS = ConexionWS.peticionDELETE(urlWS);
+        if (respuestaWS.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
+            System.out.println("Respuesta WS eliminar Colaborador: " + respuestaWS.getContenido());
+            respuesta = gson.fromJson(respuestaWS.getContenido(), Mensaje.class);
+        } else {
+            respuesta.setError(false);
+            respuesta.setMensaje("Error al eliminar Colaboraodr");
+        }
+        return respuesta;
+    }
+
+    public static List<Colaborador> buscarColaborador(String parametro) {
+        List<Colaborador> colaboradores = null;
+        String urlWS = Constantes.URLWS + "colaborador/buscar-colaborador/" + parametro;
+        System.out.println("URL WS: " + urlWS);
+        RespuestaHTTP respuesta = ConexionWS.peticionGET(urlWS);
+        if (respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            try {//LE VA A DECIR A JSON DE QUE TIPO ES LA LISTA, SOLO ES CON LISTAS
+                //TYPETOKEN JSON -> TYPE ES DE JAVA.LANG
+                Type tipoListaColaborador = new TypeToken<List<Colaborador>>() {
+                }.getType();
+                colaboradores = gson.fromJson(respuesta.getContenido(), tipoListaColaborador);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return colaboradores;
+    }
+
 }

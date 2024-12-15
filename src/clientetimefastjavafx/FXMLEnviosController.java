@@ -5,18 +5,28 @@
  */
 package clientetimefastjavafx;
 
+import clientetimefastjavafx.modelo.DAO.EnvioDAO;
+import clientetimefastjavafx.pojo.Envio;
+import clientetimefastjavafx.utilidades.Utilidades;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -28,13 +38,32 @@ public class FXMLEnviosController implements Initializable {
 
     @FXML
     private Button colaboradoresViewBtn;
-
+    @FXML
+    private TableColumn<?, ?> columnNoGuia;
+    @FXML
+    private TableColumn<?, ?> columnCliente;
+    @FXML
+    private TableColumn<?, ?> columnOrigen;
+    @FXML
+    private TableColumn<?, ?> columnDestino;
+    @FXML
+    private TableColumn<?, ?> columnCosto;
+    @FXML
+    private TableColumn<?, ?> columnConductor;
+    @FXML
+    private TableColumn<?, ?> columnEstatus;
+    
+    private ObservableList<Envio> envios;
+    @FXML
+    private TableView<Envio> tableEnvios;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        configurarTabla();
+        cargarDatosTabla();
     }
 
     @FXML
@@ -92,5 +121,26 @@ public class FXMLEnviosController implements Initializable {
             Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+  private void configurarTabla() {
+        //NOMBRE DEL ATRIBUTO DEL POJO CON EL QUE SE DEFINIO QUE SE VA A LLENAR
+        columnNoGuia.setCellValueFactory(new PropertyValueFactory("noGuia"));
+        columnCliente.setCellValueFactory(new PropertyValueFactory("nombreCliente"));
+        columnOrigen.setCellValueFactory(new PropertyValueFactory("estado"));
+        columnDestino.setCellValueFactory(new PropertyValueFactory("destino"));
+        columnCosto.setCellValueFactory(new PropertyValueFactory("costo"));
+        columnConductor.setCellValueFactory(new PropertyValueFactory("conductorAsignado"));
+        columnEstatus.setCellValueFactory(new PropertyValueFactory("estatus"));
+    }
+  
+  public void cargarDatosTabla(){
+      envios = FXCollections.observableArrayList();
+      List<Envio> enviosWS= EnvioDAO.obtenerEnvios();
+      if(enviosWS!=null){
+          envios.addAll(enviosWS);
+          tableEnvios.setItems(envios);
+      }else{
+            Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede cargar la información de los envios, intentelo más tarde", Alert.AlertType.ERROR);          
+      }
+  }
 
 }

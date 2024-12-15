@@ -85,15 +85,15 @@
             </Button>
          </children>
       </Pane>
-      <TableView layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlenvios.css">
+      <TableView fx:id="tableEnvios" layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlenvios.css">
          <columns>
-            <TableColumn prefWidth="119.0" text="No. de Guía" />
-            <TableColumn minWidth="0.0" prefWidth="172.0" text="Cliente" />
-            <TableColumn minWidth="0.0" prefWidth="208.0" text="Origen" />
-            <TableColumn minWidth="176.0" prefWidth="227.0" text="Destino" />
-            <TableColumn prefWidth="128.0" text="Costo" />
-            <TableColumn prefWidth="254.0" text="Conductor" />
-            <TableColumn prefWidth="143.0" text="Estatus" />
+            <TableColumn fx:id="columnNoGuia" prefWidth="119.0" text="No. de Guía" />
+            <TableColumn fx:id="columnCliente" minWidth="0.0" prefWidth="172.0" text="Cliente" />
+            <TableColumn fx:id="columnOrigen" minWidth="0.0" prefWidth="208.0" text="Origen" />
+            <TableColumn fx:id="columnDestino" minWidth="176.0" prefWidth="227.0" text="Destino" />
+            <TableColumn fx:id="columnCosto" prefWidth="128.0" text="Costo" />
+            <TableColumn fx:id="columnConductor" prefWidth="254.0" text="Conductor" />
+            <TableColumn fx:id="columnEstatus" prefWidth="143.0" text="Estatus" />
          </columns>
       </TableView>
    </children>

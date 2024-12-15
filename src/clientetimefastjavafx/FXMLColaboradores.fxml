@@ -50,13 +50,13 @@
       </Pane>
       <Pane layoutX="50.0" layoutY="180.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlcolaboradores.css">
          <children>
-            <TextField layoutX="24.0" layoutY="12.0" promptText="Buscar" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlcolaboradores.css" />
-            <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="281.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <TextField fx:id="tfBuscarColaborador" layoutX="24.0" layoutY="12.0" promptText="Buscar" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlcolaboradores.css" />
+            <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="281.0" layoutY="17.0" onMouseClicked="#buscarColaborador" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/search.png" />
                </image>
             </ImageView>
-            <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="  Eliminar  ">
+            <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnEliminarColaborador" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="  Eliminar  ">
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -64,7 +64,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" prefHeight="26.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="   Editar   ">
+            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" onAction="#cargarFormularioColaboradorEditar" prefHeight="26.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradores.css" text="   Editar   ">
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -73,7 +73,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" prefHeight="36.0" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlcolaboradores.css" text="Agregar   ">
+            <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" onAction="#cargarFormularioColaborador" prefHeight="36.0" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlcolaboradores.css" text="Agregar   ">
                <graphic>
                   <ImageView fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>

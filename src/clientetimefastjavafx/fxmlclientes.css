@@ -23,14 +23,14 @@
     -fx-border-style: none none solid none;
     -fx-border-width: 0 0 4 0;
     -fx-border-color: #C17B3D;
-    -fx-cursor: hand;
+    -fx-cursor:hand;
     -fx-font-weight: bold;
 }
 .btnTimeFastHeader:pressed{
     -fx-border-style: none none solid none;
     -fx-border-width: 0 0 4 0;
     -fx-border-color: #C17B3D;
-    -fx-cursor: hand;
+    -fx-cursor:hand;
     -fx-font-weight: bold;
     -fx-background-color: #658abb;
 }

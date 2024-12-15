@@ -50,21 +50,20 @@
       </Pane>
       <Label layoutX="50.0" layoutY="196.0" styleClass="labelTituloModulo" stylesheets="@fxmlcolaboradoresregistrar.css" text="Información del Colaborador" />
       <Label layoutX="53.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Nombre" />
-      <TextField layoutX="50.0" layoutY="299.0" promptText="Fulanito" styleClass="txtFieldDato" stylesheets="@fxmlcolaboradoresregistrar.css" />
+      <TextField fx:id="tfNombre" layoutX="50.0" layoutY="299.0" promptText="Fulanito" styleClass="txtFieldDato" stylesheets="@fxmlcolaboradoresregistrar.css" />
       <Label layoutX="376.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Apellido Paterno" />
-      <TextField layoutX="376.0" layoutY="299.0" promptText="Pérez" styleClass="txtFieldDato" />
+      <TextField fx:id="tfApellidoPatenor" layoutX="376.0" layoutY="299.0" promptText="Pérez" styleClass="txtFieldDato" />
       <Label layoutX="699.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Apellido Materno" />
-      <TextField layoutX="699.0" layoutY="299.0" promptText="Hernández" styleClass="txtFieldDato" />
+      <TextField fx:id="tfApellidoMaterno" layoutX="699.0" layoutY="299.0" promptText="Hernández" styleClass="txtFieldDato" />
       <Label layoutX="53.0" layoutY="383.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="CURP" />
-      <TextField layoutX="50.0" layoutY="423.0" promptText="PEHF020597MVZGTA5" styleClass="txtFieldDato" />
+      <TextField fx:id="tfCurp" layoutX="50.0" layoutY="423.0" promptText="PEHF020597MVZGTA5" styleClass="txtFieldDato" />
       <Label layoutX="376.0" layoutY="383.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="No. de Personal" />
-      <TextField layoutX="373.0" layoutY="423.0" promptText="3254325" styleClass="txtFieldDato" />
+      <TextField fx:id="tfNoPersonal" layoutX="373.0" layoutY="423.0" promptText="3254325" styleClass="txtFieldDato" />
       <Label layoutX="705.0" layoutY="382.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Rol" />
-      <ComboBox layoutX="702.0" layoutY="424.0" prefWidth="150.0" styleClass="comboBoxEditable" />
+      <ComboBox fx:id="comboRoles" layoutX="702.0" layoutY="424.0" prefWidth="150.0" styleClass="comboBoxEditable" />
       <Label layoutX="53.0" layoutY="514.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Correo Electrónico" />
-      <TextField layoutX="50.0" layoutY="548.0" promptText="fulanito@example.com" styleClass="txtFieldDato" />
+      <TextField fx:id="tfCorreo" layoutX="50.0" layoutY="548.0" promptText="fulanito@example.com" styleClass="txtFieldDato" />
       <Label layoutX="373.0" layoutY="507.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Contraseña" />
-      <PasswordField layoutX="373.0" layoutY="547.0" promptText="***********" styleClass="txtFieldDato" />
       <Label layoutX="1028.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Foto" />
       <Pane layoutX="1029.0" layoutY="299.0" prefHeight="298.0" prefWidth="290.0" styleClass="pTimeFastImage" stylesheets="@fxmlcolaboradoresregistrar.css">
          <children>
@@ -77,6 +76,10 @@
          </children>
       </Pane>
       <Button layoutX="1031.0" layoutY="629.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradoresregistrar.css" text="Cancelar" />
-      <Button layoutX="1185.0" layoutY="630.0" mnemonicParsing="false" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlcolaboradoresregistrar.css" text="Guardar" />
+      <Button layoutX="1185.0" layoutY="630.0" mnemonicParsing="false" onAction="#guardarColaborador" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlcolaboradoresregistrar.css" text="Guardar" />
+      <PasswordField fx:id="tfContrasena" layoutX="383.0" layoutY="557.0" promptText="***********" styleClass="txtFieldDato" />
+      <Label layoutX="699.0" layoutY="514.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" />
+      <Label layoutX="699.0" layoutY="514.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="No Licencia" />
+      <TextField fx:id="tfNoLicencia" layoutX="701.0" layoutY="557.0" promptText="3254325" styleClass="txtFieldDato" />
    </children>
 </AnchorPane>

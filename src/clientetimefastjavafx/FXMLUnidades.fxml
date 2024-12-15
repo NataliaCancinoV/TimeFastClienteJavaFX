@@ -85,15 +85,15 @@
             </Button>
          </children>
       </Pane>
-      <TableView layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlunidades.css">
+      <TableView fx:id="tableUnidades" layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlunidades.css">
          <columns>
-            <TableColumn prefWidth="178.0" text="VIN" />
-            <TableColumn minWidth="0.0" prefWidth="195.0" text="ID Interno" />
-            <TableColumn minWidth="4.0" prefWidth="190.0" text="Marca" />
-            <TableColumn minWidth="0.0" prefWidth="190.0" text="Modelo" />
-            <TableColumn minWidth="0.0" prefWidth="112.0" text="Año" />
-            <TableColumn prefWidth="225.0" text="Conductor" />
-            <TableColumn prefWidth="160.0" text="Tipo de Unidad" />
+            <TableColumn fx:id="columnVIN" prefWidth="178.0" text="VIN" />
+            <TableColumn fx:id="columnIDInterno" minWidth="0.0" prefWidth="195.0" text="ID Interno" />
+            <TableColumn fx:id="columnMarca" minWidth="4.0" prefWidth="190.0" text="Marca" />
+            <TableColumn fx:id="columnModelo" minWidth="0.0" prefWidth="190.0" text="Modelo" />
+            <TableColumn fx:id="columnAnio" minWidth="0.0" prefWidth="112.0" text="Año" />
+            <TableColumn fx:id="columnConductor" prefWidth="225.0" text="Conductor" />
+            <TableColumn fx:id="columnTipounidad" prefWidth="160.0" text="Tipo de Unidad" />
          </columns>
       </TableView>
    </children>

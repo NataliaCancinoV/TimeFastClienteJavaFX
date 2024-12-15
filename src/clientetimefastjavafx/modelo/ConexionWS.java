@@ -142,6 +142,32 @@ public class ConexionWS {
         }  
         return respuesta;
     }
+        public static RespuestaHTTP peticionDELETE(String url){
+        RespuestaHTTP respuesta = new RespuestaHTTP();
+        try {
+            URL urlDestino = new URL(url);
+            HttpURLConnection conexionHttp = (HttpURLConnection) urlDestino.openConnection();//PERMITE HACER
+            //LA CONEXION HTTP POR MEDIO DE UNA URL
+            //1.-SE CONFIGURA EL MÉTODO DE PETICÓN HTTP            
+            conexionHttp.setRequestMethod("DELETE");//SE ESTABLECE EL TIPO DE PETICIÓN
+            int codigoRespuesta = conexionHttp.getResponseCode();//PERMITE HACER LA PETICIÓN Y RETORNA CODIGO HTTP
+            //LANZA LA CONEXIÓN Y RETORNA REPSUESTA HTTP -> CONTENIDO Y CODIGO DE RESPUESTA
+            respuesta.setCodigoRespuesta(codigoRespuesta);//SE LE PASA EL CODIGO DE RESPUESTA A LA RESPUESTA
+            System.out.println("Codigo WS: "+codigoRespuesta);
+            if(codigoRespuesta == HttpURLConnection.HTTP_OK){//SI EL CODIGO DE RESPUESTA ES 200 ES QUE TRAE CONTENIDO
+                respuesta.setContenido(obtenerContenidoWS(conexionHttp.getInputStream()));//SETEA EL COTENIDO TRAIDO
+            }else{
+                respuesta.setContenido("Código de respuesta HTTP: "+codigoRespuesta);
+            }
+        } catch (MalformedURLException e) {//ERROR AL CREAR URL, ALGO QUE AFECTA LA ESTRUCTURA DE LA URL
+            respuesta.setCodigoRespuesta(Constantes.ERROR_URL);
+            respuesta.setContenido("Error el la dirección de conexión.");
+        } catch (IOException io){//POR SI NO PUEDE LEER LA PETICIÓN, POR CORRUPCIÓN DE DATOS ETC.
+            respuesta.setCodigoRespuesta(Constantes.ERROR_PETICION);
+            respuesta.setContenido("Error: no se pudo realizar la solicitud correspondiente.");
+        } 
+        return respuesta;
+    }
     
     public static RespuestaHTTP peticionPOSTJSON(String url, String parametros){
         RespuestaHTTP respuesta = new RespuestaHTTP();

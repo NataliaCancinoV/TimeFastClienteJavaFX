@@ -6,7 +6,9 @@
 package clientetimefastjavafx;
 
 import clientetimefastjavafx.modelo.DAO.ColaboradorDAO;
+import clientetimefastjavafx.observador.NotificadorOperaciones;
 import clientetimefastjavafx.pojo.Colaborador;
+import clientetimefastjavafx.pojo.Mensaje;
 import clientetimefastjavafx.utilidades.Utilidades;
 import java.io.IOException;
 import java.net.URL;
@@ -26,7 +28,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -34,7 +39,7 @@ import javafx.stage.Stage;
  *
  * @author natal
  */
-public class FXMLColaboradoresController implements Initializable {
+public class FXMLColaboradoresController implements Initializable, NotificadorOperaciones {
 
     @FXML
     private TableColumn<?, ?> tc_nopersonal;
@@ -64,6 +69,8 @@ public class FXMLColaboradoresController implements Initializable {
     private Button enviosViewBtn;
     @FXML
     private Button paquetesViewBtn;
+    @FXML
+    private TextField tfBuscarColaborador;
 
     /**
      * Initializes the controller class.
@@ -151,4 +158,72 @@ public class FXMLColaboradoresController implements Initializable {
         }
     }
 
+    @FXML
+    private void buscarColaborador(MouseEvent event) {
+        String parametro = tfBuscarColaborador.getText();
+        colaboradores=FXCollections.observableArrayList();
+        List<Colaborador> listaWS = ColaboradorDAO.buscarColaborador(parametro);
+        if(listaWS!=null){
+            colaboradores.addAll(listaWS);
+            table_colaboradores.setItems(colaboradores);
+        }
+    }
+
+    @FXML
+    private void cargarFormularioColaborador(ActionEvent event) {
+      irFormulario(this,null);
+    }
+
+    @Override
+    public void notificarOperacion(String tipoOperacioin, String nombre) {
+        System.out.println("Tipo operacion "+tipoOperacioin);
+        System.out.println("Nombe del colaborador :"+nombre );
+        cargarInformacionTabla();
+    }
+    
+    public void irFormulario(NotificadorOperaciones observador, Colaborador colaborador){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLColaboradoresRegistrar.fxml"));
+            Parent root= loader.load();
+            
+            FXMLColaboradoresRegistrarController controlador = loader.getController();
+            controlador.inicializarValores(observador, colaborador);
+            
+            Stage escenario = new Stage();
+            Scene escena = new Scene(root);
+            escenario.setScene(escena);
+            escenario.setTitle("Formulario Colaborador");
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.showAndWait();
+        } catch (Exception e) {
+         Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede mostrar formulario de colaboradores, intentelo más tarde", Alert.AlertType.ERROR);
+        }
+    }
+    private void eliminarColaborador(){
+        Integer idColaborador = table_colaboradores.getSelectionModel().getSelectedItem().getIdColaborador();
+        System.out.println("ID COLABORADOR: "+idColaborador);
+        Mensaje respuesta=ColaboradorDAO.eliminarColaborador(idColaborador);
+        if(!respuesta.isError()){
+            Utilidades.mostrarAlerta("Eliminacion Exitosa", "El colaborador ha sido eliminado correctamente", Alert.AlertType.INFORMATION);
+        }else{            
+            Utilidades.mostrarAlerta("Error elminacion", "Error al elminiar colaborador "+respuesta.getMensaje(), Alert.AlertType.ERROR);            
+        }
+    }
+
+    @FXML
+    private void cargarFormularioColaboradorEditar(ActionEvent event) {
+        Colaborador colaboradorEditar = table_colaboradores.getSelectionModel().getSelectedItem();
+        if(colaboradorEditar!=null){
+          irFormulario(this,colaboradorEditar);
+        }
+
+    }
+
+    @FXML
+    private void btnEliminarColaborador(ActionEvent event) {
+        eliminarColaborador();
+        notificarOperacion("Eliminar" ,"Colaborador");
+    }
+
+    
 }
