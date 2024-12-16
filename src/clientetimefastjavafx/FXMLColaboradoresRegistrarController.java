@@ -67,7 +67,7 @@ public class FXMLColaboradoresRegistrarController implements Initializable {
         // TODO
         tfNoLicencia.setDisable(true);
         cargarTiposUsuarios();
-        //comboRoles.setValue(rolesSistema.get(0));  // Establecer un valor predeterminado
+        comboRoles.setValue(rolesSistema.get(0));  // Establecer un valor predeterminado
         comboRoles.valueProperty().addListener(new ChangeListener<Rol>() {
         @Override
         public void changed(ObservableValue<? extends Rol> observable, Rol oldValue, Rol newValue) {
@@ -91,7 +91,7 @@ public class FXMLColaboradoresRegistrarController implements Initializable {
             modoEdicion = true;
             cargarDatosEdicion();
         }
-    }
+    }   
 
     private void cargarDatosEdicion() {
        tfNombre.setText(colaboradorEdicion.getNombre());

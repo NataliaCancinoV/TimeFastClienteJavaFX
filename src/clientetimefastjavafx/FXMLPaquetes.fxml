@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1360.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientetimefastjavafx.FXMLPaquetesController">
+<AnchorPane id="AnchorPane" onDragDetected="#cargarVistaPaqueteFormulario" prefHeight="720.0" prefWidth="1360.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientetimefastjavafx.FXMLPaquetesController">
     <stylesheets>
         <URL value="@fxmlpaquetes.css" />
     </stylesheets>
@@ -56,7 +56,7 @@
                   <Image url="@recursos/search.png" />
                </image>
             </ImageView>
-            <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlpaquetes.css" text="  Eliminar  ">
+            <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnElminarPaquete" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlpaquetes.css" text="  Eliminar  ">
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -65,16 +65,16 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" prefHeight="26.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlpaquetes.css" text="   Editar   ">
+            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" onAction="#cargarVistaPaqeuteEdicion" prefHeight="26.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlpaquetes.css" text="   Editar   ">
                <graphic>
-                  <ImageView fitHeight="34.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="34.0" fitWidth="22.0" onDragDetected="#cargarVistaPaqeuteEdicion" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@recursos/stylus.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" prefHeight="36.0" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlpaquetes.css" text="Agregar   ">
+            <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" onAction="#cargarVistaPaqueteFormulario" prefHeight="36.0" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlpaquetes.css" text="Agregar   ">
                <graphic>
                   <ImageView fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -85,15 +85,15 @@
             </Button>
          </children>
       </Pane>
-      <TableView layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlpaquetes.css">
+      <TableView fx:id="tablePaquetes" layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlpaquetes.css">
          <columns>
             <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
-            <TableColumn prefWidth="143.0" text="Envío" />
-            <TableColumn minWidth="0.0" prefWidth="169.0" text="Peso" />
-            <TableColumn minWidth="0.0" prefWidth="168.0" text="Ancho" />
-            <TableColumn minWidth="143.0" prefWidth="168.0" text="Alto" />
-            <TableColumn prefWidth="171.0" text="Profundidad" />
-            <TableColumn prefWidth="428.0" text="Descripción" />
+            <TableColumn fx:id="columnEnvio" prefWidth="143.0" text="Envío" />
+            <TableColumn fx:id="columnPeso" minWidth="0.0" prefWidth="169.0" text="Peso" />
+            <TableColumn fx:id="columnAncho" minWidth="0.0" prefWidth="168.0" text="Ancho" />
+            <TableColumn fx:id="columnAlto" minWidth="143.0" prefWidth="168.0" text="Alto" />
+            <TableColumn fx:id="columnProfundidad" prefWidth="171.0" text="Profundidad" />
+            <TableColumn fx:id="columnDescripcion" prefWidth="428.0" text="Descripción" />
          </columns>
       </TableView>
    </children>

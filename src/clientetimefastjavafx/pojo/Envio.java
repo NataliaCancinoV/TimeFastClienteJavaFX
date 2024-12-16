@@ -194,5 +194,9 @@ public class Envio {
         this.idConductor = idConductor;
     }
     
+   @Override
+    public String toString() {
+        return String.valueOf(noGuia);
+    }
     
 }

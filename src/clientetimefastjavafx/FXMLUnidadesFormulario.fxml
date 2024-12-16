@@ -50,20 +50,20 @@
       </Pane>
       <Label layoutX="50.0" layoutY="196.0" styleClass="labelTituloModulo" stylesheets="@fxmlunidadesformulario.css" text="Información de la Unidad" />
       <Label layoutX="50.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="VIN" />
-      <TextField layoutX="50.0" layoutY="299.0" promptText="ADC2312" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
+      <TextField fx:id="tfVin" layoutX="50.0" layoutY="299.0" promptText="ADC2312" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
       <Label layoutX="389.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="ID Interno" />
-      <TextField layoutX="389.0" layoutY="299.0" promptText="2025ADC2" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
+      <TextField fx:id="tfiDInterno" layoutX="389.0" layoutY="299.0" promptText="2025ADC2" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
       <Label layoutX="725.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Marca" />
-      <TextField layoutX="725.0" layoutY="299.0" promptText="Nissan" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
+      <TextField fx:id="tfMarca" layoutX="725.0" layoutY="299.0" promptText="Nissan" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
       <Label layoutX="53.0" layoutY="383.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Modelo" />
-      <TextField layoutX="50.0" layoutY="423.0" promptText="Sport 4 puertas" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
+      <TextField fx:id="tfModelo" layoutX="50.0" layoutY="423.0" promptText="Sport 4 puertas" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
       <Label layoutX="389.0" layoutY="389.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Año" />
-      <TextField layoutX="389.0" layoutY="423.0" promptText="2025" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
+      <TextField fx:id="tfAnio" layoutX="389.0" layoutY="423.0" promptText="2025" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
       <Label layoutX="731.0" layoutY="384.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Tipo de Unidad" />
-      <ComboBox layoutX="725.0" layoutY="426.0" prefWidth="150.0" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
+      <ComboBox fx:id="comboTipoUnidad" layoutX="725.0" layoutY="426.0" prefWidth="150.0" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
       <Label layoutX="50.0" layoutY="500.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Conductor" />
-      <ComboBox layoutX="50.0" layoutY="541.0" prefWidth="150.0" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
+      <ComboBox fx:id="comboConductor" layoutX="50.0" layoutY="541.0" prefWidth="150.0" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
       <Button layoutX="1040.0" layoutY="629.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidadesformulario.css" text="Cancelar" />
-      <Button layoutX="1194.0" layoutY="630.0" mnemonicParsing="false" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlunidadesformulario.css" text="Guardar" />
+      <Button fx:id="btnGuardar" layoutX="1194.0" layoutY="630.0" mnemonicParsing="false" onAction="#guardarUnidad" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlunidadesformulario.css" text="Guardar" />
    </children>
 </AnchorPane>

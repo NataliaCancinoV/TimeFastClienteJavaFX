@@ -56,7 +56,7 @@
                   <Image url="@recursos/search.png" />
                </image>
             </ImageView>
-            <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidades.css" text="  Eliminar  ">
+            <Button layoutX="758.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnElminarUnidad" prefHeight="39.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidades.css" text="  Eliminar  ">
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -65,7 +65,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" prefHeight="26.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidades.css" text="   Editar   ">
+            <Button layoutX="927.0" layoutY="11.0" mnemonicParsing="false" onAction="#cargarVistaUnidadEditar" prefHeight="26.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidades.css" text="   Editar   ">
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -74,7 +74,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" prefHeight="36.0" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlunidades.css" text="Agregar   ">
+            <Button layoutX="1095.0" layoutY="11.0" mnemonicParsing="false" onAction="#cargarVistaUnidadFormulario" prefHeight="36.0" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlunidades.css" text="Agregar   ">
                <graphic>
                   <ImageView fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>

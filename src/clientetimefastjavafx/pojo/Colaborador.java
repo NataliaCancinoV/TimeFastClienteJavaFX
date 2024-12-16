@@ -136,6 +136,11 @@ public class Colaborador {
     public void setNoLicencia(String noLicencia) {
         this.noLicencia = noLicencia;
     }
+        
+    @Override
+    public String toString() {
+        return nombre;
+    }
     
     
 }

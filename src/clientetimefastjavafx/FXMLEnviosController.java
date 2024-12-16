@@ -6,6 +6,7 @@
 package clientetimefastjavafx;
 
 import clientetimefastjavafx.modelo.DAO.EnvioDAO;
+import clientetimefastjavafx.observador.NotificadorOperaciones;
 import clientetimefastjavafx.pojo.Envio;
 import clientetimefastjavafx.utilidades.Utilidades;
 import java.io.IOException;
@@ -27,6 +28,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -34,7 +36,7 @@ import javafx.stage.Stage;
  *
  * @author natal
  */
-public class FXMLEnviosController implements Initializable {
+public class FXMLEnviosController implements Initializable , NotificadorOperaciones{
 
     @FXML
     private Button colaboradoresViewBtn;
@@ -56,6 +58,12 @@ public class FXMLEnviosController implements Initializable {
     private ObservableList<Envio> envios;
     @FXML
     private TableView<Envio> tableEnvios;
+    @FXML
+    private Button btnEliminarEnvio;
+    @FXML
+    private Button cargarVistaFormularioEditar;
+    @FXML
+    private Button cargarVistaEnvioFormulario;
     /**
      * Initializes the controller class.
      */
@@ -130,6 +138,7 @@ public class FXMLEnviosController implements Initializable {
         columnCosto.setCellValueFactory(new PropertyValueFactory("costo"));
         columnConductor.setCellValueFactory(new PropertyValueFactory("conductorAsignado"));
         columnEstatus.setCellValueFactory(new PropertyValueFactory("estatus"));
+        
     }
   
   public void cargarDatosTabla(){
@@ -142,5 +151,40 @@ public class FXMLEnviosController implements Initializable {
             Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede cargar la información de los envios, intentelo más tarde", Alert.AlertType.ERROR);          
       }
   }
+      public void irFormulario(NotificadorOperaciones observador, Envio envio) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLEnviosFormulario.fxml"));
+            Parent root = loader.load();
+
+            FXMLEnviosFormularioController controlador = loader.getController();
+            controlador.inicializarValores(observador, envio);
+
+            Stage escenario = new Stage();
+            Scene escena = new Scene(root);
+            escenario.setScene(escena);
+            escenario.setTitle("Formulario Unidades");
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.showAndWait();
+        } catch (Exception e) {
+            Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede mostrar formulario de colaboradores, intentelo más tarde", Alert.AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    private void cargarVistaFormularioEnvioEditar(ActionEvent event) {
+        Envio envio = tableEnvios.getSelectionModel().getSelectedItem();
+        irFormulario(this, envio);
+    }
+
+    @FXML
+    private void cargarVistaEnvioFormulario(ActionEvent event) {
+        irFormulario(this, null);
+    }
+
+    @Override
+    public void notificarOperacion(String tipoOperacioin, String nombre) {
+        System.out.println("Operacion: "+tipoOperacioin);
+        cargarDatosTabla();
+    }
 
 }
