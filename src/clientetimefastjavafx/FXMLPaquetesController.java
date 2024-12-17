@@ -28,6 +28,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
@@ -57,6 +58,8 @@ public class FXMLPaquetesController implements Initializable, NotificadorOperaci
     private TableColumn<?, ?> columnDescripcion;
     @FXML
     private TableView<Paquete> tablePaquetes;
+    @FXML
+    private TextField tfBuscarPaquete;
 
     /**
      * Initializes the controller class.
@@ -121,6 +124,13 @@ public class FXMLPaquetesController implements Initializable, NotificadorOperaci
             escenario.showAndWait();
         } catch (Exception e) {
             Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede mostrar formulario de colaboradores, intentelo más tarde", Alert.AlertType.ERROR);
+        }
+    }
+    private void buscarPaqueteEnvio(Integer noGuia){
+        List<Paquete> listaWS = PaqueteDAO.obtenerPaqueteEnvio(noGuia);
+        if(listaWS!=null){
+            paquetes.setAll(listaWS);
+            tablePaquetes.setItems(paquetes);
         }
     }
 
@@ -213,6 +223,12 @@ public class FXMLPaquetesController implements Initializable, NotificadorOperaci
     @FXML
     private void cargarVistaPaqueteFormulario(MouseEvent event) {
         irFormulario(this, null);
+    }
+
+    @FXML
+    private void btnBuscarPaquete(MouseEvent event) {
+        Integer noGuia = Integer.parseInt(tfBuscarPaquete.getText().trim());
+        buscarPaqueteEnvio(noGuia);
     }
 
 }

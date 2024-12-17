@@ -85,4 +85,17 @@ public class PaqueteDAO {
         }
         return respuesta;
     }
+    
+    public static List<Paquete> obtenerPaqueteEnvio(Integer noGuia){
+        List<Paquete> paquetes = null;
+        String uwlWS = Constantes.URLWS+"paquete/obtener-paquete-envio/"+noGuia;
+        RespuestaHTTP respuestaWS = ConexionWS.peticionGET(uwlWS);
+        if(respuestaWS.getCodigoRespuesta()==HttpURLConnection.HTTP_OK){
+            Gson gson = new Gson();
+            Type tipoLista = new TypeToken<List<Paquete>>(){}.getType();
+            paquetes=gson.fromJson(respuestaWS.getContenido(), tipoLista);
+        }
+        return paquetes;
+    }
+
 }

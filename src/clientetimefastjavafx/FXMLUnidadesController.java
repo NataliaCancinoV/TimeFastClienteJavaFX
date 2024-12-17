@@ -12,6 +12,7 @@ import clientetimefastjavafx.pojo.Unidad;
 import clientetimefastjavafx.utilidades.Utilidades;
 import java.io.IOException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -28,7 +29,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
@@ -59,6 +62,8 @@ public class FXMLUnidadesController implements Initializable, NotificadorOperaci
     @FXML
     private TableView<Unidad> tableUnidades;
     private ObservableList<Unidad> unidades;
+    @FXML
+    private TextField tfBuscar;
 
     /**
      * Initializes the controller class.
@@ -165,15 +170,37 @@ public class FXMLUnidadesController implements Initializable, NotificadorOperaci
         }
     }
 
+    private void buscarUndiad(String parametro) {
+        List<Unidad> listaWS = UnidadDAO.buscarUnidades(parametro);
+        if (listaWS != null) {
+            unidades.setAll(listaWS);
+            tableUnidades.setItems(unidades);
+        }
+    }
+
     private void eliminarUnidad() {
         Integer idUnidad = tableUnidades.getSelectionModel().getSelectedItem().getIdUnidad();
-        //String motivo = JOptionPane.showInputDialog("Ingrese el motivo de la eliminación: ");
-        Mensaje respuesta = UnidadDAO.eliminarUnidad(idUnidad,"Ejemplo");
+        String motivo = JOptionPane.showInputDialog("Ingrese el motivo de la eliminación: ");
+        try {
+        String motivoCodificado = URLEncoder.encode(motivo,"UTF-8");
+        Mensaje respuesta = UnidadDAO.eliminarUnidad(idUnidad, motivoCodificado);
         if (!respuesta.isError()) {
             Utilidades.mostrarAlerta("Elminación exitosa", "La unidad ha sido eliminada correctamente", Alert.AlertType.INFORMATION);
-            notificarOperacion("Elminacion de unidad","" );
-        }else{
-            Utilidades.mostrarAlerta("Error en la elminación", "La unidad no ha sido eliminada correctamente "+respuesta.getMensaje(), Alert.AlertType.ERROR);           
+            notificarOperacion("Elminacion de unidad", "");
+        } else {
+            Utilidades.mostrarAlerta("Error en la elminación", "La unidad no ha sido eliminada correctamente " + respuesta.getMensaje(), Alert.AlertType.ERROR);
+        }            
+        } catch (Exception e) {
+            
+        }
+
+    }
+
+    private void buscarUnidad(String parametro) {
+        List<Unidad> unidadesWS = UnidadDAO.buscarUnidades(parametro);
+        if (unidadesWS != null) {
+            this.unidades.setAll(unidadesWS);
+            tableUnidades.setItems(unidades);
         }
     }
 
@@ -197,7 +224,7 @@ public class FXMLUnidadesController implements Initializable, NotificadorOperaci
     @FXML
     private void btnElminarUnidad(ActionEvent event) {
         eliminarUnidad();
-        
+
     }
 
     @FXML
@@ -209,6 +236,13 @@ public class FXMLUnidadesController implements Initializable, NotificadorOperaci
     @FXML
     private void cargarVistaUnidadFormulario(ActionEvent event) {
         irFormulario(this, null);
+    }
+
+
+    @FXML
+    private void buscarUnidad(MouseEvent event) {
+        String parametro = tfBuscar.getText().trim();
+        buscarUndiad(parametro);
     }
 
 }

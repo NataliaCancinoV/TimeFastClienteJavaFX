@@ -12,6 +12,7 @@ import clientetimefastjavafx.pojo.Mensaje;
 import clientetimefastjavafx.utilidades.Utilidades;
 import java.io.IOException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -161,12 +162,18 @@ public class FXMLColaboradoresController implements Initializable, NotificadorOp
     @FXML
     private void buscarColaborador(MouseEvent event) {
         String parametro = tfBuscarColaborador.getText();
+        try {
+        String parametroCodicado = URLEncoder.encode(parametro,"UTF-8");
         colaboradores=FXCollections.observableArrayList();
-        List<Colaborador> listaWS = ColaboradorDAO.buscarColaborador(parametro);
+        List<Colaborador> listaWS = ColaboradorDAO.buscarColaborador(parametroCodicado);
         if(listaWS!=null){
             colaboradores.addAll(listaWS);
             table_colaboradores.setItems(colaboradores);
+        }            
+        } catch (Exception e) {
+            System.out.println("Erro cliente buscarColaborador: "+e.toString());   
         }
+
     }
 
     @FXML

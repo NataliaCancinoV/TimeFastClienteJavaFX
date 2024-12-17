@@ -73,9 +73,11 @@ public class UnidadDAO {
     public static Mensaje eliminarUnidad(Integer idUnidad, String motivo) {
         Mensaje respuesta = new Mensaje();
         Gson gson = new Gson();
-        String urlWS = Constantes.URLWS + "unidad/eliminar-unidad";
-        String parametros = String.format("idUnidad=%s&motivo=%s", idUnidad, motivo);        
-        RespuestaHTTP respuestaPeticion = ConexionWS.peticionPOST(urlWS, parametros);        
+        String urlWS = Constantes.URLWS + "unidad/eliminar-unidad/"+idUnidad+"/"+motivo;       
+        
+        System.out.println("URL ELMIINAR UNIDAD "+urlWS);
+        
+        RespuestaHTTP respuestaPeticion = ConexionWS.peticionDELETE(urlWS);        
         if(respuestaPeticion.getCodigoRespuesta()==HttpURLConnection.HTTP_OK){
             String jsonResultado = respuestaPeticion.getContenido();
             System.out.println("Repuesta de Json: "+jsonResultado);
@@ -92,6 +94,19 @@ public class UnidadDAO {
     public static List<Unidad> obtenerUndiades() {
         List<Unidad> unidades = null;
         String urlWS = Constantes.URLWS + "unidad/obtener-unidades";
+        RespuestaHTTP respuesta = ConexionWS.peticionGET(urlWS);
+        if (respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            Type tipoLista = new TypeToken<List<Unidad>>() {
+            }.getType();
+            unidades = gson.fromJson(respuesta.getContenido(), tipoLista);
+        }
+        return unidades;
+    }
+    
+        public static List<Unidad> buscarUnidades(String parametro) {
+        List<Unidad> unidades = null;
+        String urlWS = Constantes.URLWS + "unidad/buscar-unidad/"+parametro;
         RespuestaHTTP respuesta = ConexionWS.peticionGET(urlWS);
         if (respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
             Gson gson = new Gson();

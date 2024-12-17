@@ -51,6 +51,17 @@ public class EnvioDAO {
         }
         return respuesta;
     }
+    
+    public static Envio obtenerEnviosNoGuia(Integer noGuia){
+        Envio envios=null;
+        String urlWS= Constantes.URLWS +"envio/envio-NoGuia/"+noGuia;
+        RespuestaHTTP respuestaWS = ConexionWS.peticionGET(urlWS);
+        if(respuestaWS.getCodigoRespuesta()==HttpURLConnection.HTTP_OK){
+            Gson gson = new Gson();
+            envios = gson.fromJson(respuestaWS.getContenido(),Envio.class);
+        }
+        return envios;
+    }
      
     public static List<Cliente> obtenerClientes() {
         List<Cliente> clientes = null;

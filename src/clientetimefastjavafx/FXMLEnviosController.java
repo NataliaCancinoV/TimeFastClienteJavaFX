@@ -27,7 +27,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -64,6 +66,8 @@ public class FXMLEnviosController implements Initializable , NotificadorOperacio
     private Button cargarVistaFormularioEditar;
     @FXML
     private Button cargarVistaEnvioFormulario;
+    @FXML
+    private TextField tfBuscarEnvio;
     /**
      * Initializes the controller class.
      */
@@ -140,6 +144,15 @@ public class FXMLEnviosController implements Initializable , NotificadorOperacio
         columnEstatus.setCellValueFactory(new PropertyValueFactory("estatus"));
         
     }
+     private void buscarEnvioNoGuia(Integer noGuia){
+         Envio envioWS = EnvioDAO.obtenerEnviosNoGuia(noGuia);
+         System.out.println("Envio no guia: "+envioWS.getIdEnvio());
+         if(envioWS!=null){
+             envios.clear();
+             envios.add(envioWS);
+             tableEnvios.setItems(envios);
+         }
+     }
   
   public void cargarDatosTabla(){
       envios = FXCollections.observableArrayList();
@@ -185,6 +198,12 @@ public class FXMLEnviosController implements Initializable , NotificadorOperacio
     public void notificarOperacion(String tipoOperacioin, String nombre) {
         System.out.println("Operacion: "+tipoOperacioin);
         cargarDatosTabla();
+    }
+
+    @FXML
+    private void btnBuscarEnvio(MouseEvent event) {
+        Integer noGuia = Integer.parseInt(tfBuscarEnvio.getText().trim());
+        buscarEnvioNoGuia(noGuia);
     }
 
 }
