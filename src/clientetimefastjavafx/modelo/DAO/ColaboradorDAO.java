@@ -60,6 +60,7 @@ public class ColaboradorDAO {
     public static Mensaje editarColaborador(Colaborador colaborador) {
         Mensaje respuesta = new Mensaje();
         String urlWS = Constantes.URLWS + "colaborador/editar-colaborador";
+        System.out.println("CURP COLABORADOR: "+colaborador.getCurp());
         Gson gson = new Gson();
         String parametro = gson.toJson(colaborador);
         RespuestaHTTP respuestaWS = ConexionWS.peticionPUTJSON(urlWS, parametro);
@@ -92,7 +93,7 @@ public class ColaboradorDAO {
     public static List<Colaborador> buscarColaborador(String parametro) {
         List<Colaborador> colaboradores = null;
         String urlWS = Constantes.URLWS + "colaborador/buscar-colaborador/" + parametro;
-        System.out.println("URL WS: " + urlWS);
+        System.out.println("URL WS SUBIR FOTO: " + urlWS);
         RespuestaHTTP respuesta = ConexionWS.peticionGET(urlWS);
         if (respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
             Gson gson = new Gson();
@@ -107,5 +108,31 @@ public class ColaboradorDAO {
         }
         return colaboradores;
     }
+    public static Mensaje subirFoto (Integer idColaborador, byte[] foto){
+        Mensaje respuesta = new Mensaje();
+        String urlWS = Constantes.URLWS+"colaborador/subir-foto/"+idColaborador;
+        RespuestaHTTP respuestaWS = ConexionWS.peticionPUTBinary(urlWS, foto);        
+        if(respuestaWS.getCodigoRespuesta()==HttpURLConnection.HTTP_OK){
+            respuesta.setError(false);
+            respuesta.setMensaje("Foto subida correctamente: "+respuestaWS.getContenido());
+        }else{
+            respuesta.setError(true);
+            respuesta.setMensaje("Error al subir la foto");
+        }
+        return respuesta;
+    }
+    
+    public static Colaborador obtenerFotoColaborador (Integer idColaborador){
+        Colaborador colaborador= null;
+        String urlWS = Constantes.URLWS+"colaborador/obtener-foto/"+idColaborador;
+        RespuestaHTTP respuestaWS = ConexionWS.peticionGET(urlWS);
+        if(respuestaWS.getCodigoRespuesta()==HttpURLConnection.HTTP_OK){
+            Gson gson = new Gson();
+            colaborador = gson.fromJson(respuestaWS.getContenido(), Colaborador.class);
+            System.out.println("COLABORADOR FOTO : "+colaborador);
+        }
+        return colaborador;
+    }
+    
 
 }

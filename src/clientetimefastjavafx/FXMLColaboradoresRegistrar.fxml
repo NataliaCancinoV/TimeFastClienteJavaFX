@@ -67,12 +67,12 @@
       <Label layoutX="1028.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Foto" />
       <Pane layoutX="1029.0" layoutY="299.0" prefHeight="298.0" prefWidth="290.0" styleClass="pTimeFastImage" stylesheets="@fxmlcolaboradoresregistrar.css">
          <children>
-            <ImageView fitHeight="81.0" fitWidth="87.0" layoutX="105.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" styleClass="imgTimeFastImage">
+            <ImageView fx:id="imageViewColaborador" fitHeight="81.0" fitWidth="87.0" layoutX="105.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" styleClass="imgTimeFastImage">
                <image>
                   <Image url="@recursos/download.png" />
                </image>
             </ImageView>
-            <Label layoutX="78.0" layoutY="217.0" styleClass="lbTimeFastImage" stylesheets="@fxmlcolaboradoresregistrar.css" text="Sube tu Archivo" />
+            <Label layoutX="78.0" layoutY="217.0" onMouseClicked="#subirFoto" styleClass="lbTimeFastImage" stylesheets="@fxmlcolaboradoresregistrar.css" text="Sube tu Archivo" />
          </children>
       </Pane>
       <Button layoutX="1031.0" layoutY="629.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradoresregistrar.css" text="Cancelar" />

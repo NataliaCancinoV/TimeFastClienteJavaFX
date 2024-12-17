@@ -162,40 +162,45 @@ public class FXMLColaboradoresController implements Initializable, NotificadorOp
     @FXML
     private void buscarColaborador(MouseEvent event) {
         String parametro = tfBuscarColaborador.getText();
-        try {
-        String parametroCodicado = URLEncoder.encode(parametro,"UTF-8");
-        colaboradores=FXCollections.observableArrayList();
-        List<Colaborador> listaWS = ColaboradorDAO.buscarColaborador(parametroCodicado);
-        if(listaWS!=null){
-            colaboradores.addAll(listaWS);
-            table_colaboradores.setItems(colaboradores);
-        }            
-        } catch (Exception e) {
-            System.out.println("Erro cliente buscarColaborador: "+e.toString());   
+        System.out.println("CONTENIDO PARAMETRO: " + parametro);
+        if (parametro.trim().equals("") || parametro.trim().equals(" ")) {
+            Utilidades.mostrarAlerta("Error Busqueda", "Campos de busqueda vacio", Alert.AlertType.INFORMATION);
+        } else {
+            try {
+                String parametroCodicado = URLEncoder.encode(parametro, "UTF-8");
+                colaboradores = FXCollections.observableArrayList();
+                List<Colaborador> listaWS = ColaboradorDAO.buscarColaborador(parametroCodicado);
+                if (listaWS != null) {
+                    colaboradores.addAll(listaWS);
+                    table_colaboradores.setItems(colaboradores);
+                }
+            } catch (Exception e) {
+                System.out.println("Error cliente buscarColaborador: " + e.toString());
+            }
         }
 
     }
 
     @FXML
     private void cargarFormularioColaborador(ActionEvent event) {
-      irFormulario(this,null);
+        irFormulario(this, null);
     }
 
     @Override
     public void notificarOperacion(String tipoOperacioin, String nombre) {
-        System.out.println("Tipo operacion "+tipoOperacioin);
-        System.out.println("Nombe del colaborador :"+nombre );
+        System.out.println("Tipo operacion " + tipoOperacioin);
+        System.out.println("Nombe del colaborador :" + nombre);
         cargarInformacionTabla();
     }
-    
-    public void irFormulario(NotificadorOperaciones observador, Colaborador colaborador){
+
+    public void irFormulario(NotificadorOperaciones observador, Colaborador colaborador) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLColaboradoresRegistrar.fxml"));
-            Parent root= loader.load();
-            
+            Parent root = loader.load();
+
             FXMLColaboradoresRegistrarController controlador = loader.getController();
             controlador.inicializarValores(observador, colaborador);
-            
+
             Stage escenario = new Stage();
             Scene escena = new Scene(root);
             escenario.setScene(escena);
@@ -203,34 +208,45 @@ public class FXMLColaboradoresController implements Initializable, NotificadorOp
             escenario.initModality(Modality.APPLICATION_MODAL);
             escenario.showAndWait();
         } catch (Exception e) {
-         Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede mostrar formulario de colaboradores, intentelo más tarde", Alert.AlertType.ERROR);
+            Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede mostrar formulario de colaboradores, intentelo más tarde", Alert.AlertType.ERROR);
         }
     }
-    private void eliminarColaborador(){
+
+    private void eliminarColaborador() {
         Integer idColaborador = table_colaboradores.getSelectionModel().getSelectedItem().getIdColaborador();
-        System.out.println("ID COLABORADOR: "+idColaborador);
-        Mensaje respuesta=ColaboradorDAO.eliminarColaborador(idColaborador);
-        if(!respuesta.isError()){
+
+        System.out.println("ID COLABORADOR: " + idColaborador);
+        Mensaje respuesta = ColaboradorDAO.eliminarColaborador(idColaborador);
+        if (!respuesta.isError()) {
             Utilidades.mostrarAlerta("Eliminacion Exitosa", "El colaborador ha sido eliminado correctamente", Alert.AlertType.INFORMATION);
-        }else{            
-            Utilidades.mostrarAlerta("Error elminacion", "Error al elminiar colaborador "+respuesta.getMensaje(), Alert.AlertType.ERROR);            
+        } else {
+            Utilidades.mostrarAlerta("Error elminacion", "Error al elminiar colaborador " + respuesta.getMensaje(), Alert.AlertType.ERROR);
         }
+
     }
 
     @FXML
     private void cargarFormularioColaboradorEditar(ActionEvent event) {
         Colaborador colaboradorEditar = table_colaboradores.getSelectionModel().getSelectedItem();
-        if(colaboradorEditar!=null){
-          irFormulario(this,colaboradorEditar);
+        if (colaboradorEditar != null) {
+            irFormulario(this, colaboradorEditar);
+        }else{
+           Utilidades.mostrarAlerta("Error Edición", "Debe seleccionar un registro para editar ", Alert.AlertType.ERROR);            
         }
 
     }
 
     @FXML
     private void btnEliminarColaborador(ActionEvent event) {
-        eliminarColaborador();
-        notificarOperacion("Eliminar" ,"Colaborador");
+        Colaborador colaborador = null;
+        colaborador= table_colaboradores.getSelectionModel().getSelectedItem();
+        if(colaborador!=null){
+            eliminarColaborador();
+            notificarOperacion("Eliminar", "Colaborador");   
+        }else{
+           Utilidades.mostrarAlerta("Error elminacion", "Error debe seleccionar un registro ", Alert.AlertType.ERROR);
+        }
+
     }
 
-    
 }
