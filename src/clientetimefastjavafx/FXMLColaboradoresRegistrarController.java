@@ -101,6 +101,8 @@ public class FXMLColaboradoresRegistrarController implements Initializable {
         if (colaboradorEdicion != null) {
             modoEdicion = true;
             cargarDatosEdicion();
+            comboRoles.setDisable(true);
+            tfNoPersonal.setDisable(true);
         }
     }
 
@@ -273,17 +275,16 @@ public class FXMLColaboradoresRegistrarController implements Initializable {
                 if (!modoEdicion) {
                     guardarDatosColaborador(colaboradorRegistrar);
                 } else {
-                    comboRoles.setEditable(false);
-                    tfNoPersonal.setEditable(false);
+
                     Integer idColaborador = this.colaboradorEdicion.getIdColaborador();
                     Colaborador colaboradorEditar = new Colaborador(idColaborador, nombre, apellidoPaterno, apellidoMaterno, correo, noPersonal, contrasena, curp, idRol, "", noLicencia, nombreRol);
                     editarDatosColaborador(colaboradorEditar);
                 }
                 System.out.println("ES MODO EDICION " + modoEdicion);
-            }else{
-            Utilidades.mostrarAlerta("Error al registrar", "Campos invalidos, vuelva a intentarlo", Alert.AlertType.INFORMATION);                
+            } else {
+                Utilidades.mostrarAlerta("Error al registrar", "Campos invalidos, vuelva a intentarlo", Alert.AlertType.INFORMATION);
             }
-        }else{
+        } else {
             Utilidades.mostrarAlerta("Error al registrar", "Campos faltantes en el registro", Alert.AlertType.INFORMATION);
         }
 

@@ -7,6 +7,7 @@ package clientetimefastjavafx.modelo.DAO;
 
 import clientetimefastjavafx.modelo.ConexionWS;
 import clientetimefastjavafx.pojo.Colaborador;
+import clientetimefastjavafx.pojo.HistorialUnidad;
 import clientetimefastjavafx.pojo.Mensaje;
 import clientetimefastjavafx.pojo.RespuestaHTTP;
 import clientetimefastjavafx.pojo.Unidad;
@@ -73,20 +74,20 @@ public class UnidadDAO {
     public static Mensaje eliminarUnidad(Integer idUnidad, String motivo) {
         Mensaje respuesta = new Mensaje();
         Gson gson = new Gson();
-        String urlWS = Constantes.URLWS + "unidad/eliminar-unidad/"+idUnidad+"/"+motivo;       
-        
-        System.out.println("URL ELMIINAR UNIDAD "+urlWS);
-        
-        RespuestaHTTP respuestaPeticion = ConexionWS.peticionDELETE(urlWS);        
-        if(respuestaPeticion.getCodigoRespuesta()==HttpURLConnection.HTTP_OK){
+        String urlWS = Constantes.URLWS + "unidad/eliminar-unidad/" + idUnidad + "/" + motivo;
+
+        System.out.println("URL ELMIINAR UNIDAD " + urlWS);
+
+        RespuestaHTTP respuestaPeticion = ConexionWS.peticionDELETE(urlWS);
+        if (respuestaPeticion.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
             String jsonResultado = respuestaPeticion.getContenido();
-            System.out.println("Repuesta de Json: "+jsonResultado);
-           //SE REQUIERE EL JSON Y LA CLASE PARA TOMAR DE MOLDE
-           //SE LE PASA LA CADENA DE TIPO JASON Y LA CLASE
-           respuesta= gson.fromJson(respuestaPeticion.getContenido(), Mensaje.class);
-        }else{
+            System.out.println("Repuesta de Json: " + jsonResultado);
+            //SE REQUIERE EL JSON Y LA CLASE PARA TOMAR DE MOLDE
+            //SE LE PASA LA CADENA DE TIPO JASON Y LA CLASE
+            respuesta = gson.fromJson(respuestaPeticion.getContenido(), Mensaje.class);
+        } else {
             respuesta.setError(true);
-           respuesta.setMensaje("Lo sentimos" +respuestaPeticion.getContenido());            
+            respuesta.setMensaje("Lo sentimos" + respuestaPeticion.getContenido());
         }
         return respuesta;
     }
@@ -103,10 +104,37 @@ public class UnidadDAO {
         }
         return unidades;
     }
-    
-        public static List<Unidad> buscarUnidades(String parametro) {
+
+    public static List<HistorialUnidad> obtenerHistorialEliminacion() {
+        List<HistorialUnidad> unidades = null;
+        String urlWS = Constantes.URLWS + "unidad/obtener-historial";
+        RespuestaHTTP respuesta = ConexionWS.peticionGET(urlWS);
+        if (respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            Type tipoLista = new TypeToken<List<HistorialUnidad>>() {
+            }.getType();
+            unidades = gson.fromJson(respuesta.getContenido(), tipoLista);
+        }
+        return unidades;
+    }
+
+    public static List<HistorialUnidad> obstenerHistorialMarca(String marca) {
+        List<HistorialUnidad> unidades = null;
+        String urlWS = Constantes.URLWS + "unidad/obtener-historial-marca/"+marca;
+        System.out.println("URLWS BUSQEUDA HISTORIAL MARAC: "+urlWS);
+        RespuestaHTTP respuesta = ConexionWS.peticionGET(urlWS);
+        if (respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            Type tipoLista = new TypeToken<List<HistorialUnidad>>() {
+            }.getType();
+            unidades = gson.fromJson(respuesta.getContenido(), tipoLista);
+        }
+        return unidades;
+    }
+
+    public static List<Unidad> buscarUnidades(String parametro) {
         List<Unidad> unidades = null;
-        String urlWS = Constantes.URLWS + "unidad/buscar-unidad/"+parametro;
+        String urlWS = Constantes.URLWS + "unidad/buscar-unidad/" + parametro;
         RespuestaHTTP respuesta = ConexionWS.peticionGET(urlWS);
         if (respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
             Gson gson = new Gson();

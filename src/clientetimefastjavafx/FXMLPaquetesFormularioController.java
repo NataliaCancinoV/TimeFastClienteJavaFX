@@ -70,7 +70,8 @@ public class FXMLPaquetesFormularioController implements Initializable {
         this.paqueteEdicion = paqueteEdicion;
         if (paqueteEdicion != null) {
             modoEdicion = true;
-           cargarDatosEdicion();
+            cargarDatosEdicion();
+            comboEnvio.setDisable(true);
         }
     }
 
@@ -81,25 +82,27 @@ public class FXMLPaquetesFormularioController implements Initializable {
             comboEnvio.setItems(envios);
         }
     }
-    private void cargarDatosEdicion(){
+
+    private void cargarDatosEdicion() {
         tfAlto.setText(String.valueOf(paqueteEdicion.getAlto()));
         tfAncho.setText(String.valueOf(paqueteEdicion.getAncho()));
         tfProdundidad.setText(String.valueOf(paqueteEdicion.getProfundidad()));
         tfDescripcion.setText(paqueteEdicion.getDescripcion());
         Integer envio = paqueteEdicion.getEnvio();
-        System.out.println("Envio: "+envio);
+        System.out.println("Envio: " + envio);
         comboEnvio.setValue(envios.get(obtenerEnvio(envio)));
     }
-    
-    private int obtenerEnvio(Integer idEnvio){
+
+    private int obtenerEnvio(Integer idEnvio) {
         int posicion = 0;
-        for(int i = 0;i<envios.size();i++){
-            if(idEnvio == envios.get(i).getIdEnvio()){
-                posicion=i;
+        for (int i = 0; i < envios.size(); i++) {
+            if (idEnvio == envios.get(i).getIdEnvio()) {
+                posicion = i;
             }
         }
         return posicion;
     }
+
     private void agregarPaquete(Paquete paquete) {
         Mensaje respuesta = PaqueteDAO.agregarPaquete(paquete);
         if (!respuesta.isError()) {
@@ -131,36 +134,87 @@ public class FXMLPaquetesFormularioController implements Initializable {
         Random random = new Random();
         Integer numero;
 
-        // Generamos un número aleatorio y comprobamos que no se repita
         do {
             numero = 1000 + random.nextInt(9000); // Número aleatorio entre 1000 y 9999
         } while (numerosGenerados.contains(numero));
 
-        // Añadimos el número a la lista para evitar que se repita
         numerosGenerados.add(numero);
 
         return numero;
     }
 
+    private boolean camposNoVacios() {
+        boolean valido = true;
+        if (tfAlto.getText().isEmpty()) {
+            valido = false;
+        }
+
+        if (tfAncho.getText().isEmpty()) {
+            valido = false;
+        }
+
+        if (tfDescripcion.getText().isEmpty()) {
+            valido = false;
+        }
+
+        if (tfProdundidad.getText().isEmpty()) {
+            valido = false;
+        }
+        return valido;
+    }
+
+    private boolean validarCampos() {
+        // Regex para un número flotante con hasta un decimal
+        String regex = "^[0-9]+(?:\\.[0-9])?$";
+
+        String alto = tfAlto.getText();
+        String ancho = tfAncho.getText();
+        String profundidad = tfProdundidad.getText();
+
+        if (!alto.matches(regex)) {
+
+            return false;
+        }
+        if (!ancho.matches(regex)) {
+            return false;
+        }
+        if (!profundidad.matches(regex)) {
+
+            return false;
+        }
+
+        return true;
+    }
+
     @FXML
     private void guardarEnvio(ActionEvent event) {
-        Integer noPaquete = generarNumeroAleatorio();
-        String descripcion = tfDescripcion.getText();
-        Float peso = 10.9f;
-        Float alto = Float.parseFloat(tfAlto.getText());
-        Float ancho = Float.parseFloat(tfAncho.getText());
-        Float profundidad = Float.parseFloat(tfProdundidad.getText());
-        Integer envioAsignado = comboEnvio.getSelectionModel().getSelectedItem().getIdEnvio();
 
-        Paquete paquete = new Paquete(0, noPaquete, descripcion, peso, alto, ancho, profundidad, envioAsignado);
+        if (camposNoVacios()) {
+            if (validarCampos()) {
+                Integer noPaquete = generarNumeroAleatorio();
+                String descripcion = tfDescripcion.getText();
+                Float peso = 10.9f;
+                Float alto = Float.parseFloat(tfAlto.getText());
+                Float ancho = Float.parseFloat(tfAncho.getText());
+                Float profundidad = Float.parseFloat(tfProdundidad.getText());
+                Integer envioAsignado = comboEnvio.getSelectionModel().getSelectedItem().getIdEnvio();
+                Paquete paquete = new Paquete(0, noPaquete, descripcion, peso, alto, ancho, profundidad, envioAsignado);
 
-        if (!modoEdicion) {
-            agregarPaquete(paquete);
+                if (!modoEdicion) {
+                    agregarPaquete(paquete);
+                } else {
+                    Integer idPaquete = this.paqueteEdicion.getIdPaquete();
+                    Paquete paqueteEditar = new Paquete(idPaquete, noPaquete, descripcion, peso, alto, ancho, profundidad, envioAsignado);
+                    editarPaquete(paqueteEditar);
+                }
+            } else {
+                Utilidades.mostrarAlerta("Error guardar paquete", "Campos invalidos", Alert.AlertType.ERROR);
+            }
         } else {
-            Integer idPaquete = this.paqueteEdicion.getIdPaquete();
-            Paquete paqueteEditar = new Paquete(idPaquete, noPaquete, descripcion, peso, alto, ancho, profundidad, envioAsignado);
-            editarPaquete(paqueteEditar);  
+            Utilidades.mostrarAlerta("Error al guardar el paquete", "Campos incompletos", Alert.AlertType.ERROR);
+
         }
+
     }
 
 }

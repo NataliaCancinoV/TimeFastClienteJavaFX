@@ -96,8 +96,8 @@ public class FXMLPaquetesController implements Initializable, NotificadorOperaci
     }
 
     private void elminarPaquete() {
-        Integer idPaquete = tablePaquetes.getSelectionModel().getSelectedItem().getIdPaquete();        
-        System.out.println("ID PAQUETE: "+idPaquete);
+        Integer idPaquete = tablePaquetes.getSelectionModel().getSelectedItem().getIdPaquete();
+        System.out.println("ID PAQUETE: " + idPaquete);
         Mensaje respuesta = PaqueteDAO.eliminarPaquete(idPaquete);
         if (!respuesta.isError()) {
             Utilidades.mostrarAlerta("Eliminación Exitosa", "El paquete ha sido eliminado correctamente", Alert.AlertType.INFORMATION);
@@ -126,9 +126,10 @@ public class FXMLPaquetesController implements Initializable, NotificadorOperaci
             Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede mostrar formulario de colaboradores, intentelo más tarde", Alert.AlertType.ERROR);
         }
     }
-    private void buscarPaqueteEnvio(Integer noGuia){
+
+    private void buscarPaqueteEnvio(Integer noGuia) {
         List<Paquete> listaWS = PaqueteDAO.obtenerPaqueteEnvio(noGuia);
-        if(listaWS!=null){
+        if (listaWS != null) {
             paquetes.setAll(listaWS);
             tablePaquetes.setItems(paquetes);
         }
@@ -193,13 +194,12 @@ public class FXMLPaquetesController implements Initializable, NotificadorOperaci
         cargarInformacionTabla();
     }
 
-    @FXML
     private void cargarVistaPaqeuteEdicion(ActionEvent event) {
+        System.out.println("EDICION");
         Paquete paquete = tablePaquetes.getSelectionModel().getSelectedItem();
         irFormulario(this, paquete);
     }
 
-    @FXML
     private void cargarVistaPaqueteFormulario(ActionEvent event) {
         irFormulario(this, null);
     }
@@ -210,8 +210,15 @@ public class FXMLPaquetesController implements Initializable, NotificadorOperaci
 
     @FXML
     private void btnElminarPaquete(ActionEvent event) {
-        elminarPaquete();
-        notificarOperacion("Eliminar" ,"Colaborador");
+        Paquete paquete = tablePaquetes.getSelectionModel().getSelectedItem();
+        if (paquete != null) {
+            elminarPaquete();
+            notificarOperacion("Eliminar", "Colaborador");
+        } else {
+            Utilidades.mostrarAlerta("Error eliminar", "Debe seleccionar un paquete para eliminar", Alert.AlertType.ERROR);
+
+        }
+
     }
 
     @FXML
@@ -227,8 +234,30 @@ public class FXMLPaquetesController implements Initializable, NotificadorOperaci
 
     @FXML
     private void btnBuscarPaquete(MouseEvent event) {
-        Integer noGuia = Integer.parseInt(tfBuscarPaquete.getText().trim());
-        buscarPaqueteEnvio(noGuia);
+        if (tfBuscarPaquete.getText().equals(" ") || tfBuscarPaquete.getText().trim().equals("")) {
+            Utilidades.mostrarAlerta("Error buscar paquete", "Campos de busqueda vacio", Alert.AlertType.ERROR);
+
+        } else {
+            Integer noGuia = Integer.parseInt(tfBuscarPaquete.getText().trim());
+            buscarPaqueteEnvio(noGuia);
+        }
+
+    }
+
+    @FXML
+    private void editarPaquete(ActionEvent event) {
+        Paquete paquete = tablePaquetes.getSelectionModel().getSelectedItem();
+        if (paquete != null) {
+            irFormulario(this, paquete);
+        } else {
+            Utilidades.mostrarAlerta("Error editar", "Debe seleccionar un paquete para editar", Alert.AlertType.ERROR);
+        }
+
+    }
+
+    @FXML
+    private void agregarPaquete(ActionEvent event) {
+        irFormulario(this, null);
     }
 
 }

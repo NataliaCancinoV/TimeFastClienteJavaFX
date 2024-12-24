@@ -171,27 +171,34 @@ public class FXMLUnidadesController implements Initializable, NotificadorOperaci
     }
 
     private void buscarUndiad(String parametro) {
-        List<Unidad> listaWS = UnidadDAO.buscarUnidades(parametro);
-        if (listaWS != null) {
-            unidades.setAll(listaWS);
-            tableUnidades.setItems(unidades);
+        try {
+            String parametroCodificado = URLEncoder.encode(parametro, "UTF-8");
+            List<Unidad> listaWS = UnidadDAO.buscarUnidades(parametroCodificado);
+            if (listaWS != null) {
+                unidades.setAll(listaWS);
+                tableUnidades.setItems(unidades);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al buscar la unidad: " + e.toString());
+
         }
+
     }
 
     private void eliminarUnidad() {
         Integer idUnidad = tableUnidades.getSelectionModel().getSelectedItem().getIdUnidad();
         String motivo = JOptionPane.showInputDialog("Ingrese el motivo de la eliminación: ");
         try {
-        String motivoCodificado = URLEncoder.encode(motivo,"UTF-8");
-        Mensaje respuesta = UnidadDAO.eliminarUnidad(idUnidad, motivoCodificado);
-        if (!respuesta.isError()) {
-            Utilidades.mostrarAlerta("Elminación exitosa", "La unidad ha sido eliminada correctamente", Alert.AlertType.INFORMATION);
-            notificarOperacion("Elminacion de unidad", "");
-        } else {
-            Utilidades.mostrarAlerta("Error en la elminación", "La unidad no ha sido eliminada correctamente " + respuesta.getMensaje(), Alert.AlertType.ERROR);
-        }            
+            String motivoCodificado = URLEncoder.encode(motivo, "UTF-8");
+            Mensaje respuesta = UnidadDAO.eliminarUnidad(idUnidad, motivoCodificado);
+            if (!respuesta.isError()) {
+                Utilidades.mostrarAlerta("Elminación exitosa", "La unidad ha sido eliminada correctamente", Alert.AlertType.INFORMATION);
+                notificarOperacion("Elminacion de unidad", "");
+            } else {
+                Utilidades.mostrarAlerta("Error en la elminación", "La unidad no ha sido eliminada correctamente " + respuesta.getMensaje(), Alert.AlertType.ERROR);
+            }
         } catch (Exception e) {
-            
+
         }
 
     }
@@ -223,14 +230,24 @@ public class FXMLUnidadesController implements Initializable, NotificadorOperaci
 
     @FXML
     private void btnElminarUnidad(ActionEvent event) {
-        eliminarUnidad();
+        Unidad unidad = tableUnidades.getSelectionModel().getSelectedItem();
+        if (unidad != null) {
+            eliminarUnidad();
+        } else {
+            Utilidades.mostrarAlerta("Error", "Debe seleccionar un registro para eliminar", Alert.AlertType.ERROR);
+        }
 
     }
 
     @FXML
     private void cargarVistaUnidadEditar(ActionEvent event) {
         Unidad unidad = tableUnidades.getSelectionModel().getSelectedItem();
-        irFormulario(this, unidad);
+        if (unidad != null) {
+            irFormulario(this, unidad);
+        } else {
+            Utilidades.mostrarAlerta("Error", "Debe seleccionar un registro para editar", Alert.AlertType.ERROR);
+        }
+
     }
 
     @FXML
@@ -238,11 +255,30 @@ public class FXMLUnidadesController implements Initializable, NotificadorOperaci
         irFormulario(this, null);
     }
 
-
     @FXML
     private void buscarUnidad(MouseEvent event) {
         String parametro = tfBuscar.getText().trim();
-        buscarUndiad(parametro);
+        if (parametro.trim().equals(" ") || parametro.equals("")) {
+            Utilidades.mostrarAlerta("Error", "Campo de Busqueda vacio", Alert.AlertType.ERROR);
+        } else {
+            buscarUndiad(parametro);
+        }
+
+    }
+
+    @FXML
+    private void irPantallaHistorial(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLHistorialEliminacionUnidades.fxml"));
+            Parent root = loader.load();
+            Stage escenario = new Stage();
+            Scene escena = new Scene(root);
+            escenario.setScene(escena);
+            escenario.setTitle("Historial Unidades");
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.showAndWait();
+        } catch (Exception e) {
+        }
     }
 
 }

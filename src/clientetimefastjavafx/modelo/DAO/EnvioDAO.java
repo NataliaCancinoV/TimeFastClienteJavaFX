@@ -8,6 +8,7 @@ package clientetimefastjavafx.modelo.DAO;
 import clientetimefastjavafx.modelo.ConexionWS;
 import clientetimefastjavafx.pojo.Cliente;
 import clientetimefastjavafx.pojo.Envio;
+import clientetimefastjavafx.pojo.HistorialEnvio;
 import clientetimefastjavafx.pojo.Mensaje;
 import clientetimefastjavafx.pojo.RespuestaHTTP;
 import clientetimefastjavafx.utilidades.Constantes;
@@ -35,8 +36,8 @@ public class EnvioDAO {
         }
         return respuesta;
     }
-    
-        public static Mensaje editarEnvio(Envio envio) {
+
+    public static Mensaje editarEnvio(Envio envio) {
         Mensaje respuesta = new Mensaje();
         String urlWS = Constantes.URLWS + "envio/editar-envio";
         Gson gson = new Gson();
@@ -51,18 +52,18 @@ public class EnvioDAO {
         }
         return respuesta;
     }
-    
-    public static Envio obtenerEnviosNoGuia(Integer noGuia){
-        Envio envios=null;
-        String urlWS= Constantes.URLWS +"envio/envio-NoGuia/"+noGuia;
+
+    public static Envio obtenerEnviosNoGuia(Integer noGuia) {
+        Envio envios = null;
+        String urlWS = Constantes.URLWS + "envio/envio-NoGuia/" + noGuia;
         RespuestaHTTP respuestaWS = ConexionWS.peticionGET(urlWS);
-        if(respuestaWS.getCodigoRespuesta()==HttpURLConnection.HTTP_OK){
+        if (respuestaWS.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
             Gson gson = new Gson();
-            envios = gson.fromJson(respuestaWS.getContenido(),Envio.class);
+            envios = gson.fromJson(respuestaWS.getContenido(), Envio.class);
         }
         return envios;
     }
-     
+
     public static List<Cliente> obtenerClientes() {
         List<Cliente> clientes = null;
         String urlWS = Constantes.URLWS + "cliente/obtener-clientes";
@@ -74,9 +75,7 @@ public class EnvioDAO {
             clientes = gson.fromJson(respuesta.getContenido(), tipoLista);
         }
         return clientes;
-    }   
-
-
+    }
 
     public static List<Envio> obtenerEnvios() {
         List<Envio> envios = null;
@@ -84,6 +83,32 @@ public class EnvioDAO {
         RespuestaHTTP respuesta = ConexionWS.peticionGET(urlWS);
         if (respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
             Type tipoLista = new TypeToken<List<Envio>>() {
+            }.getType();
+            Gson gson = new Gson();
+            envios = gson.fromJson(respuesta.getContenido(), tipoLista);
+        }
+        return envios;
+    }
+
+    public static List<HistorialEnvio> obtenerHistorialEnviosEstatus() {
+        List<HistorialEnvio> envios = null;
+        String urlWS = Constantes.URLWS + "envio/historial-envio";
+        RespuestaHTTP respuesta = ConexionWS.peticionGET(urlWS);
+        if (respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
+            Type tipoLista = new TypeToken<List<HistorialEnvio>>() {
+            }.getType();
+            Gson gson = new Gson();
+            envios = gson.fromJson(respuesta.getContenido(), tipoLista);
+        }
+        return envios;
+    }
+
+    public static List<HistorialEnvio> obtenerHistorialEstatusNoGuia(Integer noGuia) {
+        List<HistorialEnvio> envios = null;
+        String urlWS = Constantes.URLWS + "envio/obtener-historial-noGuia/"+noGuia;
+        RespuestaHTTP respuesta = ConexionWS.peticionGET(urlWS);
+        if (respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK) {
+            Type tipoLista = new TypeToken<List<HistorialEnvio>>() {
             }.getType();
             Gson gson = new Gson();
             envios = gson.fromJson(respuesta.getContenido(), tipoLista);

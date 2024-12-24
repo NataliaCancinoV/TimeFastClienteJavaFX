@@ -38,7 +38,7 @@ import javafx.stage.Stage;
  *
  * @author natal
  */
-public class FXMLEnviosController implements Initializable , NotificadorOperaciones{
+public class FXMLEnviosController implements Initializable, NotificadorOperaciones {
 
     @FXML
     private Button colaboradoresViewBtn;
@@ -56,7 +56,7 @@ public class FXMLEnviosController implements Initializable , NotificadorOperacio
     private TableColumn<?, ?> columnConductor;
     @FXML
     private TableColumn<?, ?> columnEstatus;
-    
+
     private ObservableList<Envio> envios;
     @FXML
     private TableView<Envio> tableEnvios;
@@ -68,6 +68,7 @@ public class FXMLEnviosController implements Initializable , NotificadorOperacio
     private Button cargarVistaEnvioFormulario;
     @FXML
     private TextField tfBuscarEnvio;
+
     /**
      * Initializes the controller class.
      */
@@ -133,7 +134,8 @@ public class FXMLEnviosController implements Initializable , NotificadorOperacio
             Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-  private void configurarTabla() {
+
+    private void configurarTabla() {
         //NOMBRE DEL ATRIBUTO DEL POJO CON EL QUE SE DEFINIO QUE SE VA A LLENAR
         columnNoGuia.setCellValueFactory(new PropertyValueFactory("noGuia"));
         columnCliente.setCellValueFactory(new PropertyValueFactory("nombreCliente"));
@@ -142,29 +144,31 @@ public class FXMLEnviosController implements Initializable , NotificadorOperacio
         columnCosto.setCellValueFactory(new PropertyValueFactory("costo"));
         columnConductor.setCellValueFactory(new PropertyValueFactory("conductorAsignado"));
         columnEstatus.setCellValueFactory(new PropertyValueFactory("estatus"));
-        
+
     }
-     private void buscarEnvioNoGuia(Integer noGuia){
-         Envio envioWS = EnvioDAO.obtenerEnviosNoGuia(noGuia);
-         System.out.println("Envio no guia: "+envioWS.getIdEnvio());
-         if(envioWS!=null){
-             envios.clear();
-             envios.add(envioWS);
-             tableEnvios.setItems(envios);
-         }
-     }
-  
-  public void cargarDatosTabla(){
-      envios = FXCollections.observableArrayList();
-      List<Envio> enviosWS= EnvioDAO.obtenerEnvios();
-      if(enviosWS!=null){
-          envios.addAll(enviosWS);
-          tableEnvios.setItems(envios);
-      }else{
-            Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede cargar la información de los envios, intentelo más tarde", Alert.AlertType.ERROR);          
-      }
-  }
-      public void irFormulario(NotificadorOperaciones observador, Envio envio) {
+
+    private void buscarEnvioNoGuia(Integer noGuia) {
+        Envio envioWS = EnvioDAO.obtenerEnviosNoGuia(noGuia);
+        System.out.println("Envio no guia: " + envioWS.getIdEnvio());
+        if (envioWS != null) {
+            envios.clear();
+            envios.add(envioWS);
+            tableEnvios.setItems(envios);
+        }
+    }
+
+    public void cargarDatosTabla() {
+        envios = FXCollections.observableArrayList();
+        List<Envio> enviosWS = EnvioDAO.obtenerEnvios();
+        if (enviosWS != null) {
+            envios.addAll(enviosWS);
+            tableEnvios.setItems(envios);
+        } else {
+            Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede cargar la información de los envios, intentelo más tarde", Alert.AlertType.ERROR);
+        }
+    }
+
+    public void irFormulario(NotificadorOperaciones observador, Envio envio) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLEnviosFormulario.fxml"));
             Parent root = loader.load();
@@ -196,7 +200,7 @@ public class FXMLEnviosController implements Initializable , NotificadorOperacio
 
     @Override
     public void notificarOperacion(String tipoOperacioin, String nombre) {
-        System.out.println("Operacion: "+tipoOperacioin);
+        System.out.println("Operacion: " + tipoOperacioin);
         cargarDatosTabla();
     }
 
@@ -204,6 +208,23 @@ public class FXMLEnviosController implements Initializable , NotificadorOperacio
     private void btnBuscarEnvio(MouseEvent event) {
         Integer noGuia = Integer.parseInt(tfBuscarEnvio.getText().trim());
         buscarEnvioNoGuia(noGuia);
+    }
+
+    @FXML
+    private void irPantallaHistorial(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLHistorialEstatus.fxml"));
+            Parent root = loader.load();
+            
+            Stage escenario = new Stage();
+            Scene escena = new Scene(root);
+            escenario.setScene(escena);
+            escenario.setTitle("Formulario Unidades");
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

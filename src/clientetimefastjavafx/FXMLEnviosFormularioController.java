@@ -15,6 +15,7 @@ import clientetimefastjavafx.pojo.Mensaje;
 import clientetimefastjavafx.pojo.Unidad;
 import clientetimefastjavafx.utilidades.Utilidades;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -24,6 +25,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -40,7 +42,7 @@ public class FXMLEnviosFormularioController implements Initializable {
     private ObservableList<String> estatusEnvio = FXCollections.observableArrayList();
     private ObservableList<Colaborador> conductoresEnvio = FXCollections.observableArrayList();
     private ObservableList<Cliente> clientes = FXCollections.observableArrayList();
-    
+
     @FXML
     private TextField tfEstado;
     @FXML
@@ -65,6 +67,8 @@ public class FXMLEnviosFormularioController implements Initializable {
     private ComboBox<String> comboEstatus;
     @FXML
     private ComboBox<Cliente> comboCliente;
+    @FXML
+    private TextArea tfMotivo;
 
     /**
      * Initializes the controller class.
@@ -78,6 +82,8 @@ public class FXMLEnviosFormularioController implements Initializable {
         comboConductor.setValue(conductoresEnvio.get(0));
         comboEstatus.setValue(estatusEnvio.get(0));
         comboCliente.setValue(clientes.get(0));
+        tfMotivo.setDisable(true);
+        tfMotivo.setText("Sin Motivo");
     }
 
     public void inicializarValores(NotificadorOperaciones observador, Envio envioEdicion) {
@@ -85,6 +91,7 @@ public class FXMLEnviosFormularioController implements Initializable {
         this.envioEdicion = envioEdicion;
         if (envioEdicion != null) {
             modoEdicion = true;
+            tfMotivo.setDisable(false);
             cargarDatosEdicion();
         }
     }
@@ -105,9 +112,10 @@ public class FXMLEnviosFormularioController implements Initializable {
             comboConductor.setItems(conductoresEnvio);
         }
     }
-    private void cargarClientes(){
-        List<Cliente> clientesWS=EnvioDAO.obtenerClientes();
-        if(clientesWS!=null){
+
+    private void cargarClientes() {
+        List<Cliente> clientesWS = EnvioDAO.obtenerClientes();
+        if (clientesWS != null) {
             clientes.addAll(clientesWS);
             comboCliente.setItems(clientes);
         }
@@ -115,81 +123,89 @@ public class FXMLEnviosFormularioController implements Initializable {
 
     private void guardarEnvioFormulario(Envio envio) {
         Mensaje respuesta = EnvioDAO.agregarEnvio(envio);
-        if(!respuesta.isError()){
+        if (!respuesta.isError()) {
             Utilidades.mostrarAlerta("Registro Exitoso", "El envio ha sido editador correctamente", Alert.AlertType.INFORMATION);
             cerrarVentana();
-            observador.notificarOperacion("Edicion Registros", "");               
-        }else{
-            Utilidades.mostrarAlerta("Error en registro", respuesta.getMensaje(), Alert.AlertType.ERROR);           
+            observador.notificarOperacion("Edicion Registros", "");
+        } else {
+            Utilidades.mostrarAlerta("Error en registro", respuesta.getMensaje(), Alert.AlertType.ERROR);
         }
     }
-    
-     private void cargarDatosEdicion(){
-         tfEstado.setText( envioEdicion.getEstado());
-         tfCiudad.setText(envioEdicion.getCiudad());
-         tfDestino.setText(envioEdicion.getDestino());
-         tfCodigoPostal.setText(envioEdicion.getCp());
-         tfColonia.setText(envioEdicion.getColonia());
-         tfNoGuia.setText(envioEdicion.getNoGuia().toString());
-         tfCalle.setText(envioEdicion.getCalle());
-         tfNoExterior.setText(envioEdicion.getNumero().toString());
-         tfCosto.setText(envioEdicion.getCosto().toString());
-             
-         int posicionConductor = envioEdicion.getIdConductor();
-         int posicionCliente = envioEdicion.getIdCliente();
-         String estatusActual = envioEdicion.getEstatus();
-         
-         comboCliente.setValue(clientes.get(obtenerCliente(posicionCliente)));
+
+    private void cargarDatosEdicion() {
+        tfEstado.setText(envioEdicion.getEstado());
+        tfCiudad.setText(envioEdicion.getCiudad());
+        tfDestino.setText(envioEdicion.getDestino());
+        tfCodigoPostal.setText(envioEdicion.getCp());
+        tfColonia.setText(envioEdicion.getColonia());
+        tfNoGuia.setText(envioEdicion.getNoGuia().toString());
+        tfCalle.setText(envioEdicion.getCalle());
+        tfNoExterior.setText(envioEdicion.getNumero().toString());
+        tfCosto.setText(envioEdicion.getCosto().toString());
+
+        int posicionConductor = envioEdicion.getIdConductor();
+        int posicionCliente = envioEdicion.getIdCliente();
+        String estatusActual = envioEdicion.getEstatus();
+
+        comboCliente.setValue(clientes.get(obtenerCliente(posicionCliente)));
         comboConductor.setValue(conductoresEnvio.get(obtenerConductor(posicionConductor)));
         comboEstatus.setValue(estatusEnvio.get(obtenerEstatus(estatusActual)));
-         
-     }   
-     
-     private int obtenerConductor(int idConductor){
-         int posicion= 0;
-         for(int i = 0; i<conductoresEnvio.size();i++){
-             if(idConductor == conductoresEnvio.get(i).getIdColaborador()){
-                 posicion = i;
-             }
-         }
-         return posicion;
-     }
-     private int obtenerEstatus(String estatus){
-         int posicion = 0;
-         for(int i= 0;i<estatusEnvio.size();i++){
-             if(estatus ==estatusEnvio.get(i).toString()){
-                 posicion = i;
-             }
-         }
-         return posicion;
-     }
-     
-     private int obtenerCliente (int idCliente ){
-         int posicion = 0;
-         for(int i = 0;i<clientes.size();i++){
-             if(idCliente == clientes.get(i).getIdCliente()){
-                 posicion = i;
-             }
-         }
-         return posicion;
-     }
-     
-     
-    private void editarDatosEnvio(Envio envio){
-        Mensaje mensaje = EnvioDAO.editarEnvio(envio);
-        if(!mensaje.isError()){
-            Utilidades.mostrarAlerta("Edición Exitosa", "El envio ha sido editador correctamente", Alert.AlertType.INFORMATION);
-            cerrarVentana();
-            observador.notificarOperacion("Edicion envio", envio.getIdEnvio().toString());            
-        }else{
-            Utilidades.mostrarAlerta("Error edicion", mensaje.getMensaje(), Alert.AlertType.ERROR);
-        }
+
     }
-        private void cerrarVentana() {
+
+    private int obtenerConductor(int idConductor) {
+        int posicion = 0;
+        for (int i = 0; i < conductoresEnvio.size(); i++) {
+            if (idConductor == conductoresEnvio.get(i).getIdColaborador()) {
+                posicion = i;
+            }
+        }
+        return posicion;
+    }
+
+    private int obtenerEstatus(String estatus) {
+        int posicion = 0;
+        for (int i = 0; i < estatusEnvio.size(); i++) {
+            if (estatus == estatusEnvio.get(i).toString()) {
+                posicion = i;
+            }
+        }
+        return posicion;
+    }
+
+    private int obtenerCliente(int idCliente) {
+        int posicion = 0;
+        for (int i = 0; i < clientes.size(); i++) {
+            if (idCliente == clientes.get(i).getIdCliente()) {
+                posicion = i;
+            }
+        }
+        return posicion;
+    }
+
+    private void editarDatosEnvio(Envio envio) {
+        try {
+            String motivo = tfMotivo.getText();
+            String envioCodificado = URLEncoder.encode(motivo,"UTF-8");
+            envio.setMotivo(envioCodificado);
+            Mensaje mensaje = EnvioDAO.editarEnvio(envio);
+            if (!mensaje.isError()) {
+                Utilidades.mostrarAlerta("Edición Exitosa", "El envio ha sido editador correctamente", Alert.AlertType.INFORMATION);
+                cerrarVentana();
+                observador.notificarOperacion("Edicion envio", envio.getIdEnvio().toString());
+            } else {
+                Utilidades.mostrarAlerta("Error edicion", mensaje.getMensaje(), Alert.AlertType.ERROR);
+            }
+        } catch (Exception e) {
+            System.out.println("Errir la editar envio : "+e.toString());
+        }
+
+    }
+
+    private void cerrarVentana() {
         Stage escenarioPrincipal = (Stage) comboConductor.getScene().getWindow();
         escenarioPrincipal.close();
     }
-       
 
     @FXML
     private void guardarEnvio(ActionEvent event) {
@@ -205,15 +221,14 @@ public class FXMLEnviosFormularioController implements Initializable {
         Integer idConductor = comboConductor.getSelectionModel().getSelectedItem().getIdColaborador();
         String estatus = comboEstatus.getSelectionModel().getSelectedItem();
         Integer idCliente = comboCliente.getSelectionModel().getSelectedItem().getIdCliente();
-        
-        
-        Envio envio = new Envio(0,idCliente,calle,noExterior,colonia,codigoPostal,ciudad,estado,destino,noGuia,costoEnvio,estatus,"",idConductor,"",0,"");
-        
+
+        Envio envio = new Envio(0, idCliente, calle, noExterior, colonia, codigoPostal, ciudad, estado, destino, noGuia, costoEnvio, estatus, "", idConductor, "", 0, "");
+
         if (!modoEdicion) {
             guardarEnvioFormulario(envio);
         } else {
             Integer idEnvio = this.envioEdicion.getIdEnvio();
-            Envio envioEdicion = new Envio(idEnvio,idCliente,calle,noExterior,colonia,codigoPostal,ciudad,estado,destino,noGuia,costoEnvio,estatus,"",idConductor,"",0,"");
+            Envio envioEdicion = new Envio(idEnvio, idCliente, calle, noExterior, colonia, codigoPostal, ciudad, estado, destino, noGuia, costoEnvio, estatus, tfMotivo.getText(), idConductor, "", 0, "");
             editarDatosEnvio(envioEdicion);
         }
     }

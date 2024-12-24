@@ -157,26 +157,33 @@ public class FXMLClientesController implements Initializable, NotificadorOperaci
             Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede cargar la información de los clientes, intentelo más tarde", Alert.AlertType.ERROR);
         }
     }
+
     @FXML
-    public void buscarClientes(){
+    public void buscarClientes() {
         String parametro = tfBuscarClientes.getText();
-        clientes = FXCollections.observableArrayList();
-        List<Cliente> listaWS = ClienteDAO.buscarCliente(parametro);
-        if(listaWS!=null){
-            clientes.addAll(listaWS);
-            tableClientes.setItems(clientes);
-        }else{
-            Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede cargar la información de los clientes, intentelo más tarde", Alert.AlertType.ERROR);
+        if (parametro.equals("") || parametro.trim().equals("")) {
+            Utilidades.mostrarAlerta("Error busqueda", "Campos de busqueda vacio", Alert.AlertType.INFORMATION);
+        } else {
+            clientes = FXCollections.observableArrayList();
+            List<Cliente> listaWS = ClienteDAO.buscarCliente(parametro);
+            if (listaWS != null) {
+                clientes.addAll(listaWS);
+                tableClientes.setItems(clientes);
+            } else {
+                Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede cargar la información de los clientes, intentelo más tarde", Alert.AlertType.ERROR);
+            }
         }
+
     }
-        public void irFormulario(NotificadorOperaciones observador, Cliente cliente){
+
+    public void irFormulario(NotificadorOperaciones observador, Cliente cliente) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLClientesFormulario.fxml"));
-            Parent root= loader.load();
-            
+            Parent root = loader.load();
+
             FXMLClientesFormularioController controlador = loader.getController();
             controlador.inicializarValores(observador, cliente);
-            
+
             Stage escenario = new Stage();
             Scene escena = new Scene(root);
             escenario.setScene(escena);
@@ -184,19 +191,26 @@ public class FXMLClientesController implements Initializable, NotificadorOperaci
             escenario.initModality(Modality.APPLICATION_MODAL);
             escenario.showAndWait();
         } catch (Exception e) {
-         Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede mostrar formulario de colaboradores, intentelo más tarde", Alert.AlertType.ERROR);
+            Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede mostrar formulario de colaboradores, intentelo más tarde", Alert.AlertType.ERROR);
         }
     }
-        private void eliminarCliente(){
+
+    private void eliminarCliente() {
+        Cliente cliente = tableClientes.getSelectionModel().getSelectedItem();
+        if (cliente != null) {
             Integer idCliente = tableClientes.getSelectionModel().getSelectedItem().getIdCliente();
             Mensaje mensaje = ClienteDAO.eliminarCliente(idCliente);
-            if(!mensaje.isError()){
-                Utilidades.mostrarAlerta("Elminación Exitosa", "El Cliente ha sido elminado correctamente", Alert.AlertType.INFORMATION);               
-                notificarOperacion("Eliminar" ,"Cliente");
-            }else{
+            if (!mensaje.isError()) {
+                Utilidades.mostrarAlerta("Elminación Exitosa", "El Cliente ha sido elminado correctamente", Alert.AlertType.INFORMATION);
+                notificarOperacion("Eliminar", "Cliente");
+            } else {
                 Utilidades.mostrarAlerta("Error en la elminación", mensaje.getMensaje(), Alert.AlertType.ERROR);
             }
+        } else {
+            Utilidades.mostrarAlerta("Error", "Debe seleleccionar un registro para eliminar", Alert.AlertType.ERROR);
         }
+
+    }
 
     @FXML
     private void btnEliminarCliente(ActionEvent event) {
@@ -206,19 +220,23 @@ public class FXMLClientesController implements Initializable, NotificadorOperaci
     @FXML
     private void cargarVistaFormularioEditar(ActionEvent event) {
         Cliente cliente = tableClientes.getSelectionModel().getSelectedItem();
-      irFormulario(this,cliente ) ;
+        if (cliente != null) {
+            irFormulario(this, cliente);
+        } else {
+            Utilidades.mostrarAlerta("Error edición", "Debe seleccionar un registro para editar", Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
     private void cargarVistaFormularioClientes(ActionEvent event) {
-        irFormulario(this,null) ;
+        irFormulario(this, null);
     }
 
     @Override
     public void notificarOperacion(String tipoOperacioin, String nombre) {
-        System.out.println("Tipo operacion "+tipoOperacioin);
-        System.out.println("Nombe del Cliente :"+nombre );
-        cargarContenidoTabla();        
+        System.out.println("Tipo operacion " + tipoOperacioin);
+        System.out.println("Nombe del Cliente :" + nombre);
+        cargarContenidoTabla();
     }
 
 }

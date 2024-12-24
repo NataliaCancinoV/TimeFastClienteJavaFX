@@ -230,8 +230,8 @@ public class FXMLColaboradoresController implements Initializable, NotificadorOp
         Colaborador colaboradorEditar = table_colaboradores.getSelectionModel().getSelectedItem();
         if (colaboradorEditar != null) {
             irFormulario(this, colaboradorEditar);
-        }else{
-           Utilidades.mostrarAlerta("Error Edición", "Debe seleccionar un registro para editar ", Alert.AlertType.ERROR);            
+        } else {
+            Utilidades.mostrarAlerta("Error Edición", "Debe seleccionar un registro para editar ", Alert.AlertType.ERROR);
         }
 
     }
@@ -239,14 +239,27 @@ public class FXMLColaboradoresController implements Initializable, NotificadorOp
     @FXML
     private void btnEliminarColaborador(ActionEvent event) {
         Colaborador colaborador = null;
-        colaborador= table_colaboradores.getSelectionModel().getSelectedItem();
-        if(colaborador!=null){
+        colaborador = table_colaboradores.getSelectionModel().getSelectedItem();
+        if (colaborador != null) {
             eliminarColaborador();
-            notificarOperacion("Eliminar", "Colaborador");   
-        }else{
-           Utilidades.mostrarAlerta("Error elminacion", "Error debe seleccionar un registro ", Alert.AlertType.ERROR);
+            notificarOperacion("Eliminar", "Colaborador");
+        } else {
+            Utilidades.mostrarAlerta("Error elminacion", "Error debe seleccionar un registro ", Alert.AlertType.ERROR);
         }
 
+    }
+
+    @FXML
+    private void cargarVistaColaboradores(ActionEvent event) {
+        try {
+            Stage stageActual = (Stage) paquetesViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLColaboradores.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

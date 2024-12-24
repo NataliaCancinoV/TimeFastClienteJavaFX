@@ -65,7 +65,6 @@ public class FXMLUnidadesFormularioController implements Initializable {
         // TODO
         cargarComboTipoUnidad();
         cargarComboConductores();
-        comboConductor.setValue(conductores.get(0));
         comboTipoUnidad.setValue(tipoUnidad.get(0));
         tfiDInterno.setEditable(false);
     }
@@ -73,9 +72,13 @@ public class FXMLUnidadesFormularioController implements Initializable {
     public void inicializarValores(NotificadorOperaciones observador, Unidad unidadEdicion) {
         this.observador = observador;
         this.unidadEdicion = unidadEdicion;
+        tfiDInterno.setDisable(true);
         if (unidadEdicion != null) {
             modoEdicion = true;
+            tfVin.setDisable(true);
+            tfiDInterno.setDisable(true);
             cargarDatosEdicion();
+            comboConductor.setValue(null);
         }
     }
 
@@ -105,38 +108,41 @@ public class FXMLUnidadesFormularioController implements Initializable {
             Utilidades.mostrarAlerta("Error registro", respuesta.getMensaje(), Alert.AlertType.ERROR);
         }
     }
-    private void cargarDatosEdicion(){
+
+    private void cargarDatosEdicion() {
         tfVin.setText(unidadEdicion.getVin().toString());
         tfiDInterno.setText(unidadEdicion.getNii().toString());
         tfMarca.setText(unidadEdicion.getMarca());
         tfModelo.setText(unidadEdicion.getModelo());
-        tfAnio.setText(unidadEdicion.getAnio());        
+        tfAnio.setText(unidadEdicion.getAnio());
         String posicionUnidad = unidadEdicion.getTipoUnidad();
         int posicionConductor = unidadEdicion.getIdConductor();
         comboTipoUnidad.setValue(tipoUnidad.get(obtenerTipoUnidad(posicionUnidad)));
         comboConductor.setValue(conductores.get(obtenerConductor(posicionConductor)));
-                
+
     }
-    
-    private Integer obtenerConductor(Integer idConductor){
-        int posicion =0;
-        for(int i =0;i<conductores.size();i++){
-            if(idConductor == conductores.get(i).getIdColaborador()){
+
+    private Integer obtenerConductor(Integer idConductor) {
+        int posicion = 0;
+        for (int i = 0; i < conductores.size(); i++) {
+            if (idConductor == conductores.get(i).getIdColaborador()) {
                 posicion = i;
             }
         }
         return posicion;
     }
-    private Integer obtenerTipoUnidad(String unidad){
-        int posicion=0;
-        System.out.println("OBTENER UNIDAD: "+unidad);
-        for(int i=0;i<tipoUnidad.size();i++){
-            if(unidad == tipoUnidad.get(i).toString() ){
+
+    private Integer obtenerTipoUnidad(String unidad) {
+        int posicion = 0;
+        System.out.println("OBTENER UNIDAD: " + unidad);
+        for (int i = 0; i < tipoUnidad.size(); i++) {
+            if (unidad == tipoUnidad.get(i).toString()) {
                 posicion = i;
             }
         }
         return posicion;
     }
+
     private void editarUnidad(Unidad unidad) {
         Mensaje respuesta = UnidadDAO.editarUnidad(unidad);
         if (!respuesta.isError()) {
@@ -162,25 +168,85 @@ public class FXMLUnidadesFormularioController implements Initializable {
         return Integer.parseInt(nii);
     }
 
+    private boolean datosNoVacios() {
+        boolean valido = true;
+        if (tfVin.getText().isEmpty()) {
+            valido = false;
+        }
+        if (tfMarca.getText().isEmpty()) {
+            valido = false;
+        }
+        if (tfModelo.getText().isEmpty()) {
+            valido = false;
+        }
+        if (tfAnio.getText().trim().isEmpty()) {
+            valido = false;
+        }
+        return valido;
+    }
+
+    private boolean datosValidos(String marca, String modelo, String año, String vin) {
+
+        String regexMarcaModelo = "^[a-zA-Z0-9\\s\\-]+$";
+        String regexAño = "^(19|20)\\d{2}$";
+        String regexVIN = "^\\d{1,5}$";
+
+        if (!marca.matches(regexMarcaModelo)) {
+            System.out.println("Marca inválida");
+            return false;
+        }
+
+        if (!modelo.matches(regexMarcaModelo)) {
+            System.out.println("Modelo inválido");
+            return false;
+        }
+
+        if (!año.matches(regexAño)) {
+            System.out.println("Año inválido");
+            return false;
+        }
+
+        if (!vin.matches(regexVIN)) {
+            System.out.println("VIN inválido");
+            return false;
+        }
+
+        return true;
+    }
+
     @FXML
     private void guardarUnidad(ActionEvent event) {
+        Colaborador conductor = comboConductor.getSelectionModel().getSelectedItem();
+        Integer idConductor = 0;
+        if (conductor != null) {
+            idConductor = conductor.getIdColaborador();
+        }
         Integer vin = Integer.parseInt(tfVin.getText().trim());
         String marca = tfMarca.getText();
         String modelo = tfModelo.getText();
         String anio = tfAnio.getText().trim();
         String tipoUnidad = comboTipoUnidad.getSelectionModel().getSelectedItem();
-        Integer idConductor = comboConductor.getSelectionModel().getSelectedItem().getIdColaborador();
-        String nombreConductor = comboConductor.getSelectionModel().getSelectedItem().getNombre();
+      //  String nombreConductor = comboConductor.getSelectionModel().getSelectedItem().getNombre();
         Integer nii = obtenerNII(anio, tfVin.getText());
+        
         System.out.println(" " + vin + " " + marca + " " + modelo + " " + anio + " " + nii + " " + tipoUnidad + " " + idConductor);
-        Unidad unidad = new Unidad(0, marca, modelo, anio, vin, tipoUnidad, nii, idConductor, "");
-        if (!modoEdicion) {
-            agregarUnidad(unidad);
+        if (datosNoVacios()) {
+            if (datosValidos(marca, modelo, anio, anio)) {
+                Unidad unidad = new Unidad(0, marca, modelo, anio, vin, tipoUnidad, nii, idConductor, "");
+                if (!modoEdicion) {
+                    agregarUnidad(unidad);
+                } else {
+                    Integer idUnidad = unidadEdicion.getIdUnidad();
+                    Unidad unidadEdicion = new Unidad(idUnidad, marca, modelo, anio, vin, tipoUnidad, nii, idConductor, "");
+                    editarUnidad(unidadEdicion);
+                }
+            } else {
+                Utilidades.mostrarAlerta("Error al guardar datos", "Formato de datos invalidos", Alert.AlertType.ERROR);
+            }
         } else {
-             Integer idUnidad = unidadEdicion.getIdUnidad();
-             Unidad unidadEdicion = new Unidad(idUnidad, marca, modelo, anio, vin, tipoUnidad, nii, idConductor, "");
-             editarUnidad(unidadEdicion);
+            Utilidades.mostrarAlerta("Error al guardar datos", "Campos Incompletos", Alert.AlertType.ERROR);
         }
+
     }
 
 }
