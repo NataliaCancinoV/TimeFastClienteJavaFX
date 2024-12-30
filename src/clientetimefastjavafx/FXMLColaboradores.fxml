@@ -81,6 +81,11 @@
                      </image>
                   </ImageView>
                </graphic></Button>
+            <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="333.0" layoutY="16.0" onMouseClicked="#btnRefresh" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/refresh.png" />
+               </image>
+            </ImageView>
          </children></Pane>
       <TableView fx:id="table_colaboradores" layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlcolaboradores.css">
         <columns>

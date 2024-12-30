@@ -56,6 +56,11 @@
       <TextField fx:id="tfApellidoPaterno" layoutX="370.0" layoutY="299.0" promptText="2025ADC2" styleClass="txtFieldDato" stylesheets="@fxmlclientesformulario.css" />
       <Label layoutX="51.0" layoutY="360.0" styleClass="labelDato" stylesheets="@fxmlclientesformulario.css" text="Apellido Materno" />
       <TextField fx:id="tfApellidoMaterno" layoutX="50.0" layoutY="387.0" promptText="Nissan" styleClass="txtFieldDato" stylesheets="@fxmlclientesformulario.css" />
+      <Label layoutX="739.0" layoutY="242.0" styleClass="labelSubtituloModulo" stylesheets="@fxmlclientesformulario.css" text="Contacto" />
+      <Label layoutX="740.0" layoutY="273.0" styleClass="labelDato" stylesheets="@fxmlclientesformulario.css" text="Telefono" />
+      <TextField fx:id="tfTelefono" layoutX="739.0" layoutY="299.0" promptText="2288563972" styleClass="txtFieldDato" stylesheets="@fxmlclientesformulario.css" />
+      <TextField fx:id="tfCorreo" layoutX="737.0" layoutY="387.0" promptText="fulanito@example.com" styleClass="txtFieldDato" stylesheets="@fxmlclientesformulario.css" />
+      <Label layoutX="737.0" layoutY="360.0" styleClass="labelDato" stylesheets="@fxmlclientesformulario.css" text="Correo Electrónico" />
       <Label layoutX="50.0" layoutY="437.0" styleClass="labelSubtituloModulo" stylesheets="@fxmlclientesformulario.css" text="Dirección" />
       <Label layoutX="50.0" layoutY="473.0" styleClass="labelDato" stylesheets="@fxmlclientesformulario.css" text="Código Postal" />
       <TextField fx:id="tfCodigoPostal" layoutX="50.0" layoutY="500.0" promptText="94570" styleClass="txtFieldDato" stylesheets="@fxmlclientesformulario.css" />
@@ -65,11 +70,6 @@
       <TextField fx:id="tfCalle" layoutX="50.0" layoutY="587.0" promptText="Ruiz Cortines" styleClass="txtFieldDato" stylesheets="@fxmlclientesformulario.css" />
       <Label layoutX="371.0" layoutY="559.0" styleClass="labelDato" stylesheets="@fxmlclientesformulario.css" text="Número Exterior" />
       <TextField fx:id="tfNumExterior" layoutX="371.0" layoutY="587.0" promptText="211" styleClass="txtFieldDato" stylesheets="@fxmlclientesformulario.css" />
-      <Label layoutX="726.0" layoutY="242.0" styleClass="labelSubtituloModulo" stylesheets="@fxmlclientesformulario.css" text="Contacto" />
-      <Label layoutX="727.0" layoutY="273.0" styleClass="labelDato" stylesheets="@fxmlclientesformulario.css" text="Telefono" />
-      <TextField fx:id="tfTelefono" layoutX="726.0" layoutY="299.0" promptText="2288563972" styleClass="txtFieldDato" stylesheets="@fxmlclientesformulario.css" />
-      <TextField fx:id="tfCorreo" layoutX="724.0" layoutY="387.0" promptText="fulanito@example.com" styleClass="txtFieldDato" stylesheets="@fxmlclientesformulario.css" />
-      <Label layoutX="724.0" layoutY="360.0" styleClass="labelDato" stylesheets="@fxmlclientesformulario.css" text="Correo Electrónico" />
       <Button layoutX="1040.0" layoutY="629.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlclientesformulario.css" text="Cancelar" />
       <Button fx:id="btnGuardarCliente" layoutX="1194.0" layoutY="629.0" mnemonicParsing="false" onAction="#guardarCliente" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlclientesformulario.css" text="Guardar" />
    </children>
