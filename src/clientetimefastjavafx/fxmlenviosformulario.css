@@ -83,7 +83,7 @@
     -fx-border-width: 2;
     -fx-border-color:#C17B3D;
     -fx-background-color: transparent;
-    -fx-pref-width: 275;    
+    -fx-pref-width: 295;    
     -fx-pref-height:40; 
     -fx-border-radius: 10;
 }
@@ -143,4 +143,13 @@
     -fx-text-fill: #C17B3D;
     -fx-font-size:18;
     -fx-font-weight: bold;
+}
+
+.taTimeFastDescripcion{
+    -fx-border-style: solid solid solid solid;
+    -fx-border-width: 2;
+    -fx-border-color:#C17B3D;
+    -fx-background-color: transparent;
+    -fx-pref-width: 295;    
+    -fx-pref-height:75; 
 }

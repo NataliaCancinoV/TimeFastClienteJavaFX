@@ -70,17 +70,6 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="400.0" layoutY="460.0" styleClass="lbTimeFastCaption" stylesheets="@fxmliniciosesion.css" text="Olvidé mi contraseña" textFill="WHITE">
-               <font>
-                  <Font name="System Italic" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="263.0" layoutY="657.0" styleClass="lbTimeFastCaption2" stylesheets="@fxmliniciosesion.css" text="¿Eres nuevo?" textFill="WHITE" />
-            <Label layoutX="374.0" layoutY="657.0" styleClass="lbTimeFastCaption3" stylesheets="@fxmliniciosesion.css" text="Registrate" textFill="WHITE">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
-            </Label>
          </children></AnchorPane>
    </children>
 </AnchorPane>
