@@ -31,7 +31,7 @@
                   <Image url="@recursos/Logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="48.0" layoutX="1286.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="43.0" fitWidth="36.0" layoutX="1280.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/account.png" />
                </image>
@@ -88,7 +88,7 @@
                   <Image url="@recursos/refresh.png" />
                </image>
             </ImageView>
-            <Button layoutX="588.0" layoutY="11.0" mnemonicParsing="false" onAction="#irPantallaHistorial" prefHeight="14.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" text="  Historial">
+            <Button layoutX="588.0" layoutY="11.0" mnemonicParsing="false" onAction="#irPantallaHistorial" prefHeight="14.0" prefWidth="150.0" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidades.css" text="  Historial">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -96,10 +96,6 @@
                      </image>
                   </ImageView>
                </graphic>
-               <stylesheets>
-                  <URL value="@fxmlenvios.css" />
-                  <URL value="@fxmlunidades.css" />
-               </stylesheets>
             </Button>
          </children>
       </Pane>

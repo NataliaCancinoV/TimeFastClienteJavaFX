@@ -31,7 +31,7 @@
                   <Image url="@recursos/Logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="48.0" layoutX="1286.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="43.0" fitWidth="36.0" layoutX="1280.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/account.png" />
                </image>
@@ -83,6 +83,11 @@
                   </ImageView>
                </graphic>
             </Button>
+            <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="343.0" layoutY="15.0" onMouseClicked="#cargarDatosTabla" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/refresh.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <TableView fx:id="tablePaquetes" layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlpaquetes.css">
