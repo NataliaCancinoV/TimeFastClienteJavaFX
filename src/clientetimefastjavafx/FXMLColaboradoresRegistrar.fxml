@@ -31,11 +31,6 @@
                   <Image url="@recursos/Logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="36.0" layoutX="1280.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@recursos/account.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
       <Pane layoutX="50.0" layoutY="107.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo" stylesheets="@fxmlcolaboradoresregistrar.css">
@@ -60,9 +55,9 @@
       <Label layoutX="376.0" layoutY="383.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="No. de Personal" />
       <TextField fx:id="tfNoPersonal" layoutX="373.0" layoutY="423.0" promptText="3254325" styleClass="txtFieldDato" />
       <Label layoutX="705.0" layoutY="382.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Rol" />
-      <ComboBox fx:id="comboRoles" layoutX="702.0" layoutY="424.0" prefWidth="150.0" styleClass="comboBoxEditable" />
+      <ComboBox fx:id="comboRoles" layoutX="702.0" layoutY="424.0" prefWidth="150.0" promptText="Rol" styleClass="comboBoxEditable" />
       <Label layoutX="53.0" layoutY="514.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Correo Electrónico" />
-      <TextField fx:id="tfCorreo" layoutX="50.0" layoutY="548.0" promptText="fulanito@example.com" styleClass="txtFieldDato" />
+      <TextField fx:id="tfCorreo" layoutX="50.0" layoutY="557.0" promptText="fulanito@example.com" styleClass="txtFieldDato" />
       <Label layoutX="373.0" layoutY="507.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Contraseña" />
       <Label layoutX="1028.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Foto" />
       <Pane layoutX="1029.0" layoutY="299.0" prefHeight="298.0" prefWidth="290.0" styleClass="pTimeFastImage" stylesheets="@fxmlcolaboradoresregistrar.css">

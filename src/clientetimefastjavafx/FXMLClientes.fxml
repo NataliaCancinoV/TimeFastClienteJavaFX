@@ -50,7 +50,7 @@
       </Pane>
       <Pane layoutX="50.0" layoutY="180.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlclientes.css">
          <children>
-            <TextField fx:id="tfBuscarClientes" layoutX="24.0" layoutY="12.0" promptText="Buscar" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlclientes.css" />
+            <TextField fx:id="tfBuscarClientes" layoutX="24.0" layoutY="12.0" promptText="Buscar por nombre" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlclientes.css" />
             <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="281.0" layoutY="17.0" onMouseClicked="#buscarClientes" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/search.png" />

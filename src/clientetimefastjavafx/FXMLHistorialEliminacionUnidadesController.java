@@ -3,15 +3,21 @@ package clientetimefastjavafx;
 import clientetimefastjavafx.modelo.DAO.UnidadDAO;
 import clientetimefastjavafx.pojo.HistorialUnidad;
 import clientetimefastjavafx.utilidades.Utilidades;
+import java.io.IOException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -19,6 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class FXMLHistorialEliminacionUnidadesController implements Initializable {
 
@@ -100,24 +107,68 @@ public class FXMLHistorialEliminacionUnidadesController implements Initializable
 
     @FXML
     private void cargarVistaColaboradores(ActionEvent event) {
+       try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLColaboradores.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void cargarVistaUnidades(ActionEvent event) {
+        try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLUnidades.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void cargarVistaClientes(ActionEvent event) {
+        try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLClientes.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void cargarVsitaEnvios(ActionEvent event) {
+        try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLEnvios.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void cargarVistaPaquetes(ActionEvent event) {
-    }
+        try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLPaquetes.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
 
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     @FXML
     private void btnRefresh(MouseEvent event) {
@@ -126,6 +177,15 @@ public class FXMLHistorialEliminacionUnidadesController implements Initializable
 
     @FXML
     private void regresarUnidades(MouseEvent event) {
+        try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLUnidades.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -133,6 +193,23 @@ public class FXMLHistorialEliminacionUnidadesController implements Initializable
         if (campoBuscarNoVacio()) {
               String marca = tfBuscarUnidad.getText();
               cargarDatosBusqueda(marca);
+        }
+    }
+
+    @FXML
+    private void btnCerrarSesion(MouseEvent event) {
+        try {
+            Stage escenarioInicioSesion = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            
+            Parent inicioSesion = FXMLLoader.load(getClass().getResource("FXMLInicioSesion.fxml")); //Acceder al controlador para acceder a los datos
+            
+            Scene escenaInicioSesion = new Scene(inicioSesion);
+            escenarioInicioSesion.setScene(escenaInicioSesion);
+            escenarioInicioSesion.setTitle("Pantalla Inicio Sesion");
+            escenarioInicioSesion.show();
+            
+        } catch (IOException ex) {
+            Utilidades.mostrarAlerta("Error", "Lo sentimos, por el momento no podemos cerrar sesion", Alert.AlertType.ERROR);
         }
     }
 }

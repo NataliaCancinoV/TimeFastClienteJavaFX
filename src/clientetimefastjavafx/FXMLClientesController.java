@@ -242,7 +242,19 @@ public class FXMLClientesController implements Initializable, NotificadorOperaci
 
     @FXML
     private void btnCerrarSesion(MouseEvent event) {
-        
+        try {
+            Stage escenarioInicioSesion = (Stage) tfBuscarClientes.getScene().getWindow();
+            
+            Parent inicioSesion = FXMLLoader.load(getClass().getResource("FXMLInicioSesion.fxml")); //Acceder al controlador para acceder a los datos
+            
+            Scene escenaInicioSesion = new Scene(inicioSesion);
+            escenarioInicioSesion.setScene(escenaInicioSesion);
+            escenarioInicioSesion.setTitle("Pantalla Inicio Sesion");
+            escenarioInicioSesion.show();
+            
+        } catch (IOException ex) {
+            Utilidades.mostrarAlerta("Error", "Lo sentimos, por el momento no podemos cerrar sesion", Alert.AlertType.ERROR);
+        }
     }
 
     @FXML

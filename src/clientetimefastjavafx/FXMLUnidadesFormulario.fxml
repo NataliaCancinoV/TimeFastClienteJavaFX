@@ -31,11 +31,6 @@
                   <Image url="@recursos/Logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="36.0" layoutX="1280.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@recursos/account.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
       <Pane layoutX="50.0" layoutY="107.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo" stylesheets="@fxmlunidadesformulario.css">
@@ -60,9 +55,9 @@
       <Label layoutX="389.0" layoutY="389.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Año" />
       <TextField fx:id="tfAnio" layoutX="389.0" layoutY="423.0" promptText="2025" styleClass="txtFieldDato" stylesheets="@fxmlunidadesformulario.css" />
       <Label layoutX="731.0" layoutY="384.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Tipo de Unidad" />
-      <ComboBox fx:id="comboTipoUnidad" layoutX="725.0" layoutY="426.0" prefWidth="150.0" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
+      <ComboBox fx:id="comboTipoUnidad" layoutX="725.0" layoutY="426.0" prefWidth="150.0" promptText="Tipo de unidad" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
       <Label layoutX="50.0" layoutY="500.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Conductor" />
-      <ComboBox fx:id="comboConductor" layoutX="50.0" layoutY="541.0" prefWidth="150.0" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
+      <ComboBox fx:id="comboConductor" layoutX="50.0" layoutY="541.0" prefWidth="150.0" promptText="Conductor" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
       <Button layoutX="1040.0" layoutY="629.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidadesformulario.css" text="Cancelar" />
       <Button fx:id="btnGuardar" layoutX="1194.0" layoutY="630.0" mnemonicParsing="false" onAction="#guardarUnidad" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlunidadesformulario.css" text="Guardar" />
    </children>
