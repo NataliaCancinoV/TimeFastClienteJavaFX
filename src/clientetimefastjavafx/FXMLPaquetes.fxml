@@ -50,7 +50,7 @@
       </Pane>
       <Pane layoutX="50.0" layoutY="180.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlpaquetes.css">
          <children>
-            <TextField fx:id="tfBuscarPaquete" layoutX="24.0" layoutY="12.0" promptText="Buscar por no. de envio" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlpaquetes.css" />
+            <TextField fx:id="tfBuscarPaquete" layoutX="24.0" layoutY="12.0" promptText="Buscar por no. guía del envío" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlpaquetes.css" />
             <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="281.0" layoutY="17.0" onMouseClicked="#btnBuscarPaquete" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/search.png" />
@@ -93,8 +93,8 @@
       <TableView fx:id="tablePaquetes" layoutX="50.0" layoutY="260.0" prefHeight="456.0" prefWidth="1407.0" styleClass="tbTimeFast" stylesheets="@fxmlpaquetes.css">
          <columns>
             <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
-            <TableColumn fx:id="columnEnvio" prefWidth="143.0" text="Envío" />
-            <TableColumn fx:id="columnPeso" minWidth="0.0" prefWidth="169.0" text="Peso" />
+            <TableColumn fx:id="columnEnvio" prefWidth="161.0" text="No. Guía del Envío" />
+            <TableColumn fx:id="columnPeso" minWidth="0.0" prefWidth="151.0" text="Peso" />
             <TableColumn fx:id="columnAncho" minWidth="0.0" prefWidth="168.0" text="Ancho" />
             <TableColumn fx:id="columnAlto" minWidth="143.0" prefWidth="168.0" text="Alto" />
             <TableColumn fx:id="columnProfundidad" prefWidth="171.0" text="Profundidad" />
