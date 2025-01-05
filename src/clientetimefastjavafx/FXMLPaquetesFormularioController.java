@@ -195,7 +195,7 @@ public class FXMLPaquetesFormularioController implements Initializable {
             if (validarCampos()) {
                 Integer noPaquete = generarNumeroAleatorio();
                 String descripcion = tfDescripcion.getText();
-                Float peso = 10.9f;
+                Float peso = Float.parseFloat(tfPeso.getText());
                 Float alto = Float.parseFloat(tfAlto.getText());
                 Float ancho = Float.parseFloat(tfAncho.getText());
                 Float profundidad = Float.parseFloat(tfProdundidad.getText());
