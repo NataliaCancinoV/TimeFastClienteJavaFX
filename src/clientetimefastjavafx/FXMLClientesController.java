@@ -242,10 +242,12 @@ public class FXMLClientesController implements Initializable, NotificadorOperaci
 
     @FXML
     private void btnCerrarSesion(MouseEvent event) {
+        
     }
 
     @FXML
     private void btnRefresh(MouseEvent event) {
+        cargarContenidoTabla();
     }
 
 }

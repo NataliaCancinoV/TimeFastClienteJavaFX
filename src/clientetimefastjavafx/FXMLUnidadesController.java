@@ -269,20 +269,38 @@ public class FXMLUnidadesController implements Initializable, NotificadorOperaci
     @FXML
     private void irPantallaHistorial(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLHistorialEliminacionUnidades.fxml"));
-            Parent root = loader.load();
-            Stage escenario = new Stage();
+            Stage stageActual = (Stage) tfBuscar.getScene().getWindow();
+            
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLHistorialEliminacionUnidades.fxml"));
+            
             Scene escena = new Scene(root);
-            escenario.setScene(escena);
-            escenario.setTitle("Historial Unidades");
-            escenario.initModality(Modality.APPLICATION_MODAL);
-            escenario.showAndWait();
+            
+            stageActual.setScene(escena);
         } catch (Exception e) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
     @FXML
     private void btnRefresh(MouseEvent event) {
+        cargarDatosTabla();
+    }
+
+    @FXML
+    private void btnCerrarSesion(MouseEvent event) {
+        try {
+            Stage escenarioInicioSesion = (Stage) tfBuscar.getScene().getWindow();
+            
+            Parent inicioSesion = FXMLLoader.load(getClass().getResource("FXMLInicioSesion.fxml")); //Acceder al controlador para acceder a los datos
+            
+            Scene escenaInicioSesion = new Scene(inicioSesion);
+            escenarioInicioSesion.setScene(escenaInicioSesion);
+            escenarioInicioSesion.setTitle("Pantalla Inicio Sesion");
+            escenarioInicioSesion.show();
+            
+        } catch (IOException ex) {
+            Utilidades.mostrarAlerta("Error", "Lo sentimos, por el momento no podemos cerrar sesion", Alert.AlertType.ERROR);
+        }
     }
 
 }

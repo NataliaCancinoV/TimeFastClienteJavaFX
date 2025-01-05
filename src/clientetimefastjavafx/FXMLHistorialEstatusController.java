@@ -8,14 +8,20 @@ package clientetimefastjavafx;
 import clientetimefastjavafx.modelo.DAO.EnvioDAO;
 import clientetimefastjavafx.pojo.HistorialEnvio;
 import clientetimefastjavafx.utilidades.Utilidades;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -23,6 +29,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -111,34 +118,93 @@ public class FXMLHistorialEstatusController implements Initializable {
 
     @FXML
     private void cargarVistaColaboradores(ActionEvent event) {
+        try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLColaboradores.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void cargarVistaUnidades(ActionEvent event) {
+        try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLUnidades.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void cargarVistaClientes(ActionEvent event) {
+        try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLClientes.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void cargarVsitaEnvios(ActionEvent event) {
+        try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLEnvios.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void cargarVistaPaquetes(ActionEvent event) {
-    }
+        try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLPaquetes.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
 
-    @FXML
-    private void buscarColaborador(MouseEvent event) {
-    }
-
-    @FXML
-    private void btnRefresh(MouseEvent event) {
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void regresarEnvios(MouseEvent event) {
+        try {
+            Stage stageActual = (Stage) colaboradoresViewBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLEnvios.fxml"));
+            Scene sceneUndiades = new Scene(root);
+            stageActual.setScene(sceneUndiades);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void buscarEstatuss(MouseEvent event) {
+        if(campoBuscarNoVacio()){
+            Integer noGuia = Integer.parseInt(tfBuscarHistorial.getText().trim());
+            buscarEstatus(noGuia);
+        }
+    }
+
+    @FXML
+    private void btnRefresh(MouseEvent event) {
+        cargarDatosTabla();
     }
 
 }

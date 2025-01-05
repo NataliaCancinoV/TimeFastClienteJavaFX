@@ -118,15 +118,21 @@ public class FXMLHistorialEliminacionUnidadesController implements Initializable
     private void cargarVistaPaquetes(ActionEvent event) {
     }
 
-    @FXML
-    private void buscarColaborador(MouseEvent event) {
-    }
 
     @FXML
     private void btnRefresh(MouseEvent event) {
+        cargarDatosTabla();
     }
 
     @FXML
     private void regresarUnidades(MouseEvent event) {
+    }
+
+    @FXML
+    private void buscarUnidad(MouseEvent event) {
+        if (campoBuscarNoVacio()) {
+              String marca = tfBuscarUnidad.getText();
+              cargarDatosBusqueda(marca);
+        }
     }
 }

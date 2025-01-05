@@ -65,7 +65,7 @@
       <Pane layoutX="50.0" layoutY="180.0" prefHeight="200.0" prefWidth="200.0" styleClass="apTimeFastBusqueda" stylesheets="@fxmlhistorialestatus.css">
          <children>
             <TextField fx:id="tfBuscarHistorial" layoutX="24.0" layoutY="12.0" promptText="Buscar" styleClass="tfTimeFastBusqueda" stylesheets="@fxmlhistorialestatus.css" />
-            <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="281.0" layoutY="17.0" onMouseClicked="#buscarColaborador" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="281.0" layoutY="17.0" onMouseClicked="#buscarEstatuss" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/search.png" />
                </image>

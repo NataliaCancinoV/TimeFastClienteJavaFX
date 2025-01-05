@@ -213,15 +213,12 @@ public class FXMLEnviosController implements Initializable, NotificadorOperacion
     @FXML
     private void irPantallaHistorial(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLHistorialEstatus.fxml"));
-            Parent root = loader.load();
+            Stage actual = (Stage) btnEliminarEnvio.getScene().getWindow();
             
-            Stage escenario = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLHistorialEstatus.fxml"));
+            
             Scene escena = new Scene(root);
-            escenario.setScene(escena);
-            escenario.setTitle("Formulario Unidades");
-            escenario.initModality(Modality.APPLICATION_MODAL);
-            escenario.showAndWait();
+            actual.setScene(escena);
         } catch (IOException ex) {
             Logger.getLogger(FXMLColaboradoresController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -229,6 +226,7 @@ public class FXMLEnviosController implements Initializable, NotificadorOperacion
 
     @FXML
     private void btnRefresh(MouseEvent event) {
+        cargarDatosTabla();
     }
 
 }
