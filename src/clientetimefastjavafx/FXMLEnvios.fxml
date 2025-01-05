@@ -91,7 +91,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="334.0" layoutY="17.0" onMouseClicked="#cargarDatosTabla" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="334.0" layoutY="17.0" onMouseClicked="#btnRefresh" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@recursos/refresh.png" />
                </image>

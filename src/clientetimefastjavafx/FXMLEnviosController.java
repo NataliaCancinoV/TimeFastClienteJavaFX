@@ -227,4 +227,8 @@ public class FXMLEnviosController implements Initializable, NotificadorOperacion
         }
     }
 
+    @FXML
+    private void btnRefresh(MouseEvent event) {
+    }
+
 }

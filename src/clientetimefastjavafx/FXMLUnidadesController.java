@@ -281,4 +281,8 @@ public class FXMLUnidadesController implements Initializable, NotificadorOperaci
         }
     }
 
+    @FXML
+    private void btnRefresh(MouseEvent event) {
+    }
+
 }

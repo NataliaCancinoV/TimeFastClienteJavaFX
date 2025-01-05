@@ -63,5 +63,7 @@
       <ComboBox fx:id="comboEnvio" layoutX="653.0" layoutY="457.0" prefHeight="43.0" prefWidth="150.0" styleClass="comboBoxEditable" stylesheets="@fxmlpaquetesformulario.css" />
       <Button layoutX="1007.0" layoutY="631.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlpaquetesformulario.css" text="Cancelar" />
       <Button fx:id="btnGuardarEnvio" layoutX="1165.0" layoutY="631.0" mnemonicParsing="false" onAction="#guardarEnvio" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlpaquetesformulario.css" text="Guardar" />
+      <TextField fx:id="tfPeso" layoutX="958.0" layoutY="318.0" promptText="4.6" styleClass="txtFieldDato" stylesheets="@fxmlpaquetesformulario.css" />
+      <Label layoutX="958.0" layoutY="291.0" styleClass="labelDato" stylesheets="@fxmlpaquetesformulario.css" text="Peso (kg)" />
    </children>
 </AnchorPane>

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clientetimefastjavafx;
 
 import clientetimefastjavafx.modelo.DAO.UnidadDAO;
@@ -14,20 +9,17 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
-/**
- * FXML Controller class
- *
- * @author sebas
- */
 public class FXMLHistorialEliminacionUnidadesController implements Initializable {
 
     @FXML
@@ -42,6 +34,16 @@ public class FXMLHistorialEliminacionUnidadesController implements Initializable
     private TextField tfBuscarUnidad;
 
     private ObservableList<HistorialUnidad> unidadesEliminada = FXCollections.observableArrayList();
+    @FXML
+    private Button colaboradoresViewBtn;
+    @FXML
+    private Button unidadesViewBtn;
+    @FXML
+    private Button clientesViewBtn;
+    @FXML
+    private Button enviosViewBtn;
+    @FXML
+    private Button paquetesViewBtn;
 
     /**
      * Initializes the controller class.
@@ -80,7 +82,6 @@ public class FXMLHistorialEliminacionUnidadesController implements Initializable
         }
     }
 
-    @FXML
     private void buscarUnidadEliminada(MouseEvent event) {
         if (campoBuscarNoVacio()) {
               String marca = tfBuscarUnidad.getText();
@@ -95,5 +96,37 @@ public class FXMLHistorialEliminacionUnidadesController implements Initializable
             valido = false;
         }
         return valido;
+    }
+
+    @FXML
+    private void cargarVistaColaboradores(ActionEvent event) {
+    }
+
+    @FXML
+    private void cargarVistaUnidades(ActionEvent event) {
+    }
+
+    @FXML
+    private void cargarVistaClientes(ActionEvent event) {
+    }
+
+    @FXML
+    private void cargarVsitaEnvios(ActionEvent event) {
+    }
+
+    @FXML
+    private void cargarVistaPaquetes(ActionEvent event) {
+    }
+
+    @FXML
+    private void buscarColaborador(MouseEvent event) {
+    }
+
+    @FXML
+    private void btnRefresh(MouseEvent event) {
+    }
+
+    @FXML
+    private void regresarUnidades(MouseEvent event) {
     }
 }

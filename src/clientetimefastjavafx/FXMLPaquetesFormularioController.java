@@ -54,6 +54,8 @@ public class FXMLPaquetesFormularioController implements Initializable {
     private ComboBox<Envio> comboEnvio;
     @FXML
     private Button btnGuardarEnvio;
+    @FXML
+    private TextField tfPeso;
 
     /**
      * Initializes the controller class.

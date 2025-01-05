@@ -31,6 +31,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -237,6 +238,14 @@ public class FXMLClientesController implements Initializable, NotificadorOperaci
         System.out.println("Tipo operacion " + tipoOperacioin);
         System.out.println("Nombe del Cliente :" + nombre);
         cargarContenidoTabla();
+    }
+
+    @FXML
+    private void btnCerrarSesion(MouseEvent event) {
+    }
+
+    @FXML
+    private void btnRefresh(MouseEvent event) {
     }
 
 }

@@ -260,4 +260,8 @@ public class FXMLPaquetesController implements Initializable, NotificadorOperaci
         irFormulario(this, null);
     }
 
+    @FXML
+    private void btnRefresh(MouseEvent event) {
+    }
+
 }

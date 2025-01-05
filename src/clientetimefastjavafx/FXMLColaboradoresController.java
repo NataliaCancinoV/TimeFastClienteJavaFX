@@ -262,4 +262,9 @@ public class FXMLColaboradoresController implements Initializable, NotificadorOp
         }
     }
 
+    @FXML
+    private void btnRefresh(MouseEvent event) {
+        
+    }
+
 }
