@@ -5,10 +5,7 @@
  */
 package clientetimefastjavafx.pojo;
 
-/**
- *
- * @author sebas
- */
+
 public class Envio {
     private Integer idEnvio;
     private Integer idCliente;
