@@ -172,6 +172,7 @@ public class FXMLPaquetesFormularioController implements Initializable {
         String alto = tfAlto.getText();
         String ancho = tfAncho.getText();
         String profundidad = tfProdundidad.getText();
+        String peso = tfPeso.getText();
 
         if (!alto.matches(regex)) {
 
@@ -182,6 +183,9 @@ public class FXMLPaquetesFormularioController implements Initializable {
         }
         if (!profundidad.matches(regex)) {
 
+            return false;
+        }
+        if (!peso.matches(regex)) {
             return false;
         }
 

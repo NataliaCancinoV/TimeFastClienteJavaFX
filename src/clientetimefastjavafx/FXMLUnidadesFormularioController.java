@@ -85,9 +85,9 @@ public class FXMLUnidadesFormularioController implements Initializable {
     private void cargarComboConductores() {
         List<Colaborador> conductoresWS = UnidadDAO.obtenerConductores();
         if (conductoresWS != null) {
-            conductores.addAll(conductoresWS);
+            conductores.addAll(conductoresWS);            
             comboConductor.setItems(conductores);
-        }
+        }        
     }
 
     private void cargarComboTipoUnidad() {
@@ -117,6 +117,9 @@ public class FXMLUnidadesFormularioController implements Initializable {
         tfAnio.setText(unidadEdicion.getAnio());
         String posicionUnidad = unidadEdicion.getTipoUnidad();
         int posicionConductor = unidadEdicion.getIdConductor();
+        int posUnidad = obtenerTipoUnidad(posicionUnidad);
+        System.out.println("LA POSICION DE  "+posicionUnidad+" ES: "+posUnidad);
+        //comboTipoUnidad.setValue(tipoUnidad.get(valorCombo));
         comboTipoUnidad.setValue(tipoUnidad.get(obtenerTipoUnidad(posicionUnidad)));
         comboConductor.setValue(conductores.get(obtenerConductor(posicionConductor)));
 
@@ -132,11 +135,12 @@ public class FXMLUnidadesFormularioController implements Initializable {
         return posicion;
     }
 
-    private Integer obtenerTipoUnidad(String unidad) {
+    private int obtenerTipoUnidad(String unidad) {
         int posicion = 0;
         System.out.println("OBTENER UNIDAD: " + unidad);
         for (int i = 0; i < tipoUnidad.size(); i++) {
-            if (unidad == tipoUnidad.get(i).toString()) {
+            System.out.println("COMPARANDO " + unidad + " CON " + tipoUnidad.get(i));
+            if (unidad.trim().equals(tipoUnidad.get(i).trim())) {
                 posicion = i;
             }
         }
@@ -226,9 +230,9 @@ public class FXMLUnidadesFormularioController implements Initializable {
         String modelo = tfModelo.getText();
         String anio = tfAnio.getText().trim();
         String tipoUnidad = comboTipoUnidad.getSelectionModel().getSelectedItem();
-      //  String nombreConductor = comboConductor.getSelectionModel().getSelectedItem().getNombre();
+        //  String nombreConductor = comboConductor.getSelectionModel().getSelectedItem().getNombre();
         Integer nii = obtenerNII(anio, tfVin.getText());
-        
+
         System.out.println(" " + vin + " " + marca + " " + modelo + " " + anio + " " + nii + " " + tipoUnidad + " " + idConductor);
         if (datosNoVacios()) {
             if (datosValidos(marca, modelo, anio, anio)) {

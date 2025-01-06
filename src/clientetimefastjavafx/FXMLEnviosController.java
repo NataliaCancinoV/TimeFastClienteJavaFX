@@ -7,6 +7,7 @@ package clientetimefastjavafx;
 
 import clientetimefastjavafx.modelo.DAO.EnvioDAO;
 import clientetimefastjavafx.observador.NotificadorOperaciones;
+import clientetimefastjavafx.pojo.Colaborador;
 import clientetimefastjavafx.pojo.Envio;
 import clientetimefastjavafx.utilidades.Utilidades;
 import java.io.IOException;
@@ -68,6 +69,8 @@ public class FXMLEnviosController implements Initializable, NotificadorOperacion
     private Button cargarVistaEnvioFormulario;
     @FXML
     private TextField tfBuscarEnvio;
+
+    private Colaborador colaboradorInicioSesion;
 
     /**
      * Initializes the controller class.
@@ -147,6 +150,10 @@ public class FXMLEnviosController implements Initializable, NotificadorOperacion
 
     }
 
+    public void setColaboradorInicioSesion(Colaborador colaborador) {
+        this.colaboradorInicioSesion = colaborador;
+    }
+
     private void buscarEnvioNoGuia(Integer noGuia) {
         Envio envioWS = EnvioDAO.obtenerEnviosNoGuia(noGuia);
         System.out.println("Envio no guia: " + envioWS.getIdEnvio());
@@ -175,7 +182,6 @@ public class FXMLEnviosController implements Initializable, NotificadorOperacion
 
             FXMLEnviosFormularioController controlador = loader.getController();
             controlador.inicializarValores(observador, envio);
-
             Stage escenario = new Stage();
             Scene escena = new Scene(root);
             escenario.setScene(escena);
@@ -190,7 +196,12 @@ public class FXMLEnviosController implements Initializable, NotificadorOperacion
     @FXML
     private void cargarVistaFormularioEnvioEditar(ActionEvent event) {
         Envio envio = tableEnvios.getSelectionModel().getSelectedItem();
-        irFormulario(this, envio);
+        if (envio == null) {
+            Utilidades.mostrarAlerta("Error", "Debe seleccionar un envio para editar", Alert.AlertType.ERROR);
+
+        } else {
+            irFormulario(this, envio);
+        }
     }
 
     @FXML
@@ -214,9 +225,9 @@ public class FXMLEnviosController implements Initializable, NotificadorOperacion
     private void irPantallaHistorial(ActionEvent event) {
         try {
             Stage actual = (Stage) btnEliminarEnvio.getScene().getWindow();
-            
+
             Parent root = FXMLLoader.load(getClass().getResource("FXMLHistorialEstatus.fxml"));
-            
+
             Scene escena = new Scene(root);
             actual.setScene(escena);
         } catch (IOException ex) {
@@ -233,14 +244,14 @@ public class FXMLEnviosController implements Initializable, NotificadorOperacion
     private void btnCerrarSesion(MouseEvent event) {
         try {
             Stage escenarioInicioSesion = (Stage) btnEliminarEnvio.getScene().getWindow();
-            
+
             Parent inicioSesion = FXMLLoader.load(getClass().getResource("FXMLInicioSesion.fxml")); //Acceder al controlador para acceder a los datos
-            
+
             Scene escenaInicioSesion = new Scene(inicioSesion);
             escenarioInicioSesion.setScene(escenaInicioSesion);
             escenarioInicioSesion.setTitle("Pantalla Inicio Sesion");
             escenarioInicioSesion.show();
-            
+
         } catch (IOException ex) {
             Utilidades.mostrarAlerta("Error", "Lo sentimos, por el momento no podemos cerrar sesion", Alert.AlertType.ERROR);
         }

@@ -13,6 +13,7 @@ import clientetimefastjavafx.pojo.Colaborador;
 import clientetimefastjavafx.pojo.Envio;
 import clientetimefastjavafx.pojo.Mensaje;
 import clientetimefastjavafx.pojo.Unidad;
+import clientetimefastjavafx.utilidades.Constantes;
 import clientetimefastjavafx.utilidades.Utilidades;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -39,6 +40,8 @@ public class FXMLEnviosFormularioController implements Initializable {
     private boolean modoEdicion = false;
     private Envio envioEdicion;
     private NotificadorOperaciones observador;
+    private Colaborador colaboradorInicioSesion = Constantes.colaboradorInicioSesion;
+    
     private ObservableList<String> estatusEnvio = FXCollections.observableArrayList();
     private ObservableList<Colaborador> conductoresEnvio = FXCollections.observableArrayList();
     private ObservableList<Cliente> clientes = FXCollections.observableArrayList();
@@ -94,6 +97,9 @@ public class FXMLEnviosFormularioController implements Initializable {
             tfMotivo.setDisable(false);
             cargarDatosEdicion();
         }
+    }
+    public void setColaboradorSesion(Colaborador colaborador){
+        
     }
 
     private void cargarDatosComboEstatus() {
@@ -166,7 +172,7 @@ public class FXMLEnviosFormularioController implements Initializable {
     private int obtenerEstatus(String estatus) {
         int posicion = 0;
         for (int i = 0; i < estatusEnvio.size(); i++) {
-            if (estatus == estatusEnvio.get(i).toString()) {
+            if (estatus.equals( estatusEnvio.get(i).toString())) {
                 posicion = i;
             }
         }
@@ -222,13 +228,13 @@ public class FXMLEnviosFormularioController implements Initializable {
         String estatus = comboEstatus.getSelectionModel().getSelectedItem();
         Integer idCliente = comboCliente.getSelectionModel().getSelectedItem().getIdCliente();
 
-        Envio envio = new Envio(0, idCliente, calle, noExterior, colonia, codigoPostal, ciudad, estado, destino, noGuia, costoEnvio, estatus, "", idConductor, "", 0, "");
+        Envio envio = new Envio(0, idCliente, calle, noExterior, colonia, codigoPostal, ciudad, estado, destino, noGuia, costoEnvio, estatus, "", idConductor, "", 0, "",0);
 
         if (!modoEdicion) {
             guardarEnvioFormulario(envio);
         } else {
             Integer idEnvio = this.envioEdicion.getIdEnvio();
-            Envio envioEdicion = new Envio(idEnvio, idCliente, calle, noExterior, colonia, codigoPostal, ciudad, estado, destino, noGuia, costoEnvio, estatus, tfMotivo.getText(), idConductor, "", 0, "");
+            Envio envioEdicion = new Envio(idEnvio, idCliente, calle, noExterior, colonia, codigoPostal, ciudad, estado, destino, noGuia, costoEnvio, estatus, tfMotivo.getText(), idConductor, "", 0, "",colaboradorInicioSesion.getIdColaborador());
             editarDatosEnvio(envioEdicion);
         }
     }

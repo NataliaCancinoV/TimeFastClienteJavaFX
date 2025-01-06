@@ -1,9 +1,9 @@
-
 package clientetimefastjavafx;
 
 import clientetimefastjavafx.modelo.DAO.LoginDAO;
 import clientetimefastjavafx.pojo.Colaborador;
 import clientetimefastjavafx.pojo.Login;
+import clientetimefastjavafx.utilidades.Constantes;
 import clientetimefastjavafx.utilidades.Utilidades;
 import java.io.IOException;
 import java.net.URL;
@@ -21,7 +21,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
 public class FXMLInicioSesionController implements Initializable {
 
     @FXML
@@ -35,48 +34,56 @@ public class FXMLInicioSesionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void iniciarSesion(ActionEvent event) {
         String noPersonal = tfNoPersonal.getText().trim();
         String contrasena = pfContrasena.getText();
-        if(validarCampos()){           
+        if (validarCampos()) {
             Login respuesta = LoginDAO.iniciarSesion(noPersonal, contrasena);
-            if((respuesta.getError()==false)){
+            if ((respuesta.getError() == false)) {
                 Colaborador colaborador = respuesta.getColaborador();
-                Utilidades.mostrarAlerta("Inicio de Sesion Existoso", "Bienvenido de nuevo "+ colaborador.getNombre(), Alert.AlertType.INFORMATION);
-                irPantallaInicio();
-            }else{
+                Utilidades.mostrarAlerta("Inicio de Sesion Existoso", "Bienvenido de nuevo " + colaborador.getNombre(), Alert.AlertType.INFORMATION);
+                irPantallaInicio(colaborador);
+            } else {
                 Utilidades.mostrarAlerta("Error al Iniciar Sesion", "Credenciales Incorrectas", Alert.AlertType.ERROR);
-                System.out.println("Error inicio de sesion: "+respuesta.getMensaje());
+                System.out.println("Error inicio de sesion: " + respuesta.getMensaje());
             }
-        }else{
+        } else {
             Utilidades.mostrarAlerta("Error", "Debes llenar todos los campos", Alert.AlertType.ERROR);
         }
     }
-    
-    public boolean validarCampos(){
+
+    public boolean validarCampos() {
         boolean esValido = false;
-        if((!this.tfNoPersonal.getText().isEmpty()) && (!this.pfContrasena.getText().isEmpty())){
+        if ((!this.tfNoPersonal.getText().isEmpty()) && (!this.pfContrasena.getText().isEmpty())) {
             esValido = true;
-        }else{
+        } else {
             Utilidades.mostrarAlerta("Error", "Debes introducir todos los campos", Alert.AlertType.ERROR);
         }
         return esValido;
     }
-    public void irPantallaInicio(){
+
+    public void irPantallaInicio(Colaborador colaborador) {
         try {
             Stage pantallaPrincipal = (Stage) tfNoPersonal.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("FXMLColaboradores.fxml"));
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLEnvios.fxml"));
+            Parent root = loader.load();
+            
+            FXMLEnviosController controller = loader.getController();
+
+            controller.setColaboradorInicioSesion(colaborador);
+            
+            Constantes.colaboradorInicioSesion = colaborador;
             Scene scena = new Scene(root);
-            pantallaPrincipal.setTitle("Pantalla Colaborador");
+            pantallaPrincipal.setTitle("Pantalla Envios");
             pantallaPrincipal.setScene(scena);
             pantallaPrincipal.show();
         } catch (IOException ex) {
             Logger.getLogger(FXMLInicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-}
 
+}

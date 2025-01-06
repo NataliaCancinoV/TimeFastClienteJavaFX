@@ -5,6 +5,8 @@
  */
 package clientetimefastjavafx.utilidades;
 
+import clientetimefastjavafx.pojo.Colaborador;
+
 /**
  *
  * @author Hp
@@ -14,4 +16,5 @@ public class Constantes {
     //PUEDES CUALQUIER CUALQUIER NUMERO QUE NO SAE DEL 200 AL 500 PORQUE SON DE HTTP
     public static final Integer ERROR_PETICION=1002;//AMBOS SON ERRORES PROPIOS
     public static final String URLWS ="http://localhost:8084/TimeFastWS/timefast/";
+    public static  Colaborador colaboradorInicioSesion= null;
 }

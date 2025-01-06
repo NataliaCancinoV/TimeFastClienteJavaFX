@@ -60,9 +60,9 @@
       <TextField fx:id="tfCorreo" layoutX="50.0" layoutY="557.0" promptText="fulanito@example.com" styleClass="txtFieldDato" />
       <Label layoutX="373.0" layoutY="507.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Contraseña" />
       <Label layoutX="1028.0" layoutY="259.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" text="Foto" />
-      <Pane layoutX="1029.0" layoutY="299.0" prefHeight="298.0" prefWidth="290.0" styleClass="pTimeFastImage" stylesheets="@fxmlcolaboradoresregistrar.css">
+      <Pane layoutX="1029.0" layoutY="298.0" prefHeight="298.0" prefWidth="290.0" styleClass="pTimeFastImage" stylesheets="@fxmlcolaboradoresregistrar.css">
          <children>
-            <ImageView fx:id="imageViewColaborador" fitHeight="81.0" fitWidth="87.0" layoutX="105.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" styleClass="imgTimeFastImage">
+            <ImageView fx:id="imageViewColaborador" fitHeight="153.0" fitWidth="149.0" layoutX="71.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="imgTimeFastImage">
                <image>
                   <Image url="@recursos/download.png" />
                </image>
