@@ -65,7 +65,7 @@
       <TextField fx:id="tfCalle" layoutX="50.0" layoutY="587.0" promptText="Ruiz Cortines" styleClass="txtFieldDato" stylesheets="@fxmlclientesformulario.css" />
       <Label layoutX="371.0" layoutY="559.0" styleClass="labelDato" stylesheets="@fxmlclientesformulario.css" text="Número Exterior" />
       <TextField fx:id="tfNumExterior" layoutX="371.0" layoutY="587.0" promptText="211" styleClass="txtFieldDato" stylesheets="@fxmlclientesformulario.css" />
-      <Button layoutX="1040.0" layoutY="629.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlclientesformulario.css" text="Cancelar" />
+      <Button layoutX="1040.0" layoutY="629.0" mnemonicParsing="false" onMouseClicked="#btnCancelar" styleClass="btnTimeFastSecundario" stylesheets="@fxmlclientesformulario.css" text="Cancelar" />
       <Button fx:id="btnGuardarCliente" layoutX="1194.0" layoutY="629.0" mnemonicParsing="false" onAction="#guardarCliente" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlclientesformulario.css" text="Guardar" />
    </children>
 </AnchorPane>

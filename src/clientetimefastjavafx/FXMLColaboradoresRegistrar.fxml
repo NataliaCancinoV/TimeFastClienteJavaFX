@@ -70,7 +70,7 @@
             <Label layoutX="78.0" layoutY="217.0" onMouseClicked="#subirFoto" styleClass="lbTimeFastImage" stylesheets="@fxmlcolaboradoresregistrar.css" text="Sube tu Archivo" />
          </children>
       </Pane>
-      <Button layoutX="1031.0" layoutY="629.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradoresregistrar.css" text="Cancelar" />
+      <Button layoutX="1031.0" layoutY="629.0" mnemonicParsing="false" onMouseClicked="#btnCancelar" styleClass="btnTimeFastSecundario" stylesheets="@fxmlcolaboradoresregistrar.css" text="Cancelar" />
       <Button layoutX="1185.0" layoutY="630.0" mnemonicParsing="false" onAction="#guardarColaborador" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlcolaboradoresregistrar.css" text="Guardar" />
       <PasswordField fx:id="tfContrasena" layoutX="383.0" layoutY="557.0" promptText="***********" styleClass="txtFieldDato" />
       <Label layoutX="699.0" layoutY="514.0" styleClass="labelDato" stylesheets="@fxmlcolaboradoresregistrar.css" />

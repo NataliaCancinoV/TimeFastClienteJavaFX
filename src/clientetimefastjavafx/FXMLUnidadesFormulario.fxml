@@ -58,7 +58,7 @@
       <ComboBox fx:id="comboTipoUnidad" layoutX="725.0" layoutY="426.0" prefWidth="150.0" promptText="Tipo de unidad" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
       <Label layoutX="50.0" layoutY="500.0" styleClass="labelDato" stylesheets="@fxmlunidadesformulario.css" text="Conductor" />
       <ComboBox fx:id="comboConductor" layoutX="50.0" layoutY="541.0" prefWidth="150.0" promptText="Conductor" styleClass="comboBoxEditable" stylesheets="@fxmlunidadesformulario.css" />
-      <Button layoutX="1040.0" layoutY="629.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidadesformulario.css" text="Cancelar" />
+      <Button layoutX="1040.0" layoutY="629.0" mnemonicParsing="false" onMouseClicked="#btnCancelar" styleClass="btnTimeFastSecundario" stylesheets="@fxmlunidadesformulario.css" text="Cancelar" />
       <Button fx:id="btnGuardar" layoutX="1194.0" layoutY="630.0" mnemonicParsing="false" onAction="#guardarUnidad" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlunidadesformulario.css" text="Guardar" />
    </children>
 </AnchorPane>

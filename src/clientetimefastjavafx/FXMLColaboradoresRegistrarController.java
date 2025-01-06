@@ -325,5 +325,9 @@ public class FXMLColaboradoresRegistrarController implements Initializable {
         }
     }
 
+    @FXML
+    private void btnCancelar(MouseEvent event) {
+    }
+
 
 }

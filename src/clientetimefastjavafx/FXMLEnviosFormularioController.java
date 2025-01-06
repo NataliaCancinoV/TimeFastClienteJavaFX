@@ -28,6 +28,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -237,6 +238,10 @@ public class FXMLEnviosFormularioController implements Initializable {
             Envio envioEdicion = new Envio(idEnvio, idCliente, calle, noExterior, colonia, codigoPostal, ciudad, estado, destino, noGuia, costoEnvio, estatus, tfMotivo.getText(), idConductor, "", 0, "",colaboradorInicioSesion.getIdColaborador());
             editarDatosEnvio(envioEdicion);
         }
+    }
+
+    @FXML
+    private void btnCancelar(MouseEvent event) {
     }
 
 }

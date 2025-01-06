@@ -24,6 +24,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -251,6 +252,10 @@ public class FXMLUnidadesFormularioController implements Initializable {
             Utilidades.mostrarAlerta("Error al guardar datos", "Campos Incompletos", Alert.AlertType.ERROR);
         }
 
+    }
+
+    @FXML
+    private void btnCancelar(MouseEvent event) {
     }
 
 }

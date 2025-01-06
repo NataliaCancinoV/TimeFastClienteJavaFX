@@ -73,7 +73,7 @@
       <Label layoutX="1003.0" layoutY="498.0" styleClass="labelDato" stylesheets="@fxmlenviosformulario.css" text="Motivo" />
       <TextArea fx:id="tfMotivo" layoutX="1005.0" layoutY="529.0" prefHeight="75.0" prefWidth="294.0" promptText="Motivo de Estatus" styleClass="taTimeFastDescripcion" stylesheets="@fxmlpaquetesformulario.css" />
       <ComboBox fx:id="comboEstatus" layoutX="1002.0" layoutY="382.0" prefHeight="43.0" prefWidth="150.0" promptText="Pendiente" styleClass="comboBoxEditable" stylesheets="@fxmlenviosformulario.css" />
-      <Button layoutX="1007.0" layoutY="644.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlenviosformulario.css" text="Cancelar" />
+      <Button layoutX="1007.0" layoutY="644.0" mnemonicParsing="false" onMouseClicked="#btnCancelar" styleClass="btnTimeFastSecundario" stylesheets="@fxmlenviosformulario.css" text="Cancelar" />
       <Button layoutX="1165.0" layoutY="644.0" mnemonicParsing="false" onAction="#guardarEnvio" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlenviosformulario.css" text="Guardar" />
    </children>
 </AnchorPane>

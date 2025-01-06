@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -221,6 +222,10 @@ public class FXMLPaquetesFormularioController implements Initializable {
 
         }
 
+    }
+
+    @FXML
+    private void btnCancelar(MouseEvent event) {
     }
 
 }

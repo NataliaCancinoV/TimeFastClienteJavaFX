@@ -44,7 +44,7 @@
               <columns>
                 <TableColumn fx:id="colNoGuia" prefWidth="108.0" text="N0. Guía" />
                 <TableColumn fx:id="colEstastus" prefWidth="179.0" text="Estatus" />
-                  <TableColumn fx:id="colConductor" prefWidth="179.0" text="Conductor" />
+                  <TableColumn fx:id="colConductor" prefWidth="179.0" text="Colaborador" />
                   <TableColumn fx:id="colFecha" prefWidth="200.0" text="Fecha" />
                   <TableColumn fx:id="colMotivo" prefWidth="582.0" text="Motivo" />
               </columns>

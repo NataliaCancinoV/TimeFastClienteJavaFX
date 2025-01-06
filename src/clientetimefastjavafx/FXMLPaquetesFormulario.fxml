@@ -56,7 +56,7 @@
       <TextArea fx:id="tfDescripcion" layoutX="44.0" layoutY="458.0" prefHeight="106.0" prefWidth="581.0" promptText="Paquete fragil" styleClass="taTimeFastDescripcion" stylesheets="@fxmlpaquetesformulario.css" />
       <Label layoutX="653.0" layoutY="424.0" styleClass="labelDato" stylesheets="@fxmlpaquetesformulario.css" text="Envío" />
       <ComboBox fx:id="comboEnvio" layoutX="653.0" layoutY="457.0" prefHeight="43.0" prefWidth="150.0" promptText="Envío" styleClass="comboBoxEditable" stylesheets="@fxmlpaquetesformulario.css" />
-      <Button layoutX="1007.0" layoutY="631.0" mnemonicParsing="false" styleClass="btnTimeFastSecundario" stylesheets="@fxmlpaquetesformulario.css" text="Cancelar" />
+      <Button layoutX="1007.0" layoutY="631.0" mnemonicParsing="false" onMouseClicked="#btnCancelar" styleClass="btnTimeFastSecundario" stylesheets="@fxmlpaquetesformulario.css" text="Cancelar" />
       <Button fx:id="btnGuardarEnvio" layoutX="1165.0" layoutY="631.0" mnemonicParsing="false" onAction="#guardarEnvio" styleClass="btnTimeFastPrincipal" stylesheets="@fxmlpaquetesformulario.css" text="Guardar" />
       <TextField fx:id="tfPeso" layoutX="958.0" layoutY="318.0" promptText="4.6" styleClass="txtFieldDato" stylesheets="@fxmlpaquetesformulario.css" />
       <Label layoutX="958.0" layoutY="291.0" styleClass="labelDato" stylesheets="@fxmlpaquetesformulario.css" text="Peso (kg)" />
