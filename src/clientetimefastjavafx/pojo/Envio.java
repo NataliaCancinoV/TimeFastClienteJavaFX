@@ -201,6 +201,11 @@ public class Envio {
     public void setIdConductor(Integer idConductor) {
         this.idConductor = idConductor;
     }
+     @Override
+    public String toString() {
+        return noGuia.toString();
+    }
     
+       
     
 }

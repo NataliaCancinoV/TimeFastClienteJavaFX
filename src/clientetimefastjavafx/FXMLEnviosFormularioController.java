@@ -42,7 +42,7 @@ public class FXMLEnviosFormularioController implements Initializable {
     private Envio envioEdicion;
     private NotificadorOperaciones observador;
     private Colaborador colaboradorInicioSesion = Constantes.colaboradorInicioSesion;
-    
+
     private ObservableList<String> estatusEnvio = FXCollections.observableArrayList();
     private ObservableList<Colaborador> conductoresEnvio = FXCollections.observableArrayList();
     private ObservableList<Cliente> clientes = FXCollections.observableArrayList();
@@ -99,13 +99,14 @@ public class FXMLEnviosFormularioController implements Initializable {
             cargarDatosEdicion();
         }
     }
-    public void setColaboradorSesion(Colaborador colaborador){
-        
+
+    public void setColaboradorSesion(Colaborador colaborador) {
+
     }
 
     private void cargarDatosComboEstatus() {
         estatusEnvio.add("Pendiente");
-        estatusEnvio.add("En Tránsito");
+        estatusEnvio.add("En Transito");
         estatusEnvio.add("Cancelado");
         estatusEnvio.add("Entregado");
         estatusEnvio.add("Detenido");
@@ -173,7 +174,7 @@ public class FXMLEnviosFormularioController implements Initializable {
     private int obtenerEstatus(String estatus) {
         int posicion = 0;
         for (int i = 0; i < estatusEnvio.size(); i++) {
-            if (estatus.equals( estatusEnvio.get(i).toString())) {
+            if (estatus.equals(estatusEnvio.get(i).toString())) {
                 posicion = i;
             }
         }
@@ -193,7 +194,7 @@ public class FXMLEnviosFormularioController implements Initializable {
     private void editarDatosEnvio(Envio envio) {
         try {
             String motivo = tfMotivo.getText();
-            String envioCodificado = URLEncoder.encode(motivo,"UTF-8");
+            String envioCodificado = URLEncoder.encode(motivo, "UTF-8");
             envio.setMotivo(envioCodificado);
             Mensaje mensaje = EnvioDAO.editarEnvio(envio);
             if (!mensaje.isError()) {
@@ -204,7 +205,7 @@ public class FXMLEnviosFormularioController implements Initializable {
                 Utilidades.mostrarAlerta("Error edicion", mensaje.getMensaje(), Alert.AlertType.ERROR);
             }
         } catch (Exception e) {
-            System.out.println("Errir la editar envio : "+e.toString());
+            System.out.println("Errir la editar envio : " + e.toString());
         }
 
     }
@@ -229,19 +230,22 @@ public class FXMLEnviosFormularioController implements Initializable {
         String estatus = comboEstatus.getSelectionModel().getSelectedItem();
         Integer idCliente = comboCliente.getSelectionModel().getSelectedItem().getIdCliente();
 
-        Envio envio = new Envio(0, idCliente, calle, noExterior, colonia, codigoPostal, ciudad, estado, destino, noGuia, costoEnvio, estatus, "", idConductor, "", 0, "",0);
+        Envio envio = new Envio(0, idCliente, calle, noExterior, colonia, codigoPostal, ciudad, estado, destino, noGuia, costoEnvio, estatus, "", idConductor, "", 0, "", 0);
 
         if (!modoEdicion) {
             guardarEnvioFormulario(envio);
         } else {
             Integer idEnvio = this.envioEdicion.getIdEnvio();
-            Envio envioEdicion = new Envio(idEnvio, idCliente, calle, noExterior, colonia, codigoPostal, ciudad, estado, destino, noGuia, costoEnvio, estatus, tfMotivo.getText(), idConductor, "", 0, "",colaboradorInicioSesion.getIdColaborador());
+            Envio envioEdicion = new Envio(idEnvio, idCliente, calle, noExterior, colonia, codigoPostal, ciudad, estado, destino, noGuia, costoEnvio, estatus, tfMotivo.getText(), idConductor, "", 0, "", colaboradorInicioSesion.getIdColaborador());
             editarDatosEnvio(envioEdicion);
         }
     }
 
     @FXML
     private void btnCancelar(MouseEvent event) {
+        Stage stagaActual = (Stage) comboCliente.getScene().getWindow();
+        stagaActual.close();
+        Utilidades.mostrarAlerta("Alerta", "Cambios cancelados", Alert.AlertType.INFORMATION);
     }
 
 }

@@ -226,6 +226,9 @@ public class FXMLPaquetesFormularioController implements Initializable {
 
     @FXML
     private void btnCancelar(MouseEvent event) {
+        Stage stagaActual = (Stage) btnGuardarEnvio.getScene().getWindow();
+        stagaActual.close();
+        Utilidades.mostrarAlerta("Alerta", "Cambios cancelados", Alert.AlertType.INFORMATION);
     }
 
 }

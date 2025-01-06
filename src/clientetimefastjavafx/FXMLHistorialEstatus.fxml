@@ -38,24 +38,21 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <ScrollPane layoutX="50.0" layoutY="260.0" prefHeight="430.0" prefWidth="1270.0">
-         <content>
-            <TableView fx:id="tableHistorialEstatus" prefHeight="393.0" prefWidth="1235.0" styleClass="tbTimeFast" stylesheets="@fxmlhistorialestatus.css">
-              <columns>
-                <TableColumn fx:id="colNoGuia" prefWidth="108.0" text="N0. Guía" />
-                <TableColumn fx:id="colEstastus" prefWidth="179.0" text="Estatus" />
-                  <TableColumn fx:id="colConductor" prefWidth="179.0" text="Colaborador" />
-                  <TableColumn fx:id="colFecha" prefWidth="200.0" text="Fecha" />
-                  <TableColumn fx:id="colMotivo" prefWidth="582.0" text="Motivo" />
-              </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="323.0" layoutY="206.0" onMouseClicked="#obtenerEstatusNoGuia" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@recursos/search.png" />
          </image>
       </ImageView>
+      <ScrollBar orientation="VERTICAL" />
+      <TableView fx:id="tableHistorialEstatus" layoutX="54.0" layoutY="269.0" prefHeight="393.0" prefWidth="1235.0" styleClass="tbTimeFast" stylesheets="@fxmlhistorialestatus.css">
+        <columns>
+          <TableColumn fx:id="colNoGuia" prefWidth="108.0" text="N0. Guía" />
+          <TableColumn fx:id="colEstastus" prefWidth="179.0" text="Estatus" />
+            <TableColumn fx:id="colConductor" prefWidth="179.0" text="Colaborador" />
+            <TableColumn fx:id="colFecha" prefWidth="200.0" text="Fecha" />
+            <TableColumn fx:id="colMotivo" prefWidth="582.0" text="Motivo" />
+        </columns>
+      </TableView>
       <Pane layoutX="406.0" layoutY="107.0" prefHeight="200.0" prefWidth="316.0" styleClass="apTimeFastTitulo" stylesheets="@fxmlhistorialestatus.css">
          <children>
             <Label layoutX="93.0" prefWidth="204.0" styleClass="lbTimeFastTitulo" stylesheets="@fxmlcolaboradores.css" text="Estatus de Envíos" textAlignment="CENTER" />

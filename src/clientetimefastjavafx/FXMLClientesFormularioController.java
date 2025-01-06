@@ -155,40 +155,49 @@ public class FXMLClientesFormularioController implements Initializable {
         String regexCorreo = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
 
         if (!Pattern.matches(regexNombre, nombre)) {
+            System.out.println("Error en el nombre");
             return false;
         }
 
         if (!Pattern.matches(regexApellidoPaterno, apellidoPaterno)) {
+            System.out.println("Error en el apellido paterno");            
             return false;
         }
 
         if (!Pattern.matches(regexApellidoMaterno, apellidoMaterno)) {
+            System.out.println("Error en el apellido materno");            
             return false;
         }
 
         // Validaciones para la dirección
         if (!Pattern.matches(regexCalle, calle)) {
+            System.out.println("Error en la calle");            
             return false;
         }
 
         if (!Pattern.matches(regexNumero, numero)) {
+            System.out.println("Error en el numero");            
             return false;
         }
 
         if (!Pattern.matches(regexColonia, colonia)) {
+            System.out.println("Error en el colonia");            
             return false;
         }
 
         if (!Pattern.matches(regexCodigoPostal, codigoPostal)) {
+            System.out.println("Error en el codigo postal");            
             return false;
         }
 
         // Validaciones para el teléfono y correo
         if (!Pattern.matches(regexTelefono, telefono)) {
+            System.out.println("Error en el telefono");            
             return false;
         }
 
         if (!Pattern.matches(regexCorreo, correo)) {
+            System.out.println("Error en el correo");            
             return false;
         }
 
@@ -209,7 +218,7 @@ public class FXMLClientesFormularioController implements Initializable {
         Integer numExterior = Integer.parseInt(tfNumExterior.getText());
         Cliente clienteRegistrar = new Cliente(0, nombre, apellidoPaterno, apellidoMaterno, calle, numExterior, colonia, codigoPostal, telefono, correo, "");
         if (camposNoVacios()) {
-            if (camposValidos(nombre, apellidoPaterno, apellidoMaterno, calle, nombre, colonia, codigoPostal, telefono, correo)) {
+            if (camposValidos(nombre, apellidoPaterno, apellidoMaterno, calle, tfNumExterior.getText().trim(), colonia, codigoPostal, telefono, correo)) {
                 if (!modoEdicion) {
                     agregarCliente(clienteRegistrar);
                 } else {
@@ -230,6 +239,9 @@ public class FXMLClientesFormularioController implements Initializable {
 
     @FXML
     private void btnCancelar(MouseEvent event) {
+        Stage stagaActual = (Stage) btnGuardarCliente.getScene().getWindow();
+        stagaActual.close();
+        Utilidades.mostrarAlerta("Alerta", "Cambios cancelados", Alert.AlertType.INFORMATION);
     }
 
 }

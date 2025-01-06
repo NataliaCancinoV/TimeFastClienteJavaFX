@@ -13,6 +13,7 @@ import clientetimefastjavafx.pojo.Mensaje;
 import clientetimefastjavafx.utilidades.Utilidades;
 import java.io.IOException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -161,18 +162,23 @@ public class FXMLClientesController implements Initializable, NotificadorOperaci
 
     @FXML
     public void buscarClientes() {
-        String parametro = tfBuscarClientes.getText();
-        if (parametro.equals("") || parametro.trim().equals("")) {
-            Utilidades.mostrarAlerta("Error busqueda", "Campos de busqueda vacio", Alert.AlertType.INFORMATION);
-        } else {
-            clientes = FXCollections.observableArrayList();
-            List<Cliente> listaWS = ClienteDAO.buscarCliente(parametro);
-            if (listaWS != null) {
-                clientes.addAll(listaWS);
-                tableClientes.setItems(clientes);
+        try {
+            String parametro = tfBuscarClientes.getText();
+            String parametroCodificado = URLEncoder.encode(parametro, "UTF-8");
+            if (parametro.equals("") || parametro.trim().equals("")) {
+                Utilidades.mostrarAlerta("Error busqueda", "Campos de busqueda vacio", Alert.AlertType.INFORMATION);
             } else {
-                Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede cargar la información de los clientes, intentelo más tarde", Alert.AlertType.ERROR);
+                clientes = FXCollections.observableArrayList();
+                List<Cliente> listaWS = ClienteDAO.buscarCliente(parametroCodificado);
+                if (listaWS != null) {
+                    clientes.addAll(listaWS);
+                    tableClientes.setItems(clientes);
+                } else {
+                    Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede cargar la información de los clientes, intentelo más tarde", Alert.AlertType.ERROR);
+                }
             }
+        } catch (Exception e) {
+            System.out.println("Error en la busqueda");
         }
 
     }
@@ -244,14 +250,14 @@ public class FXMLClientesController implements Initializable, NotificadorOperaci
     private void btnCerrarSesion(MouseEvent event) {
         try {
             Stage escenarioInicioSesion = (Stage) tfBuscarClientes.getScene().getWindow();
-            
+
             Parent inicioSesion = FXMLLoader.load(getClass().getResource("FXMLInicioSesion.fxml")); //Acceder al controlador para acceder a los datos
-            
+
             Scene escenaInicioSesion = new Scene(inicioSesion);
             escenarioInicioSesion.setScene(escenaInicioSesion);
             escenarioInicioSesion.setTitle("Pantalla Inicio Sesion");
             escenarioInicioSesion.show();
-            
+
         } catch (IOException ex) {
             Utilidades.mostrarAlerta("Error", "Lo sentimos, por el momento no podemos cerrar sesion", Alert.AlertType.ERROR);
         }

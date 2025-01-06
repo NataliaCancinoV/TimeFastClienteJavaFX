@@ -86,9 +86,9 @@ public class FXMLUnidadesFormularioController implements Initializable {
     private void cargarComboConductores() {
         List<Colaborador> conductoresWS = UnidadDAO.obtenerConductores();
         if (conductoresWS != null) {
-            conductores.addAll(conductoresWS);            
+            conductores.addAll(conductoresWS);
             comboConductor.setItems(conductores);
-        }        
+        }
     }
 
     private void cargarComboTipoUnidad() {
@@ -119,7 +119,7 @@ public class FXMLUnidadesFormularioController implements Initializable {
         String posicionUnidad = unidadEdicion.getTipoUnidad();
         int posicionConductor = unidadEdicion.getIdConductor();
         int posUnidad = obtenerTipoUnidad(posicionUnidad);
-        System.out.println("LA POSICION DE  "+posicionUnidad+" ES: "+posUnidad);
+        System.out.println("LA POSICION DE  " + posicionUnidad + " ES: " + posUnidad);
         //comboTipoUnidad.setValue(tipoUnidad.get(valorCombo));
         comboTipoUnidad.setValue(tipoUnidad.get(obtenerTipoUnidad(posicionUnidad)));
         comboConductor.setValue(conductores.get(obtenerConductor(posicionConductor)));
@@ -256,6 +256,9 @@ public class FXMLUnidadesFormularioController implements Initializable {
 
     @FXML
     private void btnCancelar(MouseEvent event) {
+        Stage stagaActual = (Stage) btnGuardar.getScene().getWindow();
+        stagaActual.close();
+        Utilidades.mostrarAlerta("Alerta", "Cambios cancelados", Alert.AlertType.INFORMATION);
     }
 
 }
