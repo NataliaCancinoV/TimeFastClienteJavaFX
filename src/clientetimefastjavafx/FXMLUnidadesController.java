@@ -195,7 +195,7 @@ public class FXMLUnidadesController implements Initializable, NotificadorOperaci
                 Utilidades.mostrarAlerta("Elminación exitosa", "La unidad ha sido eliminada correctamente", Alert.AlertType.INFORMATION);
                 notificarOperacion("Elminacion de unidad", "");
             } else {
-                Utilidades.mostrarAlerta("Error en la elminación", "La unidad no ha sido eliminada correctamente " + respuesta.getMensaje(), Alert.AlertType.ERROR);
+                Utilidades.mostrarAlerta("Error en la elminación", "La unidad no ha sido eliminada correctamente ", Alert.AlertType.ERROR);
             }
         } catch (Exception e) {
 

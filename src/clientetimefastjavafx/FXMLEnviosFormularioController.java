@@ -97,6 +97,7 @@ public class FXMLEnviosFormularioController implements Initializable {
             modoEdicion = true;
             tfMotivo.setDisable(false);
             cargarDatosEdicion();
+            tfNoGuia.setDisable(true);
         }
     }
 

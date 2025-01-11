@@ -91,6 +91,7 @@ public class FXMLPaquetesFormularioController implements Initializable {
         tfAncho.setText(String.valueOf(paqueteEdicion.getAncho()));
         tfProdundidad.setText(String.valueOf(paqueteEdicion.getProfundidad()));
         tfDescripcion.setText(paqueteEdicion.getDescripcion());
+        tfPeso.setText(String.valueOf(paqueteEdicion.getPeso()));
         Integer envio = paqueteEdicion.getEnvio();
         System.out.println("Envio: " + envio);
         comboEnvio.setValue(envios.get(obtenerEnvio(envio)));

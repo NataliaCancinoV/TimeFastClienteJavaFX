@@ -61,7 +61,6 @@ public class FXMLEnviosController implements Initializable, NotificadorOperacion
     private ObservableList<Envio> envios;
     @FXML
     private TableView<Envio> tableEnvios;
-    @FXML
     private Button btnEliminarEnvio;
     @FXML
     private Button cargarVistaFormularioEditar;
@@ -224,7 +223,7 @@ public class FXMLEnviosController implements Initializable, NotificadorOperacion
     @FXML
     private void irPantallaHistorial(ActionEvent event) {
         try {
-            Stage actual = (Stage) btnEliminarEnvio.getScene().getWindow();
+            Stage actual = (Stage) tableEnvios.getScene().getWindow();
 
             Parent root = FXMLLoader.load(getClass().getResource("FXMLHistorialEstatus.fxml"));
 

@@ -155,7 +155,7 @@ public class FXMLUnidadesFormularioController implements Initializable {
             cerrarVentana();
             observador.notificarOperacion("Nueva edición", unidad.getMarca());
         } else {
-            Utilidades.mostrarAlerta("Error en edición", respuesta.getMensaje(), Alert.AlertType.ERROR);
+            Utilidades.mostrarAlerta("Error en Edición","Ha ocurrido un error intentalo más tarde", Alert.AlertType.ERROR);
         }
     }
 

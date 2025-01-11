@@ -199,7 +199,7 @@ public class FXMLClientesController implements Initializable, NotificadorOperaci
             escenario.showAndWait();
         } catch (Exception e) {
             Utilidades.mostrarAlerta("Error", "Lo sentimos por el momento no se puede mostrar formulario de colaboradores, intentelo más tarde", Alert.AlertType.ERROR);
-        }
+        }   
     }
 
     private void eliminarCliente() {

@@ -220,7 +220,7 @@ public class FXMLColaboradoresController implements Initializable, NotificadorOp
         if (!respuesta.isError()) {
             Utilidades.mostrarAlerta("Eliminacion Exitosa", "El colaborador ha sido eliminado correctamente", Alert.AlertType.INFORMATION);
         } else {
-            Utilidades.mostrarAlerta("Error elminacion", "Error al elminiar colaborador " + respuesta.getMensaje(), Alert.AlertType.ERROR);
+            Utilidades.mostrarAlerta("Error elminacion", "Error al elminiar colaborador ", Alert.AlertType.ERROR);
         }
 
     }
